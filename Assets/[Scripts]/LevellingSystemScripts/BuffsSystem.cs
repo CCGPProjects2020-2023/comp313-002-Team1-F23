@@ -1,3 +1,9 @@
+/* Created by: Ikamjot Hundal (301134374)
+ * Triggers when the Levelled Up Menu appears
+ * Serves as a way to increase the values of the stats
+ * Last Updated by: Ikamjot Hundal (Oct 25, 2023)
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
