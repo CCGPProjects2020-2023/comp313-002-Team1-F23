@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Stats
 {
+    //BuffsSystem buffsSystem = new BuffsSystem();
+
     public enum Stat
     {
         Damage,
@@ -16,5 +18,5 @@ public class Stats
     }
 
     public Stat stat;
-    public float value;
+    public float value = 5f;
 }
