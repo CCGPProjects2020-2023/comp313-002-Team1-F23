@@ -5,7 +5,7 @@
  * Description: Serves as a System for managing the skills when levelling Up
  * Revision History: October 11, 2023: Initial Buff System Script
  *                   October 25, 2023: Created methods for buttons to be clicked on
- *                   October 26, 2023: Initial ButtonRandomizer Script, removed the Start 
+ *                   October 26, 2023: Experiment with the menu in the methods
  */
 
 using System.Collections;
