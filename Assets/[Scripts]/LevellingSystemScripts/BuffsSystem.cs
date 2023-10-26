@@ -15,6 +15,11 @@ public class BuffsSystem : MonoBehaviour
     [SerializeField] private float speedIncrease = 5;
     [SerializeField] private float damageIncrease = 5;
 
+    [SerializeField] private ButtonRandomizer buttonRandomizer;
+
+    [SerializeField] private GameObject LevelMenu;
+
+
 
     public Stats.Stat stat;
 
@@ -24,14 +29,15 @@ public class BuffsSystem : MonoBehaviour
     void Start()
     {
         // Call the Level-Up script
-
+        //buttonRandomizer = 
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // temporary placeholder until the experience manager comes in. 
+        OpenLevelMenu();
     }
 
 
@@ -46,18 +52,33 @@ public class BuffsSystem : MonoBehaviour
     // So click the button for buff increase--  which then will trigger the method.
     
     // For now.
+
+    public void OpenLevelMenu()
+    {
+        if (isLevelledUp == true)
+        {
+            LevelMenu.SetActive(true);
+            buttonRandomizer.RandomizeButtons();
+            isLevelledUp = false;
+        }
+    }
+
     public void IncreaseSpeed()
     {
-        stat = Stats.Stat.MoveSpeed;
+        //stat = Stats.Stat.MoveSpeed;
 
-        stats.value += speedIncrease;
+        //stats.value += speedIncrease;
+
+        LevelMenu.SetActive(false);
     }
 
     public void IncreaseDamage()
     {
-        stat = Stats.Stat.Damage;
+      //  stat = Stats.Stat.Damage;
 
-        stats.value += damageIncrease;
+      //  stats.value += damageIncrease;
+
+        LevelMenu.SetActive(false);
     }
 
 }
