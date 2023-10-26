@@ -14,6 +14,16 @@ public class ButtonRandomizer : MonoBehaviour
 {
     [SerializeField] private List<Button> buttonList;
 
+    Stats.Stat statName;
+
+    private void Start()
+    {
+        
+    }
+
+    //public Stats.Stat GetRandom
+
+
     public void RandomizeButtons()
     {
         int i = buttonList.Count;
@@ -29,5 +39,9 @@ public class ButtonRandomizer : MonoBehaviour
             buttonList[k].transform.position = buttonList[i].transform.position;
             buttonList[i].transform.position = temPos;
         }
-    }
+    } 
+
+
+
+
 }

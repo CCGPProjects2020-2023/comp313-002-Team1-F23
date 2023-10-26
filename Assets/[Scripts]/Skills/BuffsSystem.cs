@@ -19,6 +19,8 @@ public class BuffsSystem : MonoBehaviour
     [SerializeField] private float speedIncrease = 5;
     [SerializeField] private float damageIncrease = 5;
 
+    [SerializeField] private float statIncrease;
+
     [SerializeField] private ButtonRandomizer buttonRandomizer;
 
     [SerializeField] private GameObject LevelMenu;
@@ -41,7 +43,7 @@ public class BuffsSystem : MonoBehaviour
     void Update()
     {
         // temporary placeholder until the experience manager comes in. 
-        OpenLevelMenu();
+       // OpenLevelMenu();
     }
 
 
@@ -57,7 +59,7 @@ public class BuffsSystem : MonoBehaviour
     
     // For now.
 
-    public void OpenLevelMenu()
+    /*public void OpenLevelMenu()
     {
         if (isLevelledUp == true)
         {
@@ -65,13 +67,15 @@ public class BuffsSystem : MonoBehaviour
             buttonRandomizer.RandomizeButtons();
             isLevelledUp = false;
         }
-    }
+    } */
 
     public void IncreaseSpeed()
     {
-        //stat = Stats.Stat.MoveSpeed;
+        stat = Stats.Stat.MoveSpeed;
 
-        //stats.value += speedIncrease;
+        stats.value += statIncrease;
+
+        Debug.Log(stat);
 
         LevelMenu.SetActive(false);
     }
@@ -84,5 +88,6 @@ public class BuffsSystem : MonoBehaviour
 
         LevelMenu.SetActive(false);
     }
+
 
 }
