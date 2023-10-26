@@ -7,10 +7,11 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelUpWindowPresenter : MonoBehaviour
 {
-    [SerializeField] private Canvas levelUpCanvas;
+    [SerializeField] private Canvas levelUpWindowCanvas;
 
     // Start is called before the first frame update
     private void Start()
@@ -30,25 +31,24 @@ public class LevelUpWindowPresenter : MonoBehaviour
     }
     private void ShowWindow()
     {
-        levelUpCanvas.enabled = true;
+        levelUpWindowCanvas.enabled = true;
     }
     private void HideWindow()
     {
-        levelUpCanvas.enabled = false;
+        levelUpWindowCanvas.enabled = false;
     }
     private void PopulateWindow()
     {
         List<object> randomSkills = SkillManager.Instance.GetRandomSkills();
 
-        foreach(Transform child in levelUpCanvas.transform)
+        Button[] buttons = levelUpWindowCanvas.GetComponentsInChildren<Button>();
+        if (buttons.Length < 3)
         {
-            Destroy(child.gameObject);
+            Debug.LogError("Not enough buttons in the panel");
         }
 
-        foreach(object skill in randomSkills)
-        {
-
-        }
+        for (int i = 0; i < buttons.Length; i++) { }
+       
     }
     private void UpdateView()
     {
