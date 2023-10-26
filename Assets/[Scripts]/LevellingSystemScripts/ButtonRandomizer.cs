@@ -1,7 +1,9 @@
-/* Created by: Ikamjot Hundal (301134374)
- * Triggers when the Levelled Up Menu appears
- * Serves as a way to randomize the buttons
- * Last Updated by: Ikamjot Hundal (Oct 26, 2023)
+/* Author's Name: Ikamjot Hundal
+ * Created On: October 26, 2023
+ * Last Modified By: Ikamjot Hundal
+ * Date Last Modified: October 26, 2023 
+ * Description: Serves as a way to randomize the buttons
+ * Revision History: October 26, 2023: Initial ButtonRandomizer Script, removed the Start 
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -11,17 +13,6 @@ using UnityEngine.UI;
 public class ButtonRandomizer : MonoBehaviour
 {
     [SerializeField] private List<Button> buttonList;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //RandomizeButtons(buttonList);
-        //RandomizeButtons();
-        /*for (int i = 0; i < buttonList.Count; i++)
-        {
-            buttonList[i].transform.SetSiblingIndex(i);
-        } */
-    }
 
     public void RandomizeButtons()
     {

@@ -1,7 +1,11 @@
-/* Created by: Ikamjot Hundal (301134374)
- * Triggers when the Levelled Up Menu appears
- * Serves as a way to increase the values of the stats
- * Last Updated by: Ikamjot Hundal (Oct 25, 2023)
+/* Author's Name: Ikamjot Hundal
+ * Created On: October 11, 2023
+ * Last Modified By: Ikamjot Hundal
+ * Date Last Modified: October 26, 2023 
+ * Description: Serves as a System for managing the skills when levelling Up
+ * Revision History: October 11, 2023: Initial Buff System Script
+ *                   October 25, 2023: Created methods for buttons to be clicked on
+ *                   October 26, 2023: Initial ButtonRandomizer Script, removed the Start 
  */
 
 using System.Collections;
