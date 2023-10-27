@@ -4,13 +4,16 @@
  * Last updated by: Han Bi, Oct 12, 2023
  */
 
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class MeleeEnemy : Enemy
+public class MeleeBehaviour : EnemyBehaviours
 {
-    private void Start()
+
+    protected override void Start()
     {
-        if(target != null)
+        base.Start();
+        if(data.GetTarget() != null)
         {
             currentState = States.Move;
         }
@@ -24,9 +27,9 @@ public class MeleeEnemy : Enemy
 
     private void MoveToTarget()
     {
-        if (target != null)
+        if (data.GetTarget() != null)
         {
-            Vector2 newPos = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed);
+            Vector2 newPos = Vector2.MoveTowards(transform.position, data.GetTarget().transform.position, data.moveSpeed);
             transform.position = newPos;
         }
     }
@@ -48,4 +51,11 @@ public class MeleeEnemy : Enemy
         }
     }
 
+    protected override void HandleTargetChange(GameObject newTarget)
+    {
+        if(newTarget != null)
+        {
+            currentState = States.Move;
+        }
+    }
 }

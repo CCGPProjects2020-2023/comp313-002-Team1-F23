@@ -1,13 +1,10 @@
-/* Created by: Han Bi
- * base class
- * Last updated by: Han Bi, Oct 12, 2023
+/**Created by Han Bi
+ * Used to describe how an enemy behaves
  */
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-
-public abstract class Enemy : MonoBehaviour
+public abstract class EnemyBehaviours : MonoBehaviour
 {
     protected enum States
     {
@@ -17,13 +14,9 @@ public abstract class Enemy : MonoBehaviour
     }
 
     [SerializeField]
-    protected GameObject target;
-
-    [SerializeField]
-    public float moveSpeed;
-
-    [SerializeField]
     protected States currentState = States.Idle;
+
+    protected Enemy data;
 
     //implements behaviour when chasing player
     protected virtual void MoveBehaviour() { }
@@ -31,16 +24,21 @@ public abstract class Enemy : MonoBehaviour
     //implements behaviour when reach/touching player
     protected virtual void AttackBehaviour() { }
 
+    //a default behaviour, acts as a catch all
     protected virtual void IdleBehaviour() { }
 
-    public void SetTarget(GameObject obj)
+    //observer
+    protected abstract void HandleTargetChange(GameObject newTarget);
+
+    protected virtual void Start()
     {
-        target = obj;
+        data = GetComponent<Enemy>();
     }
+
 
     private void FixedUpdate()
     {
-        switch(currentState)
+        switch (currentState)
         {
             case States.Idle:
                 IdleBehaviour();
@@ -51,9 +49,9 @@ public abstract class Enemy : MonoBehaviour
             case States.Attack:
                 AttackBehaviour();
                 break;
+            default:
+                break;
         }
     }
-
-
 
 }
