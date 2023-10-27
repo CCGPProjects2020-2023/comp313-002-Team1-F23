@@ -5,13 +5,23 @@
  *  Revision History:       October 26, 2023: Initial LevelUpWindowPresenter script.
  */
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUpWindowPresenter : MonoBehaviour
 {
+    public event Action SkillToLevelUpSelected;
+
     [SerializeField] private Canvas levelUpWindowCanvas;
+
+    [SerializeField] private GameObject buttonPrefab;
+    [SerializeField] private RectTransform buttonParent;
+
+    private const int maxNumOfSkills = 3;
+
+    private List<Skill> randomSkills = new();
 
     // Start is called before the first frame update
     private void Start()
@@ -39,23 +49,49 @@ public class LevelUpWindowPresenter : MonoBehaviour
     }
     private void PopulateWindow()
     {
-        List<object> randomSkills = SkillManager.Instance.GetRandomSkills();
+        randomSkills = SkillManager.Instance.GetRandomSkills();
 
-        Button[] buttons = levelUpWindowCanvas.GetComponentsInChildren<Button>();
-        if (buttons.Length < 3)
+        if (randomSkills.Count > maxNumOfSkills) Debug.LogError("Too many skills!");
+
+        for (int i = 0; i < randomSkills.Count; i++)
         {
-            Debug.LogError("Not enough buttons in the panel");
+            GameObject buttonGameObj = Instantiate(buttonPrefab);
+            buttonGameObj.transform.SetParent(buttonParent, false);
+            RectTransform rectTransform = buttonGameObj.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = new Vector2(0, 100 - 200 * i);
+            buttonGameObj.GetComponentInChildren<Text>().text = randomSkills[i].Name;
+            Button button = buttonGameObj.GetComponent<Button>();
+            button.onClick.AddListener(() => OnButtonClicked(i));
         }
-
-        for (int i = 0; i < buttons.Length; i++) { }
-       
+    }
+    private void UnpopulateWindow()
+    {
+        Button[] buttons = levelUpWindowCanvas.GetComponentsInChildren<Button>();
+        for (int i = 0;i < buttons.Length; i++)
+        {
+            Destroy(buttons[i]);
+        }
+    }
+    private void OnButtonClicked(int index)
+    {
+        SkillManager.Instance.LevelUpSkill(randomSkills[index]);
+        SkillToLevelUpSelected?.Invoke();
+        UpdateView();
     }
     private void UpdateView()
     {
         if (TEMP_ExperienceManager.Instance == null) return;
 
-        if (TEMP_ExperienceManager.Instance.IsLevellingUp) ShowWindow();
-        else HideWindow();
+        if (TEMP_ExperienceManager.Instance.IsLevellingUp)
+        {
+            ShowWindow();
+            PopulateWindow();
+        }
+        else
+        {
+            UnpopulateWindow();
+            HideWindow();
+        }
     }
     private void OnExperienceThresholdReached()
     {

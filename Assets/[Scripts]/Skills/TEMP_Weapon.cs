@@ -7,31 +7,20 @@
 
 using UnityEngine;
 
-public class TEMP_Weapon
+public class TEMP_Weapon : Skill
 {
-    public enum WeaponType
-    {
-        LaserGun,
-        RotatingLaserTower,
-        MissileLauncher,
-        MissileBarrageLauncher,
-        AttackDrones,
-        MobileAttackDrones
-    }
-    private WeaponType weaponType;
     private float speed;
     private float size;
     private float baseDamage;
     private int baseProjectiles;
     private float cooldown;
-    private int currentLevel;
-    private int maxLevel;
-    private string description;
     private bool empowered;
 
-    public TEMP_Weapon()
-    {
+    public WeaponType Type { get; private set; }
 
+    public TEMP_Weapon(WeaponType weaponType, int maxLevel) : base(weaponType.ToString(), maxLevel)
+    {
+        this.Type = weaponType;
     }
 
     public virtual void Behaviour()
@@ -71,13 +60,5 @@ public class TEMP_Weapon
     public void Fire()
     {
 
-    }
-    public WeaponType GetType()
-    {
-        return weaponType;
-    }
-    public bool IsMaxLevel()
-    {
-        return currentLevel >= maxLevel;
     }
 }

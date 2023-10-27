@@ -13,21 +13,27 @@ public class TEMP_ExperienceManager : Singleton<TEMP_ExperienceManager>
     public event Action ExperienceThresholdReached;
 
     [SerializeField] private TEMP_PlayerController player;
+    [SerializeField] private LevelUpWindowPresenter levelUpWindowPresenter;
+
     [SerializeField] private int experiencePoints = 0;
 
     // States
     public bool IsLevellingUp { get; private set; }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        if (levelUpWindowPresenter != null)
+        {
+            levelUpWindowPresenter.SkillToLevelUpSelected += OnSkillToLevelUpSelected;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        if (levelUpWindowPresenter != null)
+        {
+            levelUpWindowPresenter.SkillToLevelUpSelected -= OnSkillToLevelUpSelected;
+        }
     }
     public void GainExperience(int points)
     {
@@ -42,5 +48,9 @@ public class TEMP_ExperienceManager : Singleton<TEMP_ExperienceManager>
     {
         IsLevellingUp = true;
         ExperienceThresholdReached?.Invoke();        
+    }
+    private void OnSkillToLevelUpSelected()
+    {
+        IsLevellingUp = false;
     }
 }

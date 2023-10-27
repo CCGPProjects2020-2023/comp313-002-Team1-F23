@@ -8,7 +8,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TEMP_PlayerController : MonoBehaviour
+public class TEMP_PlayerController : Singleton<TEMP_PlayerController>
 {
     public List<TEMP_Weapon> weapons = new();
     public List<TEMP_Buff> buffs = new();
