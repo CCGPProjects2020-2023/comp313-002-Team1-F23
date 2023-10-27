@@ -78,3 +78,6 @@ crashlytics-build.properties
 UserSettings/Layouts/
 
 UserSettings/EditorUserSettings.asset
+
+# Imports
+/[Aa]ssets/[Ii]mports/
