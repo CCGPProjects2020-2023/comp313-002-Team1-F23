@@ -17,5 +17,6 @@ public class RedTarget : MonoBehaviour
     public void IncreaseDamage()
     {
         initalDamageRate += increasedDamageRate;
+        Debug.Log(initalDamageRate);
     }
 }

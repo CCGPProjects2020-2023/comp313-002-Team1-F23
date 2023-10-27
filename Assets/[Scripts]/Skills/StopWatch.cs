@@ -11,12 +11,20 @@ using UnityEngine;
 
 public class StopWatch : MonoBehaviour
 {
-    [SerializeField] private float initialCooldownRate = 1f;
+    [SerializeField] private float initialCooldownRate = 2f;
     [SerializeField] private float decreaseCooldownRate = 0.5f;
 
 
     public void DecreaseCoolDown()
     {
-        initialCooldownRate -= decreaseCooldownRate + Time.deltaTime;
+        if (initialCooldownRate > 0)
+        {
+            initialCooldownRate -= decreaseCooldownRate + Time.deltaTime;
+            Debug.Log(initialCooldownRate);
+        }
+        else
+        {
+            Debug.Log("huh uh");
+        }
     }
 }

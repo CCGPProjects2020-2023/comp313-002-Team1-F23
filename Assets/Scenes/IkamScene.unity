@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513216426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2070ef4a8c2234f4eb722fa392ae7944, type: 3}
   m_Name: 
@@ -1093,9 +1093,103 @@ MonoBehaviour:
   isLevelledUp: 0
   speedIncrease: 5
   damageIncrease: 5
+  statIncrease: 0
   buttonRandomizer: {fileID: 1513216427}
   LevelMenu: {fileID: 220258370}
   stat: 0
+--- !u!1 &1940802366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940802368}
+  - component: {fileID: 1940802367}
+  - component: {fileID: 1940802369}
+  - component: {fileID: 1940802371}
+  - component: {fileID: 1940802370}
+  m_Layer: 0
+  m_Name: Buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1940802367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940802366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74dc6075f5ebe094cbe5d23bf10919ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHeartSelected: 0
+  isRedTargetSelected: 0
+  isStopwatchSelected: 0
+  buffType: 0
+--- !u!4 &1940802368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940802366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1940802369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940802366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f8d40c27e04fb48b23691a400417f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
+  increaseHealthPercentage: 0.5
+--- !u!114 &1940802370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940802366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b38ed3c03005db47b903bf4adc144dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialCooldownRate: 1
+  decreaseCooldownRate: 0.5
+--- !u!114 &1940802371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940802366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da790547954d3f64dbe838a4a3b168f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initalDamageRate: 10
+  increasedDamageRate: 5
 --- !u!1 &1965919499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,3 +1331,4 @@ SceneRoots:
   - {fileID: 1720177168}
   - {fileID: 795916044}
   - {fileID: 1513216428}
+  - {fileID: 1940802368}

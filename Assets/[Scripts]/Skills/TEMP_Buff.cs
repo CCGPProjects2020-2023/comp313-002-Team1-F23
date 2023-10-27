@@ -14,6 +14,7 @@ public class TEMP_Buff : MonoBehaviour
 {
     public enum BuffType
     {
+        None,
         Heart,
         RedTarget,
         Stopwatch
@@ -24,9 +25,11 @@ public class TEMP_Buff : MonoBehaviour
 
     //BuffType buffSelected;
 
-    [SerializeField] private bool isHeartSelected = false;
-    [SerializeField] private bool isRedTargetSelected = false;
-    [SerializeField] private bool isStopwatchSelected = false;
+    //[SerializeField] private bool isHeartSelected = false;
+    //[SerializeField] private bool isRedTargetSelected = false;
+    //[SerializeField] private bool isStopwatchSelected = false;
+
+    [SerializeField] private BuffType buffType;
 
 
     // Calling the "child" classes
@@ -48,13 +51,14 @@ public class TEMP_Buff : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TestInput();
         ApplyBuff();
     }
 
     // this hurts me. There should be better method than this.
     public void ApplyBuff()
     {
-        if (!isHeartSelected)
+        /*if (!isHeartSelected)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -77,11 +81,46 @@ public class TEMP_Buff : MonoBehaviour
                 stopwatch.DecreaseCoolDown();
                 i++;
             }
+        } */
+
+        if (buffType == BuffType.Heart)
+        {
+            Debug.Log("Increase Health");
+            heart.IncreaseHealth();
+            buffType = BuffType.None;
+        }
+        if (buffType == BuffType.RedTarget)
+        {
+            Debug.Log("Increase Damage");
+            redTarget.IncreaseDamage();
+            buffType = BuffType.None;
+        }
+        if (buffType == BuffType.Stopwatch)
+        {
+            Debug.Log("Reduce Cooldown");
+            stopwatch.DecreaseCoolDown();
+            buffType = BuffType.None;
         }
     }
 
     public bool IsMaxLevel()
     {
         return currentLevel >= maxLevel;
+    }
+
+    public void TestInput()
+    {
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            buffType = BuffType.Heart;
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            buffType = BuffType.RedTarget;
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            buffType= BuffType.Stopwatch;
+        }
     }
 }

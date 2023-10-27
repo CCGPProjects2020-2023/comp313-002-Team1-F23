@@ -11,6 +11,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuffsSystem : MonoBehaviour
 {
@@ -25,18 +26,31 @@ public class BuffsSystem : MonoBehaviour
 
     [SerializeField] private GameObject LevelMenu;
 
+    [SerializeField] Button ButtonOne;
+    [SerializeField] Button ButtonTwo;
+    [SerializeField] Button ButtonThree;
+    [SerializeField] int ButtonOnePressed;
+    [SerializeField] int ButtonTwoPressed;
+    [SerializeField] int ButtonThreePressed;
 
 
-    public Stats.Stat stat;
 
-    public Stats stats;
+    TEMP_Buff.BuffType buffType;
+
+    TEMP_Buff buffs;
+
 
     // Start is called before the first frame update
     void Start()
     {
         // Call the Level-Up script
         //buttonRandomizer = 
+        buffType = GetComponent<TEMP_Buff.BuffType>();
+        buffs = GetComponent<TEMP_Buff>();
         
+        
+
+        //ButtonOne.onClick.AddListener
     }
 
     // Update is called once per frame
@@ -44,6 +58,7 @@ public class BuffsSystem : MonoBehaviour
     {
         // temporary placeholder until the experience manager comes in. 
        // OpenLevelMenu();
+
     }
 
 
@@ -59,25 +74,12 @@ public class BuffsSystem : MonoBehaviour
     
     // For now.
 
-    /*public void OpenLevelMenu()
+
+    public void IncreaseHealth()
     {
-        if (isLevelledUp == true)
-        {
-            LevelMenu.SetActive(true);
-            buttonRandomizer.RandomizeButtons();
-            isLevelledUp = false;
-        }
-    } */
+        buffType = TEMP_Buff.BuffType.Heart;
+        buffs.ApplyBuff();
 
-    public void IncreaseSpeed()
-    {
-        stat = Stats.Stat.MoveSpeed;
-
-        stats.value += statIncrease;
-
-        Debug.Log(stat);
-
-        LevelMenu.SetActive(false);
     }
 
     public void IncreaseDamage()
