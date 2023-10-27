@@ -1,16 +1,13 @@
 /* Created by: Han Bi
- * 
+ * specifies an attack range for ranged attacks
  * Last updated by: Han Bi, Oct 12, 2023
  */
 
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class RangedBehaviour : EnemyBehaviours
 {
-    [SerializeField]
-    float attackRadius;
 
     [SerializeField]
     float attackFrequency;
@@ -22,18 +19,18 @@ public class RangedBehaviour : EnemyBehaviours
     Transform projectileSpawnLocation;
 
 
-    CircleCollider2D attackRange;
-
-
+    public float minAttackRange;
+    public float maxAttackRange;
 
 
     private void Awake()
     {
-        //create a circle collider
-        CircleCollider2D attackRange = gameObject.AddComponent<CircleCollider2D>();
-        attackRange.radius = attackRadius;
-        attackRange.isTrigger = true;
+        var collider = gameObject.AddComponent<CircleCollider2D>();
+        collider.isTrigger =true;
+        collider.radius = maxAttackRange;
     }
+
+
 
     protected override void HandleTargetChange(GameObject newTarget)
     {
@@ -45,13 +42,11 @@ public class RangedBehaviour : EnemyBehaviours
 
     protected override void IdleBehaviour()
     {
-        if(data.GetTarget() != null) 
+        if (data.GetTarget() != null)
         {
             currentState = States.Move;
         }
     }
-
-
 
     IEnumerator AttackPlayer()
     {
@@ -66,42 +61,25 @@ public class RangedBehaviour : EnemyBehaviours
     }
 
 
-    //shows the attack range of the object
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void MoveBehaviour()
     {
-        if (collision.CompareTag("Player"))
-        {
-            currentState = States.Attack;
-            MoveToAttackTransition();
-        }
-    }
-
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            AttackToMoveTransition();
-        }
+        base.MoveBehaviour();
 
     }
 
-
-    private void AttackToMoveTransition()
+    public void ChangeToAttackState()
     {
-        StopCoroutine(AttackPlayer());
-        currentState = States.Move;
-    }
-
-    private void MoveToAttackTransition()
-    {
-        StartCoroutine(AttackPlayer());
         currentState = States.Attack;
+        StartCoroutine(nameof(AttackPlayer));
     }
+
+
+    public void ChangeToMoveState()
+    {
+        currentState = States.Move;
+        StopCoroutine(nameof(AttackPlayer));
+    }
+
+
 }

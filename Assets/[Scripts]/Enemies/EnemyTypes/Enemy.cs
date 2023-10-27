@@ -45,8 +45,7 @@ public abstract class Enemy : MonoBehaviour
         return target;
     }
 
-
-    private void OnDestroy()
+    private void DropExp()
     {
         //need to implement some sort of check to see if killed by player
         var capsule = Instantiate(experiencePrefab, transform.position, Quaternion.identity);

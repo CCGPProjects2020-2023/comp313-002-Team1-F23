@@ -25,7 +25,6 @@ public class MeleeBehaviour : EnemyBehaviours
         if (collision.gameObject.CompareTag("Player"))
         {
             currentState = States.Attack;
-            StartCoroutine(DealDamage(data.damage));
         }
     }
 
@@ -34,7 +33,6 @@ public class MeleeBehaviour : EnemyBehaviours
         if (collision.gameObject.CompareTag("Player"))
         {
             currentState = States.Move;
-            StopCoroutine(DealDamage(data.damage));
         }
     }
 
