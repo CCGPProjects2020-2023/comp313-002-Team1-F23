@@ -66,14 +66,10 @@ public abstract class EnemyBehaviours : MonoBehaviour
         }
     }
 
-    protected IEnumerator DealDamage(float damage)
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        while (true)
-        {
-            print($"dealing {damage} damage to player");
-            //deal damage to player
-            yield return new WaitForSeconds(0.5f);
-        }
+        
     }
 
 
