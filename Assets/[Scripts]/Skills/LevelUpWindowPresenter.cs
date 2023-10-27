@@ -74,6 +74,7 @@ public class LevelUpWindowPresenter : MonoBehaviour
     }
     private void OnButtonClicked(int index)
     {
+        SoundManager.Instance.PlaySfx(SfxEvent.SkillToLevelUpSelect);
         SkillManager.Instance.LevelUpSkill(randomSkills[index]);
         SkillToLevelUpSelected?.Invoke();
         UpdateView();

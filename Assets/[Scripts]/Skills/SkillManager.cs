@@ -18,7 +18,6 @@ public class SkillManager : Singleton<SkillManager>
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -40,13 +39,21 @@ public class SkillManager : Singleton<SkillManager>
         if (skill is TEMP_Weapon)
         {
             skillToLevelUp = TEMP_PlayerController.Instance.weapons.Find(weapon => weapon.Name == skill.Name);
+            if (skillToLevelUp == null)
+            {
+                TEMP_PlayerController.Instance.AddWeapon(availableWeapons.Find(weapon => weapon.Name == skill.Name));
+            }
         }
         else
         {
             skillToLevelUp = TEMP_PlayerController.Instance.buffs.Find(buff => buff.Name == skill.Name);
+            if (skillToLevelUp == null)
+            {
+                TEMP_PlayerController.Instance.AddBuff(availableBuffs.Find(buff => buff.Name == skill.Name));
+            }
         }
-        
-        if(skillToLevelUp != null)
+
+        if (skillToLevelUp != null)
         {
             skillToLevelUp.LevelUp();
         }
@@ -65,7 +72,7 @@ public class SkillManager : Singleton<SkillManager>
 
         for (int i = 0; i < numberOfRandomizedSkills; i++)
         {
-            index = Random.Range(0, numberOfRandomizedSkills);
+            index = UnityEngine.Random.Range(0, numberOfRandomizedSkills);
             randomSkills.Add(allSkills[index]);
             allSkills.RemoveAt(index);
         }
