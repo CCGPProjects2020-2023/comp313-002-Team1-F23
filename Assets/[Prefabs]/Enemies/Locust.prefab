@@ -177,7 +177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 33576a676e2ad2241a78009ab2a06e02, type: 2}
   target: {fileID: 0}
-  angleOffset: 90
+  experiencePrefab: {fileID: 6680631444363311277, guid: fea461ef88de9a94eb65eeacfdab1c1b, type: 3}
   exp: 0
   health: 0
   moveSpeed: 0
+  damage: 0
+  angleOffset: 90

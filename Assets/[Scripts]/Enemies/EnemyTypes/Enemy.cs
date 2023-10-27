@@ -14,7 +14,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     protected GameObject target;
 
-
+    [SerializeField]
+    private GameObject experiencePrefab;
 
     public float exp;
     public float health;
@@ -42,6 +43,14 @@ public abstract class Enemy : MonoBehaviour
     public GameObject GetTarget()
     {
         return target;
+    }
+
+
+    private void OnDestroy()
+    {
+        //need to implement some sort of check to see if killed by player
+        var capsule = Instantiate(experiencePrefab, transform.position, Quaternion.identity);
+        capsule.GetComponent<ExpCapsule>().experience = exp;
     }
 
 

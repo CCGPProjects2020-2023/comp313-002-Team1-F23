@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 81ba831b6be51a545b85c5a1a39aea58, type: 2}
   target: {fileID: 0}
+  experiencePrefab: {fileID: 6680631444363311277, guid: fea461ef88de9a94eb65eeacfdab1c1b, type: 3}
   exp: 0
   health: 0
   moveSpeed: 0
