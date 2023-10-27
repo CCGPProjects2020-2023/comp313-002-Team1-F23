@@ -11,4 +11,6 @@ public class EnemySO : ScriptableObject
 
     public float baseSpeed;
 
+    public float baseDamage;
+
 }

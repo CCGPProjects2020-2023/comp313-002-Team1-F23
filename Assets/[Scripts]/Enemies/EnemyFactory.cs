@@ -16,6 +16,12 @@ public class EnemyFactory : MonoBehaviour
     [SerializeField]
     GameObject locustSwarmPrefab;
 
+    [SerializeField]
+    GameObject vampireShipPrefab;
+
+    [SerializeField]
+    GameObject player;
+
     public static EnemyFactory Instance { get;  private set; }
 
     private void Awake()
@@ -47,16 +53,31 @@ public class EnemyFactory : MonoBehaviour
         return _obj;
     }
 
+    public GameObject CreateVampireShip(Vector2 pos)
+    {
+        var _obj = Instantiate(vampireShipPrefab, pos, Quaternion.identity);
 
-    //testing
+        return _obj;
+    }
+
+
+    //for testing
     public void CreateLocustSwarmTest()
     {
         CreateLocustSwarm(new Vector3(10, -5), new Vector2(-16, 9));
     }
 
-    //testing
+    //for testing
     public void CreateLocustTest()
     {
-        CreateLocust(new Vector3(5, 8));
+        var locust = CreateLocust(new Vector3(5, 8));
+        locust.GetComponent<Enemy>().SetTarget(player);
+    }
+
+    //for testing
+    public void CreateVampireShipTest()
+    {
+        var ship = CreateVampireShip(new Vector3(-3, 7));
+        ship.GetComponent<Enemy>().SetTarget(player);
     }
 }

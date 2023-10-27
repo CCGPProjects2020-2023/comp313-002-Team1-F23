@@ -19,6 +19,7 @@ public abstract class Enemy : MonoBehaviour
     public float exp;
     public float health;
     public float moveSpeed;
+    public float damage;
 
     public event Action<GameObject> OnTargetChanged  = delegate { };
 
@@ -29,6 +30,7 @@ public abstract class Enemy : MonoBehaviour
         exp = data.baseExp;
         health = data.baseHealth;
         moveSpeed = data.baseSpeed;
+        damage = data.baseDamage;
     }
 
     public virtual void SetTarget(GameObject obj)

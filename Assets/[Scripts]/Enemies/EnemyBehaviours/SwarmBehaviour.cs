@@ -1,4 +1,6 @@
-using Unity.VisualScripting;
+/**Created by Han Bi
+ * Used for the 'container' that holds the swarm of enemies
+ */
 using UnityEngine;
 
 public class SwarmBehaviour : EnemyBehaviours

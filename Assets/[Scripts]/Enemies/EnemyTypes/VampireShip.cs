@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Locust: Enemy
+public class VampireShip : Enemy
 {
     [SerializeField]
-    public float angleOffset;
+    float angleOffset;
 
-    void Update()
+    private void Update()
     {
         LookTowardsTarget();
     }
@@ -20,5 +20,4 @@ public class Locust: Enemy
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
     }
-
 }

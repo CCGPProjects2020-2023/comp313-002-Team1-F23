@@ -2,6 +2,7 @@
  * Used to describe how an enemy behaves
  */
 
+using System.Collections;
 using UnityEngine;
 
 public abstract class EnemyBehaviours : MonoBehaviour
@@ -19,7 +20,19 @@ public abstract class EnemyBehaviours : MonoBehaviour
     protected Enemy data;
 
     //implements behaviour when chasing player
-    protected virtual void MoveBehaviour() { }
+    protected virtual void MoveBehaviour() 
+    { 
+        MoveToTarget(); 
+    }
+
+    private void MoveToTarget()
+    {
+        if (data.GetTarget() != null)
+        {
+            Vector2 newPos = Vector2.MoveTowards(transform.position, data.GetTarget().transform.position, data.moveSpeed);
+            transform.position = newPos;
+        }
+    }
 
     //implements behaviour when reach/touching player
     protected virtual void AttackBehaviour() { }
@@ -34,7 +47,6 @@ public abstract class EnemyBehaviours : MonoBehaviour
     {
         data = GetComponent<Enemy>();
     }
-
 
     private void FixedUpdate()
     {
@@ -53,5 +65,17 @@ public abstract class EnemyBehaviours : MonoBehaviour
                 break;
         }
     }
+
+    protected IEnumerator DealDamage(float damage)
+    {
+        while (true)
+        {
+            print($"dealing {damage} damage to player");
+            //deal damage to player
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+
 
 }
