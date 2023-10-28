@@ -718,8 +718,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level Up!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f86f99362d1d5445839190bd07f057f, type: 2}
-  m_sharedMaterial: {fileID: -1889113571251877567, guid: 8f86f99362d1d5445839190bd07f057f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 210c1cab16e98ea45aef3cd8d81fbbc6, type: 2}
+  m_sharedMaterial: {fileID: -177898963464088314, guid: 210c1cab16e98ea45aef3cd8d81fbbc6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
