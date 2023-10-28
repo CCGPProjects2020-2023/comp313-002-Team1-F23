@@ -10,6 +10,10 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
         StartCoroutine(SpawnEnemies());
     }
 
