@@ -34,6 +34,11 @@ public class EnemyFactory : MonoBehaviour
         {
             Instance = this;
         }
+
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
 

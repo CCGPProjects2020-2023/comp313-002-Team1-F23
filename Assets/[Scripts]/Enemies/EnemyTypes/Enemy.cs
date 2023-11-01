@@ -5,6 +5,7 @@
 using System;
 using UnityEngine;
 
+
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField]
@@ -22,6 +23,7 @@ public abstract class Enemy : MonoBehaviour
     public float damage;
 
     public event Action<GameObject> OnTargetChanged  = delegate { };
+
 
     private void Awake()
     {
@@ -43,10 +45,13 @@ public abstract class Enemy : MonoBehaviour
         return target;
     }
 
-    private void OnDestroy()
+    private void DropExp()
     {
         //need to implement some sort of check to see if killed by player
         var capsule = Instantiate(experiencePrefab, transform.position, Quaternion.identity);
         capsule.GetComponent<ExpCapsule>().experience = exp;
     }
+
+
+
 }

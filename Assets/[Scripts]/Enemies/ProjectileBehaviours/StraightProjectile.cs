@@ -8,7 +8,7 @@ public class StraightProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(DestroySelf());
     }
 
     // Update is called once per frame
@@ -36,5 +36,11 @@ public class StraightProjectile : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, transform.up);
+    }
+
+    IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 }
