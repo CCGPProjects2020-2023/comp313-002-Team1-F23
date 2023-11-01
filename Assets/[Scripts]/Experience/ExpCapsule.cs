@@ -1,16 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+/*  Author's Name:          Han Bi
+ *  Last Modified By:       Marcus Ngooi
+ *  Date Last Modified:     November 1, 2023
+ *  Program Description:    Manages experience in the game.
+ *  Revision History:       October 25, 2023 (Han Bi): Initial ExpCapsule script. 
+ *                          November 1, 2023 (Marcus Ngooi): Call GainExperience from ExperienceManager,
+ *                                                           Made experience private and exposed with property.
+ */
+
 using UnityEngine;
 
 public class ExpCapsule : MonoBehaviour
 {
-    public float experience;
+    [SerializeField] private float experience;
+    public float Experience { get { return experience; } set { experience = value; } }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            //Add exp to player
+            ExperienceManager.Instance.GainExperience(experience);
             Destroy(gameObject);
         }
     }

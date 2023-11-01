@@ -3,7 +3,7 @@
  *  Date Last Modified:     October 25, 2023
  *  Program Description:    Parent class implementing Singleton pattern. 
  *                          If a class needs to be a Singleton, just inherit this class.
- *  Revision History:       October 25, 2023: Initial Singleton script.
+ *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial Singleton script.
  */
 
 using UnityEngine;

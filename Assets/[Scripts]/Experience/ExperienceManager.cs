@@ -15,7 +15,7 @@ public class ExperienceManager : Singleton<ExperienceManager>
     [SerializeField] private TEMP_PlayerController player;
     [SerializeField] private LevelUpWindowPresenter levelUpWindowPresenter;
 
-    [SerializeField] private int experiencePoints = 0;
+    [SerializeField] private float experiencePoints = 0;
     [SerializeField] private int level;
 
     [Tooltip("A number > 1. A lower base will make the player level up faster.")]
@@ -40,7 +40,7 @@ public class ExperienceManager : Singleton<ExperienceManager>
             levelUpWindowPresenter.SkillToLevelUpSelected -= OnSkillToLevelUpSelected;
         }
     }
-    public void GainExperience(int points)
+    public void GainExperience(float points)
     {
         experiencePoints += points;
         int newLevel = CalculateLevel();
@@ -60,9 +60,26 @@ public class ExperienceManager : Singleton<ExperienceManager>
         // Calculate the level based on the total experience points.
         // The Math.Log function calculates the natural logarithm, so we use it with
         // the base change formula to calculate a logarithm with the specified base.
-        int calculatedLevel = (int)(Math.Log(experiencePoints + 1) / Math.Log(natLogBaseValue));
+        // Using a natural logarithm allows us to increase the experience required as the player
+        // levels up.
+        int calculatedLevel = (int)Math.Round(Math.Log(experiencePoints + 1) / Math.Log(natLogBaseValue));
 
         return calculatedLevel;
+    }
+    // This is going to be needed for the HUD
+    private float CalculateRequiredExperienceForNextLevel()
+    {
+        float requiredExperienceForNextLevel = (float)Math.Pow(natLogBaseValue, level + 1) - 1;
+
+        return requiredExperienceForNextLevel;
+    }
+    // This is going to be needed for the HUD
+    private float CalculateCurrentExperienceInCurrentLevel()
+    {
+        float totalExperienceForCurrentLevel = (float)Math.Pow(natLogBaseValue, level) - 1;
+        float currentExperienceInCurrentLevel = experiencePoints - totalExperienceForCurrentLevel;
+
+        return currentExperienceInCurrentLevel;
     }
     private void OnSkillToLevelUpSelected()
     {

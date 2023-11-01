@@ -305,7 +305,9 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 679f73af3da8b9646bfd771ee4f9d512, type: 2}
   musicAudioSource: {fileID: 4972948177195515666}
   sfxAudioSource: {fileID: 3216602436776464870}
-  skillToLevelUpSelect: {fileID: 8300000, guid: 774df01055109a1429f4fa9da95261bb, type: 3}
+  skillToLevelUpSelectClip: {fileID: 8300000, guid: 774df01055109a1429f4fa9da95261bb, type: 3}
+  collectOreClip: {fileID: 8300000, guid: f9a9ec6db4bee0d42874ea8a4f39155b, type: 3}
+  levelUpClip: {fileID: 0}
   musicVolume: 1
   sfxVolume: 1
   musicParameter: MusicVol

@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    Coordinates between the Level Up Window and the other managers.
- *  Revision History:       October 26, 2023: Initial LevelUpWindowPresenter script.
+ *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial LevelUpWindowPresenter script.
  */
 
 using System;
