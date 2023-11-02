@@ -71,7 +71,6 @@ public class SoundManager : Singleton<SoundManager>
                 sfxAudioSource.PlayOneShot(levelUpClip);
                 break;
         }
-
     }
     public void SetVolume(float value, SoundType type)
     {

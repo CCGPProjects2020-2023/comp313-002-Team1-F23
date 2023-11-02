@@ -2,7 +2,9 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    Manages experience in the game.
- *  Revision History:       October 26, 2023: Initial ExperienceManager script.
+ *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial ExperienceManager script.
+ *                          November 1, 2023 (Marcus Ngooi): Added sound effect on level up,
+ *                                                           Added calculation for current level xp and current required xp.
  */
 
 using System;
@@ -52,6 +54,7 @@ public class ExperienceManager : Singleton<ExperienceManager>
     }
     public void LevelUp()
     {
+        SoundManager.Instance.PlaySfx(SfxEvent.LevelUp);
         IsLevellingUp = true;
         ExperienceThresholdReached?.Invoke();
     }

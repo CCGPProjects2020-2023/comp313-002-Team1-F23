@@ -4,6 +4,7 @@
  *  Program Description:    Manages experience in the game.
  *  Revision History:       October 25, 2023 (Han Bi): Initial ExpCapsule script. 
  *                          November 1, 2023 (Marcus Ngooi): Call GainExperience from ExperienceManager,
+ *                                                           Call PlaySfx from SoundManager,
  *                                                           Made experience private and exposed with property.
  */
 
@@ -19,6 +20,7 @@ public class ExpCapsule : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             ExperienceManager.Instance.GainExperience(experience);
+            SoundManager.Instance.PlaySfx(SfxEvent.CollectOre);
             Destroy(gameObject);
         }
     }
