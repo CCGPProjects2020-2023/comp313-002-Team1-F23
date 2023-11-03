@@ -5,20 +5,27 @@
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial SkillManager script.
  */
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillManager : Singleton<SkillManager>
 {
-    private List<TEMP_Weapon> availableWeapons = new();
+    private List<Weapon> availableWeapons = new();
     private List<TEMP_Buff> availableBuffs = new();
+
+    [SerializeField] private List<Weapon> currentWeapons = new();
+    [SerializeField] private List<TEMP_Buff> currentBuffs = new();
 
     [SerializeField] private int numberOfRandomizedSkills = 3;
 
     // Start is called before the first frame update
     void Start()
     {
+        foreach (WeaponType weaponType in Enum.GetValues(typeof(WeaponType)))
+        {
 
+        }
     }
 
     // Update is called once per frame
@@ -26,31 +33,23 @@ public class SkillManager : Singleton<SkillManager>
     {
 
     }
-    public void AddWeapon(TEMP_Weapon weapon)
-    {
-        availableWeapons.Add(weapon);
-    }
-    public void AddBuff(TEMP_Buff buff)
-    {
-        availableBuffs.Add(buff);
-    }
     public void LevelUpSkill(Skill skill)
     {
         Skill skillToLevelUp;
-        if (skill is TEMP_Weapon)
+        if (skill is Weapon)
         {
-            skillToLevelUp = PlayerController.Instance.Weapons.Find(weapon => weapon.Name == skill.Name);
+            skillToLevelUp = currentWeapons.Find(weapon => weapon.Name == skill.Name);
             if (skillToLevelUp == null)
             {
-                PlayerController.Instance.AddWeapon(availableWeapons.Find(weapon => weapon.Name == skill.Name));
+                AddCurrentWeapon(availableWeapons.Find(weapon => weapon.Name == skill.Name));
             }
         }
         else
         {
-            skillToLevelUp = PlayerController.Instance.Buffs.Find(buff => buff.Name == skill.Name);
+            skillToLevelUp = currentBuffs.Find(buff => buff.Name == skill.Name);
             if (skillToLevelUp == null)
             {
-                PlayerController.Instance.AddBuff(availableBuffs.Find(buff => buff.Name == skill.Name));
+                AddCurrentBuff(availableBuffs.Find(buff => buff.Name == skill.Name));
             }
         }
 
@@ -78,5 +77,21 @@ public class SkillManager : Singleton<SkillManager>
             allSkills.RemoveAt(index);
         }
         return randomSkills;
+    }
+    public void AddAvailableWeapon(Weapon weapon)
+    {
+        availableWeapons.Add(weapon);
+    }
+    public void AddAvailableBuff(TEMP_Buff buff)
+    {
+        availableBuffs.Add(buff);
+    }
+    public void AddCurrentWeapon(Weapon weapon)
+    {
+        currentWeapons.Add(weapon);
+    }
+    public void AddCurrentBuff(TEMP_Buff buff)
+    {
+        currentBuffs.Add(buff);
     }
 }

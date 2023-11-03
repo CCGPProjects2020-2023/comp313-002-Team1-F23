@@ -3,11 +3,12 @@
  *  Date Last Modified:     October 25, 2023
  *  Program Description:    Base class for a Weapon.
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial Weapon script.
+ *                          November 3, 2023 (Marcus Ngooi): 
  */
 
 using UnityEngine;
 
-public class TEMP_Weapon : Skill
+public class Weapon : Skill
 {
     private float speed;
     private float size;
@@ -18,7 +19,7 @@ public class TEMP_Weapon : Skill
 
     public WeaponType Type { get; private set; }
 
-    public TEMP_Weapon(WeaponType weaponType, int maxLevel) : base(weaponType.ToString(), maxLevel)
+    public Weapon(WeaponType weaponType, int maxLevel) : base(weaponType.ToString(), maxLevel)
     {
         this.Type = weaponType;
     }

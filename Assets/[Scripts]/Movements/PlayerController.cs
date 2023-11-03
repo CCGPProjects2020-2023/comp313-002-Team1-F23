@@ -4,8 +4,7 @@
  *  Program Description:    Controls the player.
  *  Revision History:       ??? (Mithul Koshy): Initial PlayerController script.
  *                          November 2, 2023 (Mithul Koshy): Integrated with ???.
- *                          November 3, 2023 (Marcus Ngooi): Added weapon and buff list and functions to add.
- *                                                           Made this script a Singleton.
+ *                          November 3, 2023 (Marcus Ngooi): Made this script a Singleton.
  */
 
 using System.Collections.Generic;
@@ -20,12 +19,6 @@ public class PlayerController : Singleton<PlayerController>
     public float shootCooldown = 0.5f;
     public float bulletLifetime = 10f; // Time in seconds before bullets despawn
     private float lastShootTime;
-
-    [SerializeField] private List<TEMP_Weapon> weapons = new();
-    [SerializeField] private List<TEMP_Buff> buffs = new();
-
-    public List<TEMP_Weapon> Weapons { get { return weapons; } }
-    public List<TEMP_Buff> Buffs { get { return buffs; } }
 
     private Rigidbody2D rb;
     public Vector2 movement;
@@ -80,13 +73,5 @@ public class PlayerController : Singleton<PlayerController>
 
         // Destroy the bullet after its lifetime expires
         Destroy(bullet, bulletLifetime);
-    }
-    public void AddWeapon(TEMP_Weapon weapon)
-    {
-        weapons.Add(weapon);
-    }
-    public void AddBuff(TEMP_Buff buff)
-    {
-        buffs.Add(buff);
     }
 }
