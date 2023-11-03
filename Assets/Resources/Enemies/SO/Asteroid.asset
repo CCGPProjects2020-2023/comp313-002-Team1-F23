@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4f3136ef26b814a89e20de760b522e, type: 3}
   m_Name: Asteroid
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
   baseExp: 1
-  baseHealth: 1
-  baseSpeed: 0.05
+  baseHealth: 50
+  baseSpeed: 0.005
+  baseDamage: 5

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4f3136ef26b814a89e20de760b522e, type: 3}
   m_Name: Locust
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 731596271531790049, guid: 36104fa663b3c514dac973e1072331b0, type: 3}
   baseExp: 1
   baseHealth: 10
   baseSpeed: 0.02
+  baseDamage: 2
