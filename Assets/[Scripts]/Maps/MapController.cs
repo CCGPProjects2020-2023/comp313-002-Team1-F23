@@ -1,4 +1,4 @@
-// Mithul Koshy
+//Created by Mithul Koshy
 
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ public class MapController : MonoBehaviour
     Vector3 noTerrainPosition;
     public LayerMask terrainMask;
     public GameObject currentChunk;
-    PlayerTest pm;
+    PlayerController pm;
 
     [Header("Optimization")]
     public List<GameObject> spawnedChunks;
@@ -28,7 +28,7 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
-        pm = FindObjectOfType<PlayerTest>();
+        pm = FindObjectOfType<PlayerController>();
 
     }
 
