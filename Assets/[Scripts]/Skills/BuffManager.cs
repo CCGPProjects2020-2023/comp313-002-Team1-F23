@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuffManager : MonoBehaviour
+public class BuffManager : MonoBehaviour 
 {
     // get the instance of HealthManager
 
@@ -17,7 +17,7 @@ public class BuffManager : MonoBehaviour
     
 
     // Get the instance of the TEMPBuff?
-    public TEMP_Buff buff = new TEMP_Buff(buffType, currentLevel);
+    public Buff buff = new Buff(buffType, currentLevel);
 
     // or the child classes?
     Heart heartInstance = new Heart(buffType, currentLevel); 
@@ -26,7 +26,8 @@ public class BuffManager : MonoBehaviour
 
     private void Start()
     {
-        experienceManager.Level = currentLevel;
+        //experienceManager.Level = currentLevel;
+        currentLevel = experienceManager.Level;
     }
 
 
@@ -38,7 +39,6 @@ public class BuffManager : MonoBehaviour
             ManageBuffs();
         }
     }
-
 
     public void ManageBuffs()
     {

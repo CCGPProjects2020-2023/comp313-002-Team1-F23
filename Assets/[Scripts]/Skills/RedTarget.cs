@@ -12,21 +12,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedTarget : TEMP_Buff
+public class RedTarget : Buff
 {
     [SerializeField] private float initalDamageRate = 10f;
     [SerializeField] private float increasedDamageRate = 5f;
 
-    public new BuffType Type { get; set; }
+    [SerializeField] private BuffType buffType;
 
-    public RedTarget(BuffType type, int maxLevel) : base(type, maxLevel)
+    public RedTarget(BuffType type, int maxLevel) : base(BuffType.RedTarget, maxLevel)
     {
-        Type = BuffType.RedTarget;
-        Type = type;
+        this.buffType = type;
     }
 
     public override void ApplyBuff()
     {
+        base.ApplyBuff();
         initalDamageRate += increasedDamageRate;
         Debug.Log(initalDamageRate);
     }

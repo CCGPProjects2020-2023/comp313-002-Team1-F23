@@ -12,17 +12,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StopWatch : TEMP_Buff
+public class StopWatch : Buff
 {
     [SerializeField] private float initialCooldownRate = 2f;
     [SerializeField] private float decreaseCooldownRate = 0.5f;
 
-    public new BuffType Type { private get; set; }
+   // public BuffType stopWatchType { private get; set; }
 
     public StopWatch(BuffType type, int maxLevel) : base(type, maxLevel)
     {
         type = BuffType.Stopwatch;
-        Type = type;
+        
     }
 
     public override void ApplyBuff()

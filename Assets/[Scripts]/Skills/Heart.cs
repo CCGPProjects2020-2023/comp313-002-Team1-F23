@@ -14,18 +14,21 @@ using System;
 using UnityEngine;
 
 
-public class Heart : TEMP_Buff
+public class Heart : Buff
 {
     [SerializeField] private float tempPlayerHealth = 100;
     [SerializeField] private float increaseHealthPercentage = 0.5f;
 
-    public TEMP_HealthManager healthManager { get; private set; }
 
-    public new BuffType Type { get; set; }
-    public Heart(BuffType type, int maxLevel) : base(type, maxLevel)
+
+    public TEMP_HealthManager healthManager = new();
+
+    public BuffType buffType;
+
+    //public BuffType heartType { get; set; }
+    public Heart(BuffType type, int maxLevel) : base(BuffType.Heart, maxLevel)
     {
-        type = BuffType.Heart;
-        Type = type;
+        this.buffType = type;
     }
 
     // health percentage varies based on the level
@@ -35,9 +38,15 @@ public class Heart : TEMP_Buff
     public override void ApplyBuff()
     {
 
-        base.ApplyBuff();
+        // tempPlayerHealth 
+        float tempPlayerHealth = healthManager.maxPlayerHealth;
+        Debug.Log(tempPlayerHealth);
+
+        increaseHealthPercentage = (tempPlayerHealth / increaseHealthPercentage);
 
         tempPlayerHealth += increaseHealthPercentage;
-        Debug.Log(tempPlayerHealth);
+
+        healthManager.maxPlayerHealth = tempPlayerHealth;
+        Debug.Log(healthManager.maxPlayerHealth);
     }
 }
