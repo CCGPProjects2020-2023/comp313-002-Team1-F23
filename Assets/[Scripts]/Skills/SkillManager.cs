@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 25, 2023
  *  Program Description:    Manages the "skills" which are weapons and buffs.
- *  Revision History:       October 25, 2023: Initial SkillManager script.
+ *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial SkillManager script.
  */
 
 using System.Collections.Generic;
