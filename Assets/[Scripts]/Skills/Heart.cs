@@ -19,6 +19,8 @@ public class Heart : TEMP_Buff
 
     //public TEMP_PlayerController playerController;
 
+    //public TEMP_HealthSystem healthSystem;
+
     public new BuffType Type { private get; set; }
     public Heart(BuffType type, int maxLevel) : base(type, maxLevel)
     {

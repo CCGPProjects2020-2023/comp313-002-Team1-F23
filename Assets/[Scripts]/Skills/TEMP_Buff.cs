@@ -10,7 +10,7 @@
  */
 
 
-public abstract class TEMP_Buff : Skill
+public class TEMP_Buff : Skill
 {
     public BuffType Type { get; private set; }
 
