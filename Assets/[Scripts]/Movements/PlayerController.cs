@@ -2,8 +2,8 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    Controls the player.
- *  Revision History:       ??? (Mithul Koshy): Initial PlayerController script.
- *                          November 2, 2023 (Mithul Koshy): Integrated with ???.
+ *  Revision History:       (Mithul Koshy): Initial PlayerController script.
+ *                          November 2, 2023 (Mithul Koshy): Integrated with PlayerTest scripts
  *                          November 3, 2023 (Marcus Ngooi): Added weapon and buff list and functions to add.
  *                                                           Made this script a Singleton.
  */
