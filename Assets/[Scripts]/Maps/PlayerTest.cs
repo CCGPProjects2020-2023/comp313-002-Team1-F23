@@ -1,0 +1,62 @@
+// Mithul Koshy
+
+using UnityEngine;
+
+public class PlayerTest : MonoBehaviour
+{
+    public float moveSpeed = 5f;
+    public GameObject bulletPrefab;
+    public Transform gunTransform;
+    public float bulletSpeed = 10f;
+    public float shootCooldown = 0.5f;
+    public float bulletLifetime = 10f; // Time in seconds before bullets despawn
+    private float lastShootTime;
+
+    private Rigidbody2D rb;
+    public Vector2 movement;
+
+    // Reference to the camera
+    public Camera mainCamera;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void Update()
+    {
+        // Player movement input
+        movement.x = Input.GetAxis("Horizontal");
+        movement.y = Input.GetAxis("Vertical");
+
+        // Shooting
+        if (Input.GetMouseButton(0) && Time.time - lastShootTime > shootCooldown)
+        {
+            Shoot();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // Move the player
+        rb.velocity = movement.normalized * moveSpeed;
+
+        // Update the camera's position to follow the player
+        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, 0.1f);
+    }
+
+    private void Shoot()
+    {
+        lastShootTime = Time.time;
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 shootDirection = (mousePosition - gunTransform.position).normalized;
+
+        GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, Quaternion.identity);
+        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+        bulletRb.velocity = shootDirection * bulletSpeed;
+
+        // Destroy the bullet after its lifetime expires
+        Destroy(bullet, bulletLifetime);
+    }
+}
