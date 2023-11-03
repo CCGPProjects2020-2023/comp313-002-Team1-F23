@@ -1,8 +1,9 @@
-// Mithul Koshy
+//Created by Mithul Koshy
+//Integrated 11/02 by Mithul Koshy
 
 using UnityEngine;
 
-public class PlayerTest : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public GameObject bulletPrefab;
@@ -40,6 +41,13 @@ public class PlayerTest : MonoBehaviour
     {
         // Move the player
         rb.velocity = movement.normalized * moveSpeed;
+
+        // Rotate the player based on the movement direction
+        if (movement.magnitude > 0)
+        {
+            float angle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, -angle);
+        }
 
         // Update the camera's position to follow the player
         Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
