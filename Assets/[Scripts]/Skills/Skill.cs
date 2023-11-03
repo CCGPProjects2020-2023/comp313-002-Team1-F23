@@ -5,7 +5,9 @@
  *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial Skill script.
  */
 
-public class Skill
+using UnityEngine;
+
+public class Skill: MonoBehaviour
 {
     public string Name { get; private set; }
     public int CurrentLevel { get; private set; }
