@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    Coordinates between the Level Up Window and the other managers.
- *  Revision History:       October 26, 2023: Initial LevelUpWindowPresenter script.
+ *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial LevelUpWindowPresenter script.
  */
 
 using System;
@@ -26,17 +26,17 @@ public class LevelUpWindowPresenter : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        if (TEMP_ExperienceManager.Instance != null)
+        if (ExperienceManager.Instance != null)
         {
-            TEMP_ExperienceManager.Instance.ExperienceThresholdReached += OnExperienceThresholdReached;
+            ExperienceManager.Instance.ExperienceThresholdReached += OnExperienceThresholdReached;
         }
     }
 
     private void OnDestroy()
     {
-        if (TEMP_ExperienceManager.Instance != null)
+        if (ExperienceManager.Instance != null)
         {
-            TEMP_ExperienceManager.Instance.ExperienceThresholdReached -= OnExperienceThresholdReached;
+            ExperienceManager.Instance.ExperienceThresholdReached -= OnExperienceThresholdReached;
         }
     }
     private void ShowWindow()
@@ -81,9 +81,9 @@ public class LevelUpWindowPresenter : MonoBehaviour
     }
     private void UpdateView()
     {
-        if (TEMP_ExperienceManager.Instance == null) return;
+        if (ExperienceManager.Instance == null) return;
 
-        if (TEMP_ExperienceManager.Instance.IsLevellingUp)
+        if (ExperienceManager.Instance.IsLevellingUp)
         {
             ShowWindow();
             PopulateWindow();

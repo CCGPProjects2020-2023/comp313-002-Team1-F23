@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    Base class for a Buff.
- *  Revision History:       October 26, 2023: Initial Buff script.
+ *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial Buff script.
  */
 
 

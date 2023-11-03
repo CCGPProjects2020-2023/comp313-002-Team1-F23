@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 25, 2023
  *  Program Description:    Manages the "skills" which are weapons and buffs.
- *  Revision History:       October 25, 2023: Initial SkillManager script.
+ *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial SkillManager script.
  */
 
 using System.Collections.Generic;
@@ -18,6 +18,7 @@ public class SkillManager : Singleton<SkillManager>
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -38,18 +39,18 @@ public class SkillManager : Singleton<SkillManager>
         Skill skillToLevelUp;
         if (skill is TEMP_Weapon)
         {
-            skillToLevelUp = TEMP_PlayerController.Instance.weapons.Find(weapon => weapon.Name == skill.Name);
+            skillToLevelUp = PlayerController.Instance.Weapons.Find(weapon => weapon.Name == skill.Name);
             if (skillToLevelUp == null)
             {
-                TEMP_PlayerController.Instance.AddWeapon(availableWeapons.Find(weapon => weapon.Name == skill.Name));
+                PlayerController.Instance.AddWeapon(availableWeapons.Find(weapon => weapon.Name == skill.Name));
             }
         }
         else
         {
-            skillToLevelUp = TEMP_PlayerController.Instance.buffs.Find(buff => buff.Name == skill.Name);
+            skillToLevelUp = PlayerController.Instance.Buffs.Find(buff => buff.Name == skill.Name);
             if (skillToLevelUp == null)
             {
-                TEMP_PlayerController.Instance.AddBuff(availableBuffs.Find(buff => buff.Name == skill.Name));
+                PlayerController.Instance.AddBuff(availableBuffs.Find(buff => buff.Name == skill.Name));
             }
         }
 
