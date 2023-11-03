@@ -10,32 +10,34 @@
  */
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+
 
 public class Heart : TEMP_Buff
 {
     [SerializeField] private float tempPlayerHealth = 100;
     [SerializeField] private float increaseHealthPercentage = 0.5f;
 
-    //public TEMP_PlayerController playerController;
+    public TEMP_HealthManager healthManager { get; private set; }
 
-    //public TEMP_HealthSystem healthSystem;
-
-    public new BuffType Type { private get; set; }
+    public new BuffType Type { get; set; }
     public Heart(BuffType type, int maxLevel) : base(type, maxLevel)
     {
         type = BuffType.Heart;
         Type = type;
     }
 
-    // health percentage varies based on the level  (I don't think this is needed)
-
+    // health percentage varies based on the level
+    // current maxHealth, newMaxHealth,
+    // Create new script (Monobehaviour) to say "yo, there are variables being modified," pls remember it  
+    // 
     public override void ApplyBuff()
     {
-       // playerController.playerHealth += increaseHealthPercentage;
+
+        base.ApplyBuff();
 
         tempPlayerHealth += increaseHealthPercentage;
         Debug.Log(tempPlayerHealth);
-        //Debug.Log(playerController.playerHealth);
     }
 }

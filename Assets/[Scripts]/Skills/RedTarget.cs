@@ -17,11 +17,11 @@ public class RedTarget : TEMP_Buff
     [SerializeField] private float initalDamageRate = 10f;
     [SerializeField] private float increasedDamageRate = 5f;
 
-    public new BuffType Type { private get; set; }
+    public new BuffType Type { get; set; }
 
     public RedTarget(BuffType type, int maxLevel) : base(type, maxLevel)
     {
-        type = BuffType.RedTarget;
+        Type = BuffType.RedTarget;
         Type = type;
     }
 
