@@ -1,17 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+/** Author's Name:          Han Bi
+ *  Last Modified By:       Han Bi
+ *  Date Last Modified:     November 2, 2023
+ *  Program Description:    Factory for creating enemy objects 
+ *  Revision History:       November 2, 2023: Initial Script
+ */
+
 using UnityEngine;
 
-public class EnemyFactory : MonoBehaviour
+public class EnemyFactory : Singleton<EnemyFactory>
 {
     [SerializeField]
     GameObject locustPrefab;
 
     [SerializeField]
-    GameObject asteroidPrefab;
+    GameObject asteroidGolemPrefab;
 
     [SerializeField]
     GameObject locustSwarmPrefab;
@@ -22,20 +24,10 @@ public class EnemyFactory : MonoBehaviour
     [SerializeField]
     GameObject player;
 
-    public static EnemyFactory Instance { get;  private set; }
-
-    private void Awake()
+    public override void Awake()
     {
-        if(Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-        if(player == null)
+        base.Awake();
+        if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
@@ -61,6 +53,13 @@ public class EnemyFactory : MonoBehaviour
     public GameObject CreateVampireShip(Vector2 pos)
     {
         var _obj = Instantiate(vampireShipPrefab, pos, Quaternion.identity);
+
+        return _obj;
+    }
+
+    public GameObject CreateAsteroidGolem(Vector2 pos)
+    {
+        var _obj = Instantiate(asteroidGolemPrefab, pos, Quaternion.identity);
 
         return _obj;
     }

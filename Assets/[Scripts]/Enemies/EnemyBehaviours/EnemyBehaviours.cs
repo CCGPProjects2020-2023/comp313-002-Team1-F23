@@ -1,5 +1,5 @@
 /**Created by Han Bi
- * Used to describe how an enemy behaves
+ * Parent class used to handle enemy behaviour
  */
 
 using System.Collections;
@@ -66,12 +66,9 @@ public abstract class EnemyBehaviours : MonoBehaviour
         }
     }
 
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         
     }
-
-
 
 }
