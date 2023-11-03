@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131417224}
+  - component: {fileID: 131417225}
   m_Layer: 5
   m_Name: Results
   m_TagString: Untagged
@@ -165,6 +166,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &131417225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131417223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f3eb3c0358bec4393b3829f59654b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuSceneName: MainMenu
 --- !u!1 &363251876
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,9 +475,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 819710338}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 131417225}
+        m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+        m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -523,11 +537,7 @@ GameObject:
   - component: {fileID: 570228330}
   - component: {fileID: 570228329}
   - component: {fileID: 570228328}
-  - component: {fileID: 570228327}
   - component: {fileID: 570228326}
-  - component: {fileID: 570228325}
-  - component: {fileID: 570228324}
-  - component: {fileID: 570228323}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -535,54 +545,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &570228323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570228322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f5791b1328f124e9eb461ad8cb1196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSelectionPanel: {fileID: 131417223}
-  openCharacterSelectionButton: {fileID: 0}
-  backButton: {fileID: 0}
-  hideOnCharacterSelection: {fileID: 1579836809}
---- !u!114 &570228324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570228322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f5791b1328f124e9eb461ad8cb1196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSelectionPanel: {fileID: 0}
-  openCharacterSelectionButton: {fileID: 1970263517}
-  backButton: {fileID: 0}
-  hideOnCharacterSelection: {fileID: 1579836809}
---- !u!114 &570228325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570228322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f5791b1328f124e9eb461ad8cb1196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSelectionPanel: {fileID: 0}
-  openCharacterSelectionButton: {fileID: 0}
-  backButton: {fileID: 0}
-  hideOnCharacterSelection: {fileID: 1579836809}
 --- !u!114 &570228326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,26 +557,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f5791b1328f124e9eb461ad8cb1196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSelectionPanel: {fileID: 0}
-  openCharacterSelectionButton: {fileID: 0}
-  backButton: {fileID: 0}
-  hideOnCharacterSelection: {fileID: 1579836809}
---- !u!114 &570228327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570228322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f5791b1328f124e9eb461ad8cb1196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSelectionPanel: {fileID: 0}
-  openCharacterSelectionButton: {fileID: 0}
-  backButton: {fileID: 0}
-  hideOnCharacterSelection: {fileID: 1579836809}
+  windowSelectionPanel: {fileID: 131417223}
+  openWindowSelectionButton: {fileID: 1970263517}
+  backButton: {fileID: 491307113}
+  hideOnWindowSelection: {fileID: 1579836809}
 --- !u!114 &570228328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,7 +1900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1579836810}
   m_Layer: 5
-  m_Name: MainMenuWindow
+  m_Name: GameOverWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2519,8 +2465,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.44118991, g: 1, b: 0.32452828, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+    m_PressedColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
