@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    Controls the player.
- *  Revision History:       October 26, 2023: Initial PlayerController script.
+ *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial PlayerController script.
  */
 
 using System.Collections.Generic;
