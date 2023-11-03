@@ -5,6 +5,7 @@
  *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial ExperienceManager script.
  *                          November 1, 2023 (Marcus Ngooi): Added sound effect on level up,
  *                                                           Added calculation for current level xp and current required xp.
+ *                          November 3, 2023 (Marcus Ngooi): Removed reference to player. The player will refer to this manager.
  */
 
 using System;
@@ -14,7 +15,6 @@ public class ExperienceManager : Singleton<ExperienceManager>
 {
     public event Action ExperienceThresholdReached;
 
-    [SerializeField] private TEMP_PlayerController player;
     [SerializeField] private LevelUpWindowPresenter levelUpWindowPresenter;
 
     [SerializeField] private float experiencePoints = 0;

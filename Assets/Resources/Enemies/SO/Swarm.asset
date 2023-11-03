@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4f3136ef26b814a89e20de760b522e, type: 3}
   m_Name: Swarm
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2383445823448106425, guid: b5cc088c2e3f4d249b80d8dcaeedc2f4, type: 3}
-  baseExp: 0
-  baseHealth: 0
+  baseExp: 3
+  baseHealth: 10
   baseSpeed: 0.05
+  baseDamage: 3

@@ -1,8 +1,17 @@
-// Mithul Koshy
+/*  Author's Name:          Mithul Koshy
+ *  Last Modified By:       Marcus Ngooi
+ *  Date Last Modified:     November 3, 2023
+ *  Program Description:    Controls the player.
+ *  Revision History:       ??? (Mithul Koshy): Initial PlayerController script.
+ *                          November 2, 2023 (Mithul Koshy): Integrated with ???.
+ *                          November 3, 2023 (Marcus Ngooi): Added weapon and buff list and functions to add.
+ *                                                           Made this script a Singleton.
+ */
 
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTest : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     public float moveSpeed = 5f;
     public GameObject bulletPrefab;
@@ -11,6 +20,12 @@ public class PlayerTest : MonoBehaviour
     public float shootCooldown = 0.5f;
     public float bulletLifetime = 10f; // Time in seconds before bullets despawn
     private float lastShootTime;
+
+    [SerializeField] private List<TEMP_Weapon> weapons = new();
+    [SerializeField] private List<TEMP_Buff> buffs = new();
+
+    public List<TEMP_Weapon> Weapons { get { return weapons; } }
+    public List<TEMP_Buff> Buffs { get { return buffs; } }
 
     private Rigidbody2D rb;
     public Vector2 movement;
@@ -41,6 +56,13 @@ public class PlayerTest : MonoBehaviour
         // Move the player
         rb.velocity = movement.normalized * moveSpeed;
 
+        // Rotate the player based on the movement direction
+        if (movement.magnitude > 0)
+        {
+            float angle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, -angle);
+        }
+
         // Update the camera's position to follow the player
         Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, 0.1f);
@@ -58,5 +80,13 @@ public class PlayerTest : MonoBehaviour
 
         // Destroy the bullet after its lifetime expires
         Destroy(bullet, bulletLifetime);
+    }
+    public void AddWeapon(TEMP_Weapon weapon)
+    {
+        weapons.Add(weapon);
+    }
+    public void AddBuff(TEMP_Buff buff)
+    {
+        buffs.Add(buff);
     }
 }

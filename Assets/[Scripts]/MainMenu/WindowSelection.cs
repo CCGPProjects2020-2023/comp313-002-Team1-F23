@@ -2,44 +2,44 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterSelection : MonoBehaviour
+public class WindowSelection : MonoBehaviour
 {
-    public GameObject characterSelectionPanel;
-    public Button openCharacterSelectionButton;
+    public GameObject windowSelectionPanel;
+    public Button openWindowSelectionButton;
     public Button backButton;
-    public GameObject hideOnCharacterSelection; // GameObject to hide when character selection opens
+    public GameObject hideOnWindowSelection; // GameObject to hide when character selection opens
 
     private void Start()
     {
         // Initially, the character selection panel should be inactive
-        characterSelectionPanel.SetActive(false);
+        windowSelectionPanel.SetActive(false);
 
         // Add click listeners to the buttons
-        openCharacterSelectionButton.onClick.AddListener(OpenCharacterSelection);
+        openWindowSelectionButton.onClick.AddListener(OpenCharacterSelection);
         backButton.onClick.AddListener(CloseCharacterSelection);
     }
 
     private void OpenCharacterSelection()
     {
         // Open the character selection panel
-        characterSelectionPanel.SetActive(true);
+        windowSelectionPanel.SetActive(true);
 
         // Hide the GameObject when character selection opens
-        if (hideOnCharacterSelection != null)
+        if (hideOnWindowSelection != null)
         {
-            hideOnCharacterSelection.SetActive(false);
+            hideOnWindowSelection.SetActive(false);
         }
     }
 
     private void CloseCharacterSelection()
     {
         // Close the character selection panel
-        characterSelectionPanel.SetActive(false);
+        windowSelectionPanel.SetActive(false);
 
         // Show the GameObject when character selection closes
-        if (hideOnCharacterSelection != null)
+        if (hideOnWindowSelection != null)
         {
-            hideOnCharacterSelection.SetActive(true);
+            hideOnWindowSelection.SetActive(true);
         }
     }
 }
