@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fea3b9b57e5d390449c6ed94f04da701
+guid: 6b0f855f0d9865c47859fc7925111741
 labels:
 - Space
 TextureImporter:
@@ -275,6 +275,69 @@ TextureImporter:
       bones: []
       spriteID: 37465644ba03d2049b79b718319e6aad
       internalID: -1300675230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_1
+      rect:
+        serializedVersion: 2
+        x: 2716
+        y: 163
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfa4463e770795488593230bc2c38d8
+      internalID: 2083949351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_9
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 1664
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd0382fd70b4e444a3fec7614069935
+      internalID: 1886123778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_10
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 860
+        width: 79
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f843a87916da04fa118005d3e6ba48
+      internalID: 940459203
       vertices: []
       indices: 
       edges: []

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: VampireShip
   m_EditorClassIdentifier: 
   baseExp: 0
-  baseHealth: 0
+  baseHealth: 20
   baseSpeed: 0.05
   baseDamage: 1

@@ -49,7 +49,7 @@ public abstract class Enemy : MonoBehaviour
     {
         //need to implement some sort of check to see if killed by player
         var capsule = Instantiate(experiencePrefab, transform.position, Quaternion.identity);
-        capsule.GetComponent<ExpCapsule>().experience = exp;
+        capsule.GetComponent<ExpCapsule>().Experience = exp;
     }
 
 

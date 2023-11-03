@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    Manages sound --> Plays sounds and changes volume.
- *  Revision History:       October 26, 2023: Initial SoundManager script.
+ *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial SoundManager script.
  */
 
 using UnityEngine;
@@ -15,7 +15,9 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] AudioSource sfxAudioSource;
 
     [Header("SFX Audio Clips")]
-    [SerializeField] AudioClip skillToLevelUpSelect;
+    [SerializeField] AudioClip skillToLevelUpSelectClip;
+    [SerializeField] AudioClip collectOreClip;
+    [SerializeField] AudioClip levelUpClip;
 
     [Header("Debug")]
     [SerializeField] private float musicVolume = 1f;
@@ -60,10 +62,15 @@ public class SoundManager : Singleton<SoundManager>
         switch (sfxEvent)
         {
             case SfxEvent.SkillToLevelUpSelect:
-                sfxAudioSource.PlayOneShot(skillToLevelUpSelect);
+                sfxAudioSource.PlayOneShot(skillToLevelUpSelectClip);
+                break;
+            case SfxEvent.CollectOre:
+                sfxAudioSource.PlayOneShot(collectOreClip);
+                break;
+            case SfxEvent.LevelUp:
+                sfxAudioSource.PlayOneShot(levelUpClip);
                 break;
         }
-
     }
     public void SetVolume(float value, SoundType type)
     {

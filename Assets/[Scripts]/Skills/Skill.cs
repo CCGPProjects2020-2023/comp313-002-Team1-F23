@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    Base class for a Skill.
- *  Revision History:       October 26, 2023: Initial Skill script.
+ *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial Skill script.
  */
 
 public class Skill

@@ -2,7 +2,7 @@
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 25, 2023
  *  Program Description:    Base class for a Weapon.
- *  Revision History:       October 25, 2023: Initial Weapon script.
+ *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial Weapon script.
  */
 
 using UnityEngine;
