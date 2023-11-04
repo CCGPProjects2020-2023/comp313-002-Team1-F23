@@ -7,7 +7,7 @@
  *                         October 28th, 2023: Updated the script to be the child of TEMP_Buff
  *                         October 30th 2023: Changed to override method
  *                         November 1st, 2023: Setting the BuffType
- *                         November 3rd, 2023: Revamping the calucations 
+ *                         November 3rd, 2023: Revamping the calculations 
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -15,14 +15,10 @@ using UnityEngine;
 
 public class StopWatch : Buff
 {
-    [SerializeField] private float initialCooldownRate = 15f;
     [SerializeField] private float decreaseCooldownRate = 10f;
-
-    // public BuffType stopWatchType { private get; set; }
 
     [SerializeField] TEMP_CoolDownManager coolDownManager;
 
-    //[SerializeField] private int currentLevel = 3;
 
     private void Start()
     {
@@ -31,8 +27,13 @@ public class StopWatch : Buff
 
     public override void ApplyBuff()
     {
+        Debug.Log("Original Base Cooldown: " + TEMP_CoolDownManager.Instance.baseCoolDown);
+
         TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
 
-        Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
+        Debug.Log("Updated cooldown reduction: " + TEMP_CoolDownManager.Instance.coolDownReduction);
+
+        Debug.Log("Updated Base Cooldown: " + 
+            (TEMP_CoolDownManager.Instance.baseCoolDown - TEMP_CoolDownManager.Instance.coolDownReduction));
     }
 }

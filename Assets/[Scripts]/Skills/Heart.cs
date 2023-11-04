@@ -16,32 +16,28 @@ using UnityEngine;
 
 public class Heart : Buff
 {
-    [Header("Do it in point form-- lower-- the higher number is")]
+
     [SerializeField] private float increaseHealthPercentage = 10f;
 
     [SerializeField] TEMP_HealthManager healthManager;
-
-   // public int currentLevel = 3; 
-
-
-
 
     private void Start()
     {
         buffType = BuffType.Heart;
     }
 
-    // health percentage varies based on the level
-    // current maxHealth, newMaxHealth,
-    // Create new script (Monobehaviour) to say "yo, there are variables being modified," pls remember it  
-    // 
+    // Additional Health varies based on the level
+    // Example: 3 * (10/100) * 100 = 30
     public override void ApplyBuff()
     {
 
-        //float tempAdditionalHealth =
+        Debug.Log("Original Base Health: " + TEMP_HealthManager.Instance.basePlayerHealth);
  
         TEMP_HealthManager.Instance.additionalHealth = currentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
 
         Debug.Log("Additional Health: " + TEMP_HealthManager.Instance.additionalHealth);
+        Debug.Log("Updated Base Health: " 
+            + (TEMP_HealthManager.Instance.basePlayerHealth + TEMP_HealthManager.Instance.additionalHealth));
+
     }
 }

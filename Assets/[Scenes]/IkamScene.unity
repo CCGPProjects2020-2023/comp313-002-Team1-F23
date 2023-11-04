@@ -260,11 +260,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: RedTarget
-  currentLevel: 0
+  currentLevel: 3
   maxLevel: 0
   buffType: 1
-  initalDamageRate: 10
-  increasedDamageRate: 3
+  increasedDamageRate: 2
   damageManager: {fileID: 1517639519}
 --- !u!1 &1139216957
 GameObject:
@@ -444,7 +443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1600663832
 Transform:
   m_ObjectHideFlags: 0
@@ -476,7 +475,6 @@ MonoBehaviour:
   currentLevel: 3
   maxLevel: 0
   buffType: 2
-  initialCooldownRate: 10
   decreaseCooldownRate: 5
   coolDownManager: {fileID: 1975867629}
 --- !u!1 &1675015894
@@ -636,6 +634,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8848623720030135062, guid: 6fb416d6b6972514db383f104906a719, type: 3}
+      propertyPath: baseDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848623720030135062, guid: 6fb416d6b6972514db383f104906a719, type: 3}
+      propertyPath: additionalDamage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -689,6 +695,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5921569563377220599, guid: e36b68e58b04afc4895ad021ad4720d4, type: 3}
+      propertyPath: baseCoolDown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921569563377220599, guid: e36b68e58b04afc4895ad021ad4720d4, type: 3}
+      propertyPath: coolDownReduction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9031124280908305984, guid: e36b68e58b04afc4895ad021ad4720d4, type: 3}
       propertyPath: m_Name
       value: TEMP_CoolDownManager
@@ -706,6 +720,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1320765303480212836, guid: 01f4e010104e65c40ae1848cea642ba5, type: 3}
+      propertyPath: additionalHealth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4483729762586009003, guid: 01f4e010104e65c40ae1848cea642ba5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
