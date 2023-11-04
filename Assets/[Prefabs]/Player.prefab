@@ -141,7 +141,6 @@ MonoBehaviour:
   shootCooldown: 0.5
   bulletLifetime: 10
   movement: {x: 0, y: 0}
-  mainCamera: {fileID: 0}
 --- !u!50 &5178592485023243740
 Rigidbody2D:
   serializedVersion: 4
@@ -238,6 +237,10 @@ PrefabInstance:
       propertyPath: unit
       value: 
       objectReference: {fileID: 6533143763079997201}
+    - target: {fileID: 8426158706914240227, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
+      propertyPath: offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8568458411875842844, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

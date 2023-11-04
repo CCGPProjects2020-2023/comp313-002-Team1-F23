@@ -16199,6 +16199,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2020294997}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: OnSave
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Save 1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1733963392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18115,6 +18127,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979220412}
   m_CullTransparentMesh: 1
+--- !u!1 &2020294996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2020294998}
+  - component: {fileID: 2020294997}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2020294997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020294996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9915548606c85c74aa9c9dab473d8cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats:
+  - stat: 0
+    value: 10
+  - stat: 1
+    value: 50
+  - stat: 2
+    value: 5
+  - stat: 3
+    value: 15
+  - stat: 4
+    value: 10
+  - stat: 5
+    value: 5
+  - stat: 6
+    value: 5
+  currentData:
+    persistentUpgrades:
+      playerStats: []
+      gold: 0
+--- !u!4 &2020294998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020294996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48.86086, y: 0.056785583, z: -1.5400176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023831590
 GameObject:
   m_ObjectHideFlags: 0
@@ -18614,3 +18689,4 @@ SceneRoots:
   - {fileID: 478799380}
   - {fileID: 1785947365}
   - {fileID: 1385449606}
+  - {fileID: 2020294998}

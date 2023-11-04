@@ -10,6 +10,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -47,7 +48,7 @@ public class PlayerController : Singleton<PlayerController>
 
         if (currentHealth <= 0)
         {
-            Debug.Log("GameOver");
+            SceneManager.LoadScene("GameOver");
         }
     }
 
