@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131417224}
-  - component: {fileID: 131417225}
   m_Layer: 5
   m_Name: Results
   m_TagString: Untagged
@@ -166,19 +165,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &131417225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131417223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f3eb3c0358bec4393b3829f59654b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuSceneName: MainMenu
 --- !u!1 &363251876
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +313,7 @@ GameObject:
   - component: {fileID: 375393210}
   - component: {fileID: 375393209}
   m_Layer: 5
-  m_Name: Collection (2)
+  m_Name: ResultsList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,8 +390,9 @@ GameObject:
   - component: {fileID: 491307115}
   - component: {fileID: 491307114}
   - component: {fileID: 491307113}
+  - component: {fileID: 491307116}
   m_Layer: 5
-  m_Name: ConfirmBtn (2)
+  m_Name: ConfirmBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,7 +462,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 131417225}
+      - m_Target: {fileID: 491307116}
         m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
@@ -525,6 +512,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491307111}
   m_CullTransparentMesh: 1
+--- !u!114 &491307116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491307111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f3eb3c0358bec4393b3829f59654b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuSceneName: MainMenu
 --- !u!1 &570228322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 925745735}
   - component: {fileID: 925745734}
   m_Layer: 5
-  m_Name: Collection (3)
+  m_Name: ResultsList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 1045125444}
   - component: {fileID: 1045125443}
   m_Layer: 5
-  m_Name: Collection (1)
+  m_Name: ResultsList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a507e4d319138d44482579bc5610a9e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 837c51f11aa80d748a89610d4867a458, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a507e4d319138d44482579bc5610a9e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 837c51f11aa80d748a89610d4867a458, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1750,7 +1750,7 @@ GameObject:
   - component: {fileID: 1378717652}
   - component: {fileID: 1378717651}
   m_Layer: 5
-  m_Name: Collection
+  m_Name: ResultsList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a507e4d319138d44482579bc5610a9e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 837c51f11aa80d748a89610d4867a458, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2250,7 +2250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a507e4d319138d44482579bc5610a9e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 837c51f11aa80d748a89610d4867a458, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

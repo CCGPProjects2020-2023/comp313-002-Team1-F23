@@ -8,7 +8,13 @@
  *                         October 30, 2023 (Ikamjot Hundal): Converted the method and class to abstract for now and removed the body content. 
  *                         November 1st, 2023 (Ikamjot Hundal): Converted the method to virtual
  */
-public class TEMP_Buff : Skill
+
+using UnityEngine;
+public class Buff : Skill
 {
-    public BuffType Type { get; private set; }
+    [SerializeField] protected BuffType buffType;
+
+    public virtual void ApplyBuff() { }
+
+
 }
