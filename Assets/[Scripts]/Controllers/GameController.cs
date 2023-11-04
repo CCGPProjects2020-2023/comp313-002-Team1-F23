@@ -25,19 +25,12 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void Update()
+    void Start()
     {
-        if (Input.GetKeyUp(KeyCode.P))
-        {
-            OnSave("Save 1");
-        }
-        if (Input.GetKeyUp(KeyCode.L))
-        {
-            OnLoad("Save 1");
-        }
+        OnLoad("Save 1");
     }
 
-    private void OnSave(string saveName)
+    public void OnSave(string saveName)
     {
         this.currentData.persistentUpgrades.playerStats = playerStats;
         this.currentData.persistentUpgrades.gold = currentGold;
