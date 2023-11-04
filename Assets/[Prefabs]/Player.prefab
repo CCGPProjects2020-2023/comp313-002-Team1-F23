@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3382693506766808253}
   m_Layer: 0
   m_Name: MissileSpawnPoint
-  m_TagString: Untagged
+  m_TagString: ProjectileSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,6 @@ MonoBehaviour:
   shootCooldown: 0.5
   bulletLifetime: 10
   movement: {x: 0, y: 0}
-  mainCamera: {fileID: 0}
 --- !u!50 &5178592485023243740
 Rigidbody2D:
   serializedVersion: 4
