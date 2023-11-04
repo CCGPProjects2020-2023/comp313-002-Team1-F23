@@ -15,8 +15,8 @@ using UnityEngine;
 
 public class StopWatch : Buff
 {
-    [SerializeField] private float initialCooldownRate = 5f;
-    [SerializeField] private float decreaseCooldownRate = 0.5f;
+    [SerializeField] private float initialCooldownRate = 15f;
+    [SerializeField] private float decreaseCooldownRate = 10f;
 
     // public BuffType stopWatchType { private get; set; }
 
@@ -39,18 +39,31 @@ public class StopWatch : Buff
 
     public override void ApplyBuff()
     {
-        if (TEMP_CoolDownManager.Instance.coolDownReduction > 0)
-        {
-            Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
-            //TEMP_CoolDownManager.Instance.baseCoolDown -= TEMP_CoolDownManager.Instance.coolDownReduction + Time.deltaTime;
-            TEMP_CoolDownManager.Instance.coolDownReduction = TEMP_CoolDownManager.Instance.baseCoolDown
-                * (TEMP_CoolDownManager.Instance.coolDownReduction / 2);
+        //if (TEMP_CoolDownManager.Instance.coolDownReduction > 0)
+        //{
+        //    Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
 
-            Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
-        }
-        else
-        {
-            Debug.Log("nu uh");
-        }
+        //    if (TEMP_CoolDownManager.Instance.isCoolingDown)
+        //    {
+        //        return;
+        //    }
+        //    //TEMP_CoolDownManager.Instance.baseCoolDown -= TEMP_CoolDownManager.Instance.coolDownReduction + Time.deltaTime;
+        //    //TEMP_CoolDownManager.Instance.coolDownReduction = TEMP_CoolDownManager.Instance.baseCoolDown
+        //    //    * (TEMP_CoolDownManager.Instance.coolDownReduction / 2);
+
+        //    //TEMP_CoolDownManager.Instance.baseCoolDown = Time.time / TEMP_CoolDownManager.Instance.coolDownReduction;
+
+        //    //Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
+
+        //    TEMP_CoolDownManager.Instance.baseCoolDown = Time.time + TEMP_CoolDownManager.Instance.baseCoolDown / 2;
+        //}
+        //else
+        //{
+        //    Debug.Log("nu uh");
+        //}
+
+        TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
+
+        Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
     }
 }

@@ -11,6 +11,6 @@ using UnityEngine;
 
 public class TEMP_CoolDownManager : Singleton<TEMP_CoolDownManager>
 {
-    public float baseCoolDown = 2f;
+    public float baseCoolDown = 10f;
     public float coolDownReduction = 0f;
 }

@@ -12,6 +12,6 @@ using UnityEngine;
 public class TEMP_DamageManager : Singleton<TEMP_DamageManager>
 {
     public float baseDamage = 10f;
-    public float additionalDamage = 5f;
+    public float additionalDamage = 0f;
 
 }
