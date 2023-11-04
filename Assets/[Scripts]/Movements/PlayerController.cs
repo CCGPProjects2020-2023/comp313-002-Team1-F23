@@ -21,12 +21,6 @@ public class PlayerController : Singleton<PlayerController>
     public float bulletLifetime = 10f; // Time in seconds before bullets despawn
     private float lastShootTime;
 
-    [SerializeField] private List<TEMP_Weapon> weapons = new();
-    [SerializeField] private List<TEMP_Buff> buffs = new();
-
-    public List<TEMP_Weapon> Weapons { get { return weapons; } }
-    public List<TEMP_Buff> Buffs { get { return buffs; } }
-
     private Rigidbody2D rb;
     public Vector2 movement;
 
@@ -80,13 +74,5 @@ public class PlayerController : Singleton<PlayerController>
 
         // Destroy the bullet after its lifetime expires
         Destroy(bullet, bulletLifetime);
-    }
-    public void AddWeapon(TEMP_Weapon weapon)
-    {
-        weapons.Add(weapon);
-    }
-    public void AddBuff(TEMP_Buff buff)
-    {
-        buffs.Add(buff);
     }
 }

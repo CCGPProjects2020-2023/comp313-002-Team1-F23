@@ -8,16 +8,16 @@
  *                         October 30, 2023 (Ikamjot Hundal): Converted the method and class to abstract for now and removed the body content. 
  *                         November 1st, 2023 (Ikamjot Hundal): Converted the method to virtual
  */
-public class TEMP_Buff : Skill
+public class Buff : Skill
 {
     public BuffType Type { get; private set; }
 
-    public TEMP_Buff(BuffType type, int maxLevel) : base(type.ToString(), maxLevel)
+    public Buff(BuffType type, int maxLevel) : base(type.ToString(), maxLevel)
     {
         this.Type = type;
     }
 
-    // virtual method to be overrided in the child classes 
     public virtual void ApplyBuff() { }
-    
+
+
 }

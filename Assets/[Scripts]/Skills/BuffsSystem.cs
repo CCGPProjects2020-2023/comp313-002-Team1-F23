@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class BuffsSystem : MonoBehaviour
 {
-    [SerializeField] private bool isLevelledUp = false;
+   // [SerializeField] private bool isLevelledUp = false;
 
     [SerializeField] private float speedIncrease = 5;
     [SerializeField] private float damageIncrease = 5;
