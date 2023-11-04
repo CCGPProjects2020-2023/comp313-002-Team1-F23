@@ -8,14 +8,11 @@
  *                         October 30, 2023 (Ikamjot Hundal): Converted the method and class to abstract for now and removed the body content. 
  *                         November 1st, 2023 (Ikamjot Hundal): Converted the method to virtual
  */
+
+using UnityEngine;
 public class Buff : Skill
 {
-    public BuffType Type { get; private set; }
-
-    public Buff(BuffType type, int maxLevel) : base(type.ToString(), maxLevel)
-    {
-        this.Type = type;
-    }
+    [SerializeField] protected BuffType buffType;
 
     public virtual void ApplyBuff() { }
 

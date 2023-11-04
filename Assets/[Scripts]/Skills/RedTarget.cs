@@ -17,8 +17,6 @@ public class RedTarget : Buff
     [SerializeField] private float initalDamageRate = 10f;
     [SerializeField] private float increasedDamageRate = 5f;
 
-    [SerializeField] private BuffType buffType;
-
     [SerializeField] private TEMP_DamageManager damageManager;
 
    // [SerializeField] private int currentLevel = 3;
@@ -28,16 +26,10 @@ public class RedTarget : Buff
         buffType = BuffType.RedTarget;
     }
 
-
-    public RedTarget(BuffType type, int maxLevel) : base(BuffType.RedTarget, maxLevel)
-    {
-        this.buffType = type;
-    }
-
     public override void ApplyBuff()
     {
         
-        TEMP_DamageManager.Instance.additionalDamage = CurrentLevel * increasedDamageRate * TEMP_DamageManager.Instance.baseDamage;
+        TEMP_DamageManager.Instance.additionalDamage = currentLevel * increasedDamageRate * TEMP_DamageManager.Instance.baseDamage;
 
         Debug.Log(TEMP_DamageManager.Instance.additionalDamage);
     }

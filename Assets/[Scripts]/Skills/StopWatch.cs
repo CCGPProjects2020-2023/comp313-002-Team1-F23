@@ -20,8 +20,6 @@ public class StopWatch : Buff
 
     // public BuffType stopWatchType { private get; set; }
 
-    [SerializeField] private BuffType buffType;
-
     [SerializeField] TEMP_CoolDownManager coolDownManager;
 
     //[SerializeField] private int currentLevel = 3;
@@ -31,38 +29,9 @@ public class StopWatch : Buff
         buffType = BuffType.Stopwatch;
     }
 
-    public StopWatch(BuffType type, int maxLevel) : base(type, maxLevel)
-    {
-        this.buffType = type;
-        
-    }
-
     public override void ApplyBuff()
     {
-        //if (TEMP_CoolDownManager.Instance.coolDownReduction > 0)
-        //{
-        //    Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
-
-        //    if (TEMP_CoolDownManager.Instance.isCoolingDown)
-        //    {
-        //        return;
-        //    }
-        //    //TEMP_CoolDownManager.Instance.baseCoolDown -= TEMP_CoolDownManager.Instance.coolDownReduction + Time.deltaTime;
-        //    //TEMP_CoolDownManager.Instance.coolDownReduction = TEMP_CoolDownManager.Instance.baseCoolDown
-        //    //    * (TEMP_CoolDownManager.Instance.coolDownReduction / 2);
-
-        //    //TEMP_CoolDownManager.Instance.baseCoolDown = Time.time / TEMP_CoolDownManager.Instance.coolDownReduction;
-
-        //    //Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
-
-        //    TEMP_CoolDownManager.Instance.baseCoolDown = Time.time + TEMP_CoolDownManager.Instance.baseCoolDown / 2;
-        //}
-        //else
-        //{
-        //    Debug.Log("nu uh");
-        //}
-
-        TEMP_CoolDownManager.Instance.coolDownReduction = CurrentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
+        TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
 
         Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
     }

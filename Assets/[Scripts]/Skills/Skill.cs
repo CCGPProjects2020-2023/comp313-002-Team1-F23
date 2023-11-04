@@ -9,22 +9,16 @@ using UnityEngine;
 
 public class Skill: MonoBehaviour
 {
-    public string Name { get; private set; }
-    public int CurrentLevel { get; private set; }
-    public int MaxLevel { get; private set; }
-
-    public Skill(string name, int maxLevel)
-    {
-        this.Name = name;
-        this.MaxLevel = maxLevel;
-    }
+    [SerializeField] protected string skillName;
+    [SerializeField] protected int currentLevel = 0;
+    [SerializeField] protected int maxLevel;
 
     public void LevelUp()
     {
-        CurrentLevel++;
+        currentLevel++;
     }
     public bool IsMaxLevel()
     {
-        return CurrentLevel >= MaxLevel;
+        return currentLevel >= maxLevel;
     }
 }
