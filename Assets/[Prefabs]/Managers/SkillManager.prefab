@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3286842112261869363}
   m_Layer: 0
   m_Name: LaserGun
-  m_TagString: Untagged
+  m_TagString: LaserGun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +88,7 @@ MonoBehaviour:
   weaponSO: {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
   laserPrefab: {fileID: 2388194765667144922, guid: e2bce216ede8f5640b8f3a488e3b44e9, type: 3}
   gunTransform: {fileID: 0}
+  isActive: 0
 --- !u!1 &7638008050366524535
 GameObject:
   m_ObjectHideFlags: 0
