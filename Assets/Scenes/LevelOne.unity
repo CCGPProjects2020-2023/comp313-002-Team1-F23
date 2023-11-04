@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 780280952}
   m_Layer: 0
   m_Name: MissileSpawnPoint
-  m_TagString: Untagged
+  m_TagString: ProjectileSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,50 +390,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4507001522669079196, guid: 47307db1e4d02b847be9be290f564b62, type: 3}
   m_PrefabInstance: {fileID: 7428676224186385559}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &896602740
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 896602741}
-  - component: {fileID: 896602742}
-  m_Layer: 0
-  m_Name: LaserGun
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &896602741
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896602740}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &896602742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896602740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b040e4d91af3c4ea1961ed1f6916ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &992939246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4137,6 +4093,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5167478853382787664, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: m_TagString
+      value: LaserGun
+      objectReference: {fileID: 0}
     - target: {fileID: 6436655887629292773, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4181,7 +4141,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1799239867158466239, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4199,4 +4160,3 @@ SceneRoots:
   - {fileID: 7960331410847364198}
   - {fileID: 50450565}
   - {fileID: 425307065}
-  - {fileID: 896602741}

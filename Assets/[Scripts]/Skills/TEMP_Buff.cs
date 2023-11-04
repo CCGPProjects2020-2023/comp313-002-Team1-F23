@@ -9,8 +9,4 @@
 public class TEMP_Buff : Skill
 {
     public BuffType Type { get; private set; }
-    public TEMP_Buff(BuffType type, int maxLevel) : base(type.ToString(), maxLevel)
-    {
-        this.Type = type;
-    }
 }

@@ -59,7 +59,7 @@ public class LevelUpWindowPresenter : MonoBehaviour
             buttonGameObj.transform.SetParent(buttonParent, false);
             RectTransform rectTransform = buttonGameObj.GetComponent<RectTransform>();
             rectTransform.anchoredPosition = new Vector2(0, 100 - 200 * i);
-            buttonGameObj.GetComponentInChildren<Text>().text = randomSkills[i].Name;
+            buttonGameObj.GetComponentInChildren<Text>().text = randomSkills[i].name;
             Button button = buttonGameObj.GetComponent<Button>();
             button.onClick.AddListener(() => OnButtonClicked(i));
         }

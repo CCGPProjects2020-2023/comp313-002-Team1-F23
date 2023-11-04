@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SkillManager : Singleton<SkillManager>
@@ -19,13 +20,18 @@ public class SkillManager : Singleton<SkillManager>
 
     [SerializeField] private int numberOfRandomizedSkills = 3;
 
+    private const string firstWeapon = "LaserGun";
+
     // Start is called before the first frame update
     void Start()
     {
-        foreach (WeaponType weaponType in Enum.GetValues(typeof(WeaponType)))
-        {
-
-        }
+        availableWeapons = GetComponentsInChildren<Weapon>().ToList();
+        availableBuffs = GetComponentsInChildren<TEMP_Buff>().ToList();
+        // For now with one character, we manually add this weapon at the beginning
+        // as the first character's starting weapon.
+        Weapon weaponToAdd = availableWeapons.Find(weapon => weapon.name == firstWeapon);
+        currentWeapons.Add(weaponToAdd);
+        ActivateWeapon(weaponToAdd);
     }
 
     // Update is called once per frame
@@ -38,18 +44,22 @@ public class SkillManager : Singleton<SkillManager>
         Skill skillToLevelUp;
         if (skill is Weapon)
         {
-            skillToLevelUp = currentWeapons.Find(weapon => weapon.Name == skill.Name);
+            skillToLevelUp = currentWeapons.Find(weapon => weapon.name == skill.name);
             if (skillToLevelUp == null)
             {
-                AddCurrentWeapon(availableWeapons.Find(weapon => weapon.Name == skill.Name));
+                Weapon weaponToAdd = availableWeapons.Find(weapon => weapon.name == skill.name);
+                AddCurrentWeapon(weaponToAdd);
+                ActivateWeapon(weaponToAdd);
             }
         }
         else
         {
-            skillToLevelUp = currentBuffs.Find(buff => buff.Name == skill.Name);
+            skillToLevelUp = currentBuffs.Find(buff => buff.name == skill.name);
             if (skillToLevelUp == null)
             {
-                AddCurrentBuff(availableBuffs.Find(buff => buff.Name == skill.Name));
+                TEMP_Buff buffToAdd = availableBuffs.Find(buff => buff.name == skill.name);
+                AddCurrentBuff(buffToAdd);
+                // TODO: ApplyBuff()
             }
         }
 
@@ -93,5 +103,9 @@ public class SkillManager : Singleton<SkillManager>
     public void AddCurrentBuff(TEMP_Buff buff)
     {
         currentBuffs.Add(buff);
+    }
+    public void ActivateWeapon(Weapon weapon)
+    {
+        weapon.Behaviour();
     }
 }
