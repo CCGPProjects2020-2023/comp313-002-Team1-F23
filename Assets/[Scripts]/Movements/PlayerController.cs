@@ -22,18 +22,9 @@ public class PlayerController : Singleton<PlayerController>
     public float bulletLifetime = 10f; // Time in seconds before bullets despawn
     private float lastShootTime;
 
-    [SerializeField] private List<TEMP_Weapon> weapons = new();
-    [SerializeField] private List<TEMP_Buff> buffs = new();
-
-    public List<TEMP_Weapon> Weapons { get { return weapons; } }
-    public List<TEMP_Buff> Buffs { get { return buffs; } }
-
     private Rigidbody2D rb;
     private Health playerHealth;
     public Vector2 movement;
-
-    // Reference to the camera
-    public Camera mainCamera;
 
     private void Start()
     {
@@ -73,8 +64,8 @@ public class PlayerController : Singleton<PlayerController>
         }
 
         // Update the camera's position to follow the player
-        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
-        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, 0.1f);
+        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPosition, 0.1f);
     }
 
     private void Shoot()
@@ -90,15 +81,6 @@ public class PlayerController : Singleton<PlayerController>
         // Destroy the bullet after its lifetime expires
         Destroy(bullet, bulletLifetime);
     }
-    public void AddWeapon(TEMP_Weapon weapon)
-    {
-        weapons.Add(weapon);
-    }
-    public void AddBuff(TEMP_Buff buff)
-    {
-        buffs.Add(buff);
-    }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
