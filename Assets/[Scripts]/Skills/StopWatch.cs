@@ -24,7 +24,7 @@ public class StopWatch : Buff
 
     [SerializeField] TEMP_CoolDownManager coolDownManager;
 
-    [SerializeField] private int currentLevel = 3;
+    //[SerializeField] private int currentLevel = 3;
 
     private void Start()
     {
@@ -62,7 +62,7 @@ public class StopWatch : Buff
         //    Debug.Log("nu uh");
         //}
 
-        TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
+        TEMP_CoolDownManager.Instance.coolDownReduction = CurrentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
 
         Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
     }

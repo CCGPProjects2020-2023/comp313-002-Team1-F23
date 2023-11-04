@@ -21,7 +21,7 @@ public class Heart : Buff
 
     [SerializeField] TEMP_HealthManager healthManager;
 
-    public int currentLevel = 3; 
+   // public int currentLevel = 3; 
 
     public BuffType buffType;
 
@@ -47,7 +47,7 @@ public class Heart : Buff
 
         //float tempAdditionalHealth =
  
-        TEMP_HealthManager.Instance.additionalHealth = currentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
+        TEMP_HealthManager.Instance.additionalHealth = CurrentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
 
         Debug.Log(TEMP_HealthManager.Instance.additionalHealth);
     }

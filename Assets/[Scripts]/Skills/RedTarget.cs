@@ -21,7 +21,7 @@ public class RedTarget : Buff
 
     [SerializeField] private TEMP_DamageManager damageManager;
 
-    [SerializeField] private int currentLevel = 3;
+   // [SerializeField] private int currentLevel = 3;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class RedTarget : Buff
     public override void ApplyBuff()
     {
         
-        TEMP_DamageManager.Instance.additionalDamage = currentLevel * increasedDamageRate * TEMP_DamageManager.Instance.baseDamage;
+        TEMP_DamageManager.Instance.additionalDamage = CurrentLevel * increasedDamageRate * TEMP_DamageManager.Instance.baseDamage;
 
         Debug.Log(TEMP_DamageManager.Instance.additionalDamage);
     }
