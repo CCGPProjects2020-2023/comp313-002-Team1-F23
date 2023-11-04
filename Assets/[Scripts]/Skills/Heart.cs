@@ -16,14 +16,21 @@ using UnityEngine;
 
 public class Heart : Buff
 {
-    [SerializeField] private float tempPlayerHealth = 100;
-    [SerializeField] private float increaseHealthPercentage = 0.5f;
+    [Header("Do it in point form-- lower-- the higher number is")]
+    [SerializeField] private float increaseHealthPercentage = 10f;
 
+    [SerializeField] TEMP_HealthManager healthManager;
 
-
-    public TEMP_HealthManager healthManager = new();
+    public int currentLevel = 3; 
 
     public BuffType buffType;
+
+
+    private void Start()
+    {
+        buffType = BuffType.Heart;
+    }
+
 
     //public BuffType heartType { get; set; }
     public Heart(BuffType type, int maxLevel) : base(BuffType.Heart, maxLevel)
@@ -38,15 +45,10 @@ public class Heart : Buff
     public override void ApplyBuff()
     {
 
-        // tempPlayerHealth 
-        float tempPlayerHealth = healthManager.maxPlayerHealth;
-        Debug.Log(tempPlayerHealth);
+        //float tempAdditionalHealth =
+ 
+        TEMP_HealthManager.Instance.additionalHealth = currentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
 
-        increaseHealthPercentage = (tempPlayerHealth / increaseHealthPercentage);
-
-        tempPlayerHealth += increaseHealthPercentage;
-
-        healthManager.maxPlayerHealth = tempPlayerHealth;
-        Debug.Log(healthManager.maxPlayerHealth);
+        Debug.Log(TEMP_HealthManager.Instance.additionalHealth);
     }
 }

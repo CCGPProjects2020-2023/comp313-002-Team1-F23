@@ -8,10 +8,6 @@
  *                         October 30, 2023 (Ikamjot Hundal): Converted the method and class to abstract for now and removed the body content. 
  *                         November 1st, 2023 (Ikamjot Hundal): Converted the method to virtual
  */
-
-using UnityEngine;
-
-
 public class TEMP_Buff : Skill
 {
     public BuffType Type { get; private set; }
