@@ -13,10 +13,10 @@ using UnityEngine;
 public class SkillManager : Singleton<SkillManager>
 {
     private List<Weapon> availableWeapons = new();
-    private List<TEMP_Buff> availableBuffs = new();
+    private List<Buff> availableBuffs = new();
 
     [SerializeField] private List<Weapon> currentWeapons = new();
-    [SerializeField] private List<TEMP_Buff> currentBuffs = new();
+    [SerializeField] private List<Buff> currentBuffs = new();
 
     [SerializeField] private int numberOfRandomizedSkills = 3;
 
@@ -26,7 +26,7 @@ public class SkillManager : Singleton<SkillManager>
     void Start()
     {
         availableWeapons = GetComponentsInChildren<Weapon>().ToList();
-        availableBuffs = GetComponentsInChildren<TEMP_Buff>().ToList();
+        availableBuffs = GetComponentsInChildren<Buff>().ToList();
         // For now with one character, we manually add this weapon at the beginning
         // as the first character's starting weapon.
         Weapon weaponToAdd = availableWeapons.Find(weapon => weapon.name == firstWeapon);
@@ -57,7 +57,7 @@ public class SkillManager : Singleton<SkillManager>
             skillToLevelUp = currentBuffs.Find(buff => buff.name == skill.name);
             if (skillToLevelUp == null)
             {
-                TEMP_Buff buffToAdd = availableBuffs.Find(buff => buff.name == skill.name);
+                Buff buffToAdd = availableBuffs.Find(buff => buff.name == skill.name);
                 AddCurrentBuff(buffToAdd);
                 // TODO: ApplyBuff()
             }
@@ -92,7 +92,7 @@ public class SkillManager : Singleton<SkillManager>
     {
         availableWeapons.Add(weapon);
     }
-    public void AddAvailableBuff(TEMP_Buff buff)
+    public void AddAvailableBuff(Buff buff)
     {
         availableBuffs.Add(buff);
     }
@@ -100,7 +100,7 @@ public class SkillManager : Singleton<SkillManager>
     {
         currentWeapons.Add(weapon);
     }
-    public void AddCurrentBuff(TEMP_Buff buff)
+    public void AddCurrentBuff(Buff buff)
     {
         currentBuffs.Add(buff);
     }
