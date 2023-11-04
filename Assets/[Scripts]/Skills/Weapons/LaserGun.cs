@@ -37,6 +37,7 @@ public class LaserGun : Weapon
     {
         while (isActive)
         {
+            SoundManager.Instance.PlaySfx(SfxEvent.ShootLaserGun);
             Instantiate(laserPrefab, gunTransform.position, gunTransform.rotation);
             yield return new WaitForSeconds(weaponSO.baseCooldown);
         }

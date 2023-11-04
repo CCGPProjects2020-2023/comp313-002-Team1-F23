@@ -18,6 +18,7 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] AudioClip skillToLevelUpSelectClip;
     [SerializeField] AudioClip collectOreClip;
     [SerializeField] AudioClip levelUpClip;
+    [SerializeField] AudioClip shootLaserGunClip;
 
     [Header("Debug")]
     [SerializeField] private float musicVolume = 1f;
@@ -69,6 +70,9 @@ public class SoundManager : Singleton<SoundManager>
                 break;
             case SfxEvent.LevelUp:
                 sfxAudioSource.PlayOneShot(levelUpClip);
+                break;
+            case SfxEvent.ShootLaserGun:
+                sfxAudioSource.PlayOneShot(shootLaserGunClip);
                 break;
         }
     }
