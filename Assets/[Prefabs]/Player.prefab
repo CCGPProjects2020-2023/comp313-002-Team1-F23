@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3382693506766808253}
   m_Layer: 0
   m_Name: MissileSpawnPoint
-  m_TagString: Untagged
+  m_TagString: ProjectileSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

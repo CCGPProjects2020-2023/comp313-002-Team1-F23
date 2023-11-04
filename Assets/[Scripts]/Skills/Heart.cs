@@ -42,6 +42,6 @@ public class Heart : Buff
  
         TEMP_HealthManager.Instance.additionalHealth = currentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
 
-        Debug.Log(TEMP_HealthManager.Instance.additionalHealth);
+        Debug.Log("Additional Health: " + TEMP_HealthManager.Instance.additionalHealth);
     }
 }
