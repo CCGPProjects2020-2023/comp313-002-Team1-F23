@@ -23,19 +23,12 @@ public class Heart : Buff
 
    // public int currentLevel = 3; 
 
-    public BuffType buffType;
+
 
 
     private void Start()
     {
         buffType = BuffType.Heart;
-    }
-
-
-    //public BuffType heartType { get; set; }
-    public Heart(BuffType type, int maxLevel) : base(BuffType.Heart, maxLevel)
-    {
-        this.buffType = type;
     }
 
     // health percentage varies based on the level
@@ -47,7 +40,7 @@ public class Heart : Buff
 
         //float tempAdditionalHealth =
  
-        TEMP_HealthManager.Instance.additionalHealth = CurrentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
+        TEMP_HealthManager.Instance.additionalHealth = currentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
 
         Debug.Log(TEMP_HealthManager.Instance.additionalHealth);
     }
