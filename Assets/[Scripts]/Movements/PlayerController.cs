@@ -14,6 +14,7 @@ using UnityEngine;
 public class PlayerController : Singleton<PlayerController>
 {
     public float moveSpeed = 5f;
+    public float currentHealth, maxHealth;
     public GameObject bulletPrefab;
     public Transform gunTransform;
     public float bulletSpeed = 10f;
@@ -21,7 +22,14 @@ public class PlayerController : Singleton<PlayerController>
     public float bulletLifetime = 10f; // Time in seconds before bullets despawn
     private float lastShootTime;
 
+    [SerializeField] private List<TEMP_Weapon> weapons = new();
+    [SerializeField] private List<TEMP_Buff> buffs = new();
+
+    public List<TEMP_Weapon> Weapons { get { return weapons; } }
+    public List<TEMP_Buff> Buffs { get { return buffs; } }
+
     private Rigidbody2D rb;
+    private Health playerHealth;
     public Vector2 movement;
 
     // Reference to the camera
@@ -30,6 +38,8 @@ public class PlayerController : Singleton<PlayerController>
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerHealth = GetComponentInChildren<Health>();
+        playerHealth.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public void Update()
@@ -42,6 +52,11 @@ public class PlayerController : Singleton<PlayerController>
         if (Input.GetMouseButton(0) && Time.time - lastShootTime > shootCooldown)
         {
             Shoot();
+        }
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("GameOver");
         }
     }
 
@@ -74,5 +89,31 @@ public class PlayerController : Singleton<PlayerController>
 
         // Destroy the bullet after its lifetime expires
         Destroy(bullet, bulletLifetime);
+    }
+    public void AddWeapon(TEMP_Weapon weapon)
+    {
+        weapons.Add(weapon);
+    }
+    public void AddBuff(TEMP_Buff buff)
+    {
+        buffs.Add(buff);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            currentHealth--;
+            playerHealth.UpdateHealthBar(currentHealth, maxHealth);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("EnemyProjectile"))
+        {
+            currentHealth--;
+            playerHealth.UpdateHealthBar(currentHealth, maxHealth);
+        }
     }
 }

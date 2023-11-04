@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Projectile
   - Enemy
-  - LaserGun
-  - ProjectileSpawner
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
