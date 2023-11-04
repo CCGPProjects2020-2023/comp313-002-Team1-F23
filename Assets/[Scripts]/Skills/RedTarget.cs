@@ -31,6 +31,6 @@ public class RedTarget : Buff
         
         TEMP_DamageManager.Instance.additionalDamage = currentLevel * increasedDamageRate * TEMP_DamageManager.Instance.baseDamage;
 
-        Debug.Log(TEMP_DamageManager.Instance.additionalDamage);
+        Debug.Log("Additional Damage: " + TEMP_DamageManager.Instance.additionalDamage);
     }
 }
