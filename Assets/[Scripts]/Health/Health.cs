@@ -1,5 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+/** Author's Name:          Sukhmannat Singh
+ *  Last Modified By:       Sukhmannat Singh
+ *  Date Last Modified:     November 3, 2023
+ *  Program Description:    A script that manages health bars.
+ *  Revision History:       November 3, 2023 (Sukhmannat Singh): Initial Health script.
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 

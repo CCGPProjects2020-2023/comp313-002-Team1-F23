@@ -1,4 +1,4 @@
-/*  Author's Name:          Marcus Ngooi
+/** Author's Name:          Marcus Ngooi
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    A class representing a laser gun.

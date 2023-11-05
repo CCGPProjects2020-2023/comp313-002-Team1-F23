@@ -1,5 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+/** Author's Name:          Ikamjot Hundal
+ *  Last Modified By:       Ikamjot Hundal
+ *  Date Last Modified:     November 4, 2023
+ *  Program Description:    A script to test the Heart Buff
+ *  Revision History:       November 4, 2023 (Ikamjot Hundal): Initial TestHeart script.
+ */
+
 using UnityEngine;
 
 public class TestHeart : MonoBehaviour

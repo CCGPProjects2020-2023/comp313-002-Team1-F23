@@ -1,4 +1,9 @@
-//Created by Mithul Koshy 11/03
+/** Author's Name:          Mithul Koshy
+ *  Last Modified By:       Mithul Koshy
+ *  Date Last Modified:     November 3, 2023
+ *  Program Description:    Navigates to the main menu when the button is pressed.
+ *  Revision History:       November 3, 2023 (Mithul Koshy): Initial MainMenuButton script.
+ */
 
 using UnityEngine;
 using UnityEngine.SceneManagement;

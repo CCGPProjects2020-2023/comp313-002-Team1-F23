@@ -1,7 +1,7 @@
 /** Author's Name:          Han Bi
  *  Last Modified By:       Han Bi
  *  Date Last Modified:     November 2, 2023
- *  Program Description:    A spaner used to randomly spawn enemies
+ *  Program Description:    A spawner used to randomly spawn enemies
  *  Revision History:       November 2, 2023: Initial Script
  */
 using System.Collections;

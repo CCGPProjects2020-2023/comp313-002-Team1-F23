@@ -1,4 +1,10 @@
-using System.Collections;
+/** Author's Name:          Sukhmannat Singh
+ *  Last Modified By:       Sukhmannat Singh
+ *  Date Last Modified:     November 3, 2023
+ *  Program Description:    Classes for SaveData and PersistentUpgrades.
+ *  Revision History:       November 3, 2023 (Sukhmannat Singh): Initial SaveData and PersistentUpgrades script.
+ */
+
 using System.Collections.Generic;
 using UnityEngine;
 

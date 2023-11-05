@@ -1,4 +1,9 @@
-//Created by Mithul Koshy 11/03
+/** Author's Name:          Mithul Koshy
+ *  Last Modified By:       Mithul Koshy
+ *  Date Last Modified:     November 1, 2023
+ *  Program Description:    Controls volume.
+ *  Revision History:       November 1, 2023 (Mithul Koshy): Initial VolumeControl script.
+ */
 
 using UnityEngine;
 using UnityEngine.UI;

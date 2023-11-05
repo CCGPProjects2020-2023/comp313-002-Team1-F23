@@ -1,4 +1,9 @@
-//Created by Mithul Koshy 11/01
+/** Author's Name:          Mithul Koshy
+ *  Last Modified By:       Mithul Koshy
+ *  Date Last Modified:     November 1, 2023
+ *  Program Description:    Selects the appopriate window in the main menu.
+ *  Revision History:       November 1, 2023 (Mithul Koshy): Initial WindowSelection script.
+ */
 
 using System.Collections;
 using UnityEngine;

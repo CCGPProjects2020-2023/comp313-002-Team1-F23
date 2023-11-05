@@ -1,7 +1,10 @@
-/* Created by: Han Bi
- * base class, contains data about the class
- * Last updated by: Han Bi, Oct 12, 2023
+/** Author's Name:          Han Bi
+ *  Last Modified By:       Han Bi
+ *  Date Last Modified:     October 12, 2023
+ *  Program Description:    Base class, contains data about the class
+ *  Revision History:       October 12, 2023: Initial Script
  */
+
 using System;
 using UnityEngine;
 

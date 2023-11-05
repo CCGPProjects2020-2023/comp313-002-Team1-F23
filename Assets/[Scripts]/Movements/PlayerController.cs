@@ -1,4 +1,4 @@
-/*  Author's Name:          Mithul Koshy
+/** Author's Name:          Mithul Koshy
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    Controls the player.

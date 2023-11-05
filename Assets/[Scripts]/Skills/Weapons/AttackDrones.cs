@@ -1,5 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+/** Author's Name:          Marcus Ngooi
+ *  Last Modified By:       Marcus Ngooi
+ *  Date Last Modified:     November 3, 2023
+ *  Program Description:    A script to handle the AttackDrones weapon.
+ *  Revision History:       November 3, 2023 (Marcus Ngooi): Initial AttackDrones script.
+ */
+
 using UnityEngine;
 
 public class AttackDrones : MonoBehaviour

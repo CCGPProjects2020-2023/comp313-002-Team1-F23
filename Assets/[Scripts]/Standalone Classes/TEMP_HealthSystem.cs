@@ -1,4 +1,4 @@
-/* Author's Name:          Ikamjot Hundal
+/**Author's Name:          Ikamjot Hundal
  * Last Modified By:       Ikamjot Hundal
  * Date Last Modified:     November 2nd, 2023 
  * Description:            Child Class to TEMP_Buff.cs for managing Health

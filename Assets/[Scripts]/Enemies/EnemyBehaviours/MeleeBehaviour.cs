@@ -1,7 +1,8 @@
-/* Created by: Han Bi
- * This type of enemy moves towards the target
- * stops when it is in contact with the target
- * Last updated by: Han Bi, Oct 12, 2023
+/** Author's Name:          Han Bi
+ *  Last Modified By:       Han Bi
+ *  Date Last Modified:     October 12, 2023
+ *  Program Description:    This type of enemy moves towards the target stops when it is in contact with the target
+ *  Revision History:       October 12, 2023: Initial Script
  */
 
 using System.Collections;

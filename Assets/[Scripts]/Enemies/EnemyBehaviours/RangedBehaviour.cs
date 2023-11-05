@@ -1,7 +1,10 @@
-/* Created by: Han Bi
- * specifies an attack range for ranged attacks
- * Last updated by: Han Bi, Oct 12, 2023
+/** Author's Name:          Han Bi
+ *  Last Modified By:       Han Bi
+ *  Date Last Modified:     October 12, 2023
+ *  Program Description:    Specifies an attack range for ranged attacks
+ *  Revision History:       October 12, 2023: Initial Script
  */
+
 
 using System.Collections;
 using UnityEngine;

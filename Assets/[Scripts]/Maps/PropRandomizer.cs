@@ -1,4 +1,9 @@
-// Mithul Koshy
+/** Author's Name:          Mithul Koshy
+ *  Last Modified By:       Mithul Koshy
+ *  Date Last Modified:     October 26, 2023
+ *  Program Description:    Randomizes props to be spawned in the level.
+ *  Revision History:       October 26, 2023 (Mithul Koshy): Initial PropRandomizer script.
+ */
 
 using System.Collections;
 using System.Collections.Generic;

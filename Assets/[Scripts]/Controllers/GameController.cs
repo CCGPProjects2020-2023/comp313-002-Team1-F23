@@ -1,4 +1,10 @@
-using System.Collections;
+/** Author's Name:          Sukhmannat Singh
+ *  Last Modified By:       Sukhmannat Singh
+ *  Date Last Modified:     November 3, 2023
+ *  Program Description:    A Controller for the game.
+ *  Revision History:       November 3, 2023 (Sukhmannat Singh): Initial GameController script.
+ */
+
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;

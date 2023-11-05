@@ -1,3 +1,10 @@
+/** Author's Name:          Sukhmannat Singh
+ *  Last Modified By:       Sukhmannat Singh
+ *  Date Last Modified:     November 3, 2023
+ *  Program Description:    Holds Weapon data.
+ *  Revision History:       November 3, 2023 (Sukhmannat Singh): Initial SerializationController script.
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

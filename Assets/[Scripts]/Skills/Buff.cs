@@ -1,4 +1,4 @@
-/* Author's Name:          Marcus Ngooi
+/**Author's Name:          Marcus Ngooi
  * Last Modified By:       Ikamjot Hundal
  * Date Last Modified:     November 1st, 2023
  * Description:            Base class for a Buff.

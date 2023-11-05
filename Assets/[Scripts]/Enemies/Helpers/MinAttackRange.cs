@@ -1,5 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+/** Author's Name:          Han Bi
+ *  Last Modified By:       Han Bi
+ *  Date Last Modified:     November 2, 2023
+ *  Program Description:    Calculates minimum attack range.
+ *  Revision History:       November 2, 2023: Initial Script
+ */
+
 using UnityEngine;
 
 public class MinAttackRange : MonoBehaviour
