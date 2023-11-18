@@ -3,6 +3,7 @@
  *  Date Last Modified:     October 25, 2023
  *  Program Description:    Manages the "skills" which are weapons and buffs.
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial SkillManager script.
+ *                          November 17, 2023 (Han Bi): Added OnNewWeaponAdded event and triggers, updated start function
  */
 
 using System;
@@ -12,6 +13,12 @@ using UnityEngine;
 
 public class SkillManager : Singleton<SkillManager>
 {
+    //events
+    /// <summary>
+    /// This is fired when a new type of weapon is slected
+    /// </summary>
+    public event Action<Weapon> OnNewWeaponAdded = delegate { };
+
     private List<Weapon> availableWeapons = new();
     private List<Buff> availableBuffs = new();
 
@@ -30,8 +37,8 @@ public class SkillManager : Singleton<SkillManager>
         // For now with one character, we manually add this weapon at the beginning
         // as the first character's starting weapon.
         Weapon weaponToAdd = availableWeapons.Find(weapon => weapon.name == firstWeapon);
-        currentWeapons.Add(weaponToAdd);
-        ActivateWeapon(weaponToAdd);
+        //replaced code with this so event is consistently triggered
+        LevelUpSkill(weaponToAdd);
     }
 
     // Update is called once per frame
@@ -47,9 +54,12 @@ public class SkillManager : Singleton<SkillManager>
             skillToLevelUp = currentWeapons.Find(weapon => weapon.name == skill.name);
             if (skillToLevelUp == null)
             {
+                
+
                 Weapon weaponToAdd = availableWeapons.Find(weapon => weapon.name == skill.name);
                 AddCurrentWeapon(weaponToAdd);
                 ActivateWeapon(weaponToAdd);
+                OnNewWeaponAdded(weaponToAdd);
             }
         }
         else
@@ -96,6 +106,7 @@ public class SkillManager : Singleton<SkillManager>
     {
         availableBuffs.Add(buff);
     }
+
     public void AddCurrentWeapon(Weapon weapon)
     {
         currentWeapons.Add(weapon);
@@ -107,5 +118,20 @@ public class SkillManager : Singleton<SkillManager>
     public void ActivateWeapon(Weapon weapon)
     {
         weapon.Behaviour();
+    }
+
+    public List<Weapon> GetUnEmpoweredWeapons()
+    {
+        List<Weapon> unempoweredWeapons = new();
+
+        foreach(var weapon in currentWeapons)
+        {
+            if (!weapon.empowered)
+            {
+                unempoweredWeapons.Add(weapon);
+            }
+        }
+
+        return unempoweredWeapons;
     }
 }
