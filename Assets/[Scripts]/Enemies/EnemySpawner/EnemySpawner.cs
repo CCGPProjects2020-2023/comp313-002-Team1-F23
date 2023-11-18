@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+
         StartCoroutine(SpawnEnemies());
     }
 
@@ -56,8 +57,6 @@ public class EnemySpawner : MonoBehaviour
                 enemy.GetComponent<Enemy>().SetTarget(player);
                 enemy.transform.SetParent(this.transform, true);
             }
-
-            
 
             // Adjust the spawn rate based on your needs
             yield return new WaitForSeconds(spawnRate);
