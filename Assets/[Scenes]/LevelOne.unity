@@ -366,6 +366,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6d7214719cac1428cd91e5103a42b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &268328307
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535449467511718599, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057789395170774277, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
 --- !u!1 &425307063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,6 +4009,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: skillName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5167478853382787664, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: m_TagString
       value: LaserGun
@@ -4019,3 +4080,4 @@ SceneRoots:
   - {fileID: 7960331410847364198}
   - {fileID: 50450565}
   - {fileID: 425307065}
+  - {fileID: 268328307}

@@ -1,8 +1,9 @@
 /** Author's Name:          Han Bi
- *  Last Modified By:       Han Bi
+ *  Last Modified By:       Ikamjot Hundal
  *  Date Last Modified:     November 2, 2023
  *  Program Description:    A spawner used to randomly spawn enemies
  *  Revision History:       November 2, 2023: Initial Script
+ *                          November 21, 2023: Bosses Info
  */
 using System.Collections;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate;
     public GameObject player;
 
+    // Bosses 
+    public float spawnTime = 10f;
+    public float enemyTimer;
     void Start()
     {
         if(player == null)
@@ -61,6 +65,8 @@ public class EnemySpawner : MonoBehaviour
             // Adjust the spawn rate based on your needs
             yield return new WaitForSeconds(spawnRate);
         }
+
+
     }
 
     Vector3 GenerateRandomSpawnPosition()
@@ -108,4 +114,7 @@ public class EnemySpawner : MonoBehaviour
     //    Gizmos.DrawCube(player.transform.position, new Vector3(minDistanceX, minDistanceY, 0));
 
     //}
+
+
+    // Timer for the bosses 
 }
