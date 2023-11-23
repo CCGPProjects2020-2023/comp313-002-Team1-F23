@@ -116,7 +116,7 @@ public class MinigameManager : MonoBehaviour
 
     public void SpawnMinigame(MinigameType gameType, Weapon weapon)
     {
-        //print($"Spawining {gameType} for {weapon}");
+        print($"Spawining {gameType} for {weapon}");
 
         if (minigamePrefabs.ContainsKey(gameType))
         {

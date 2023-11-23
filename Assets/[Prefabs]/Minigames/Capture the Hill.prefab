@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5950235394420877982}
   - component: {fileID: 2969280439396751848}
   - component: {fileID: -6752101180514937316}
+  - component: {fileID: 2553179983088877607}
   m_Layer: 0
   m_Name: Capture the Hill
   m_TagString: Untagged
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4273f5de59e870a478e4f6fe87204512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2553179983088877607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709709356008058603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2a7897be852e343aae7cdcb249c1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicatorPrefab: {fileID: 6394547816797799387, guid: 955bcf596c5ec6a409a94596fa15ddc3, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
