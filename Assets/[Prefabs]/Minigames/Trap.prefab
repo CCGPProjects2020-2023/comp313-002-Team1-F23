@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2026099007530327720}
   - component: {fileID: 8519646308124957841}
   - component: {fileID: 2426401365584088788}
+  - component: {fileID: 7993467247647578074}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Untagged
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e30b5f01c9f18408845e207dbbb6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7993467247647578074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861147764273607863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2a7897be852e343aae7cdcb249c1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicatorPrefab: {fileID: 6394547816797799387, guid: 955bcf596c5ec6a409a94596fa15ddc3, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
