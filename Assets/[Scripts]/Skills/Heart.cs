@@ -7,6 +7,7 @@
  *                         October 28th, 2023: Updated the script to be the child of TEMP_Buff
  *                         October 30th 2023: Changed to override method
  *                         November 1st, 2023: Setting the BuffType
+ *                         November 23rd,2023: Referencing Health Script
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -21,10 +22,14 @@ public class Heart : Buff
 
     [SerializeField] TEMP_HealthManager healthManager;
 
-   // public int currentLevel = 3; 
+    // public int currentLevel = 3; 
 
+    [SerializeField] Health health;
 
-
+    private void Awake()
+    {
+        health = FindObjectOfType<Health>();
+    }
 
     private void Start()
     {
@@ -43,5 +48,7 @@ public class Heart : Buff
         TEMP_HealthManager.Instance.additionalHealth = currentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
 
         Debug.Log("Additional Health: " + TEMP_HealthManager.Instance.additionalHealth);
+
+        health.UpdateHealthBar(TEMP_HealthManager.Instance.basePlayerHealth, TEMP_HealthManager.Instance.additionalHealth);
     }
 }
