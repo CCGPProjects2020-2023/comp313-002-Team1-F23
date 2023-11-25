@@ -15,7 +15,7 @@ public class TestHeart : MonoBehaviour
 
     [SerializeField] Heart heart;
 
-    [SerializeField] TEMP_HealthManager healthManager;
+    
 
     [SerializeField] RedTarget redTarget;
 

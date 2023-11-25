@@ -1,11 +1,12 @@
 /** Author's Name:          Mithul Koshy
- *  Last Modified By:       Marcus Ngooi
+ *  Last Modified By:       Ikamjot Hundal
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    Controls the player.
  *  Revision History:       (Mithul Koshy): Initial PlayerController script.
  *                          November 2, 2023 (Mithul Koshy): Integrated with PlayerTest scripts
  *                          November 3, 2023 (Marcus Ngooi): Added weapon and buff list and functions to add.
  *                                                           Made this script a Singleton.
+ *                          November 24, 2023 (Ikamjot Hundal): Added an variable for the Heart Script 
  */
 
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ public class PlayerController : Singleton<PlayerController>
 {
     public float moveSpeed = 5f;
     public float currentHealth, maxHealth;
+    public float additionalHealth = 0f;
     public GameObject bulletPrefab;
     public Transform gunTransform;
     public float bulletSpeed = 10f;
@@ -50,6 +52,8 @@ public class PlayerController : Singleton<PlayerController>
         {
             SceneManager.LoadScene("GameOver");
         }
+
+
     }
 
     private void FixedUpdate()

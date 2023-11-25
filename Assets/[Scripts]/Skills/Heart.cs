@@ -8,6 +8,7 @@
  *                         October 30th 2023: Changed to override method
  *                         November 1st, 2023: Setting the BuffType
  *                         November 23rd,2023: Referencing Health Script
+ *                         November 24th,2023: Referencing PlayerController Script and resetting the Player Health to max Health 
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -20,15 +21,16 @@ public class Heart : Buff
     [Header("Do it in point form-- lower-- the higher number is")]
     [SerializeField] private float increaseHealthPercentage = 10f;
 
-    [SerializeField] TEMP_HealthManager healthManager;
+    //[SerializeField] TEMP_HealthManager healthManager;
 
-    // public int currentLevel = 3; 
+    Health healthController;
 
-    [SerializeField] Health health;
+    PlayerController playerController;
 
     private void Awake()
     {
-        health = FindObjectOfType<Health>();
+        playerController = FindObjectOfType<PlayerController>();
+        healthController = FindAnyObjectByType<Health>();
     }
 
     private void Start()
@@ -41,14 +43,22 @@ public class Heart : Buff
     // Create new script (Monobehaviour) to say "yo, there are variables being modified," pls remember it  
     // 
     public override void ApplyBuff()
-    {
+    { 
+        PlayerController.Instance.additionalHealth = currentLevel * increaseHealthPercentage / 100 * PlayerController.Instance.maxHealth;
 
-        //float tempAdditionalHealth =
- 
-        TEMP_HealthManager.Instance.additionalHealth = currentLevel * increaseHealthPercentage / 100 * TEMP_HealthManager.Instance.basePlayerHealth;
+        Debug.Log("Additional Health: " + PlayerController.Instance.additionalHealth);
 
-        Debug.Log("Additional Health: " + TEMP_HealthManager.Instance.additionalHealth);
 
-        health.UpdateHealthBar(TEMP_HealthManager.Instance.basePlayerHealth, TEMP_HealthManager.Instance.additionalHealth);
+        PlayerController.Instance.currentHealth = PlayerController.Instance.maxHealth;
+
+
+        PlayerController.Instance.maxHealth = PlayerController.Instance.maxHealth + PlayerController.Instance.additionalHealth;
+
+
+        Debug.Log("Player Health: " + PlayerController.Instance.maxHealth);
+
+        healthController.UpdateHealthBar(PlayerController.Instance.currentHealth, PlayerController.Instance.maxHealth); 
     }
+
+    
 }
