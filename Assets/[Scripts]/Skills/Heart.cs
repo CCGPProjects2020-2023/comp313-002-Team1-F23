@@ -48,16 +48,17 @@ public class Heart : Buff
 
         Debug.Log("Additional Health: " + PlayerController.Instance.additionalHealth);
 
-
+        //Debug.Log("Player Health: " + PlayerController.Instance.maxHealth + " " + PlayerController.Instance.currentHealth);
         PlayerController.Instance.currentHealth = PlayerController.Instance.maxHealth;
+       // Debug.Log("Player Health: " + PlayerController.Instance.maxHealth + " " + PlayerController.Instance.currentHealth);
 
-
-        PlayerController.Instance.maxHealth = PlayerController.Instance.maxHealth + PlayerController.Instance.additionalHealth;
-
+        PlayerController.Instance.currentHealth = PlayerController.Instance.maxHealth + PlayerController.Instance.additionalHealth;
 
         Debug.Log("Player Health: " + PlayerController.Instance.maxHealth);
 
         healthController.UpdateHealthBar(PlayerController.Instance.currentHealth, PlayerController.Instance.maxHealth); 
+
+
     }
 
     

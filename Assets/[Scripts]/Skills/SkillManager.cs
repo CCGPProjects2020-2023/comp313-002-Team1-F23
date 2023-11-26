@@ -4,6 +4,7 @@
  *  Program Description:    Manages the "skills" which are weapons and buffs.
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial SkillManager script.
  *                          November 17, 2023 (Han Bi): Added OnNewWeaponAdded event and triggers, updated start function
+ *                          November 26, 2023 (Ikamjot Hundal): Added BuffActivated and Updated LevelUpSkill
  */
 
 using System;
@@ -69,7 +70,7 @@ public class SkillManager : Singleton<SkillManager>
             {
                 Buff buffToAdd = availableBuffs.Find(buff => buff.name == skill.name);
                 AddCurrentBuff(buffToAdd);
-                // TODO: ApplyBuff()
+                ActivateBuff(buffToAdd);
             }
         }
 
@@ -118,6 +119,11 @@ public class SkillManager : Singleton<SkillManager>
     public void ActivateWeapon(Weapon weapon)
     {
         weapon.Behaviour();
+    }
+
+    public void ActivateBuff(Buff buff)
+    {
+        buff.ApplyBuff();
     }
 
     public List<Weapon> GetUnEmpoweredWeapons()
