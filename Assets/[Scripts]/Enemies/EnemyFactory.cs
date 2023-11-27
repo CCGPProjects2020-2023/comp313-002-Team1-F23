@@ -89,7 +89,7 @@ public class EnemyFactory : Singleton<EnemyFactory>
 
     public GameObject CreateEliteAsteroidGolem(Vector2 pos)
     {
-        var _obj = Instantiate(asteroidGolemPrefab, pos, Quaternion.identity);
+        var _obj = Instantiate(eliteAsteroidGolemPrefab, pos, Quaternion.identity);
 
         return _obj;
     }
