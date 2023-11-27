@@ -48,4 +48,7 @@ MonoBehaviour:
   asteroidGolemPrefab: {fileID: 731596271531790049, guid: 36104fa663b3c514dac973e1072331b0, type: 3}
   locustSwarmPrefab: {fileID: 2300820579493899020, guid: b5cc088c2e3f4d249b80d8dcaeedc2f4, type: 3}
   vampireShipPrefab: {fileID: 5006745078416242405, guid: 4c9c868aa0e330b4b948d870b90d3392, type: 3}
+  eliteLocustPrefab: {fileID: 8636149286630865705, guid: 258e5d5459b9e324ebf699c303e4e349, type: 3}
+  eliteAsteroidGolemPrefab: {fileID: 740878638243147639, guid: 627a70ec886507c4f82b44f2630d693b, type: 3}
+  eliteVampireShipPrefab: {fileID: 7211751518737860598, guid: 351eb4d933c99384db8fe1dac239fc5f, type: 3}
   player: {fileID: 0}

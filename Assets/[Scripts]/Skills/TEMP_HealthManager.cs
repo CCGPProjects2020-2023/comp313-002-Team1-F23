@@ -12,6 +12,5 @@ using UnityEngine;
 public class TEMP_HealthManager : Singleton<TEMP_HealthManager> 
 {
     public float basePlayerHealth = 100f;
-    public float additionalHealth = 0f;
-    
+    public float additionalHealth = 0f;   
 }
