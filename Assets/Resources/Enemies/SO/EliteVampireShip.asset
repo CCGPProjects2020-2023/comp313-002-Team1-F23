@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseExp: 2
   baseHealth: 40
-  baseSpeed: 1
+  baseSpeed: 0.05
   baseDamage: 4

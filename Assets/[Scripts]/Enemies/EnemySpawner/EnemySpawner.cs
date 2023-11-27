@@ -3,7 +3,8 @@
  *  Date Last Modified:     November 2, 2023
  *  Program Description:    A spawner used to randomly spawn enemies
  *  Revision History:       November 2, 2023: Initial Script
- *                          November 21, 2023: Bosses Info
+ *                          November 21, 2023 (Ikamjot Hundal): Bosses Info
+ *                          November 27, 2023 (Ikamjot )
  */
 using System.Collections;
 using UnityEngine;
@@ -15,9 +16,6 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate;
     public GameObject player;
 
-    // Bosses 
-    public float spawnTime = 10f;
-    public float enemyTimer;
     void Start()
     {
         if(player == null)
@@ -36,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
             Vector3 randomPosition = GenerateRandomSpawnPosition();
             GameObject enemy;
             // Instantiate the enemy at the calculated position
-            int random = Random.Range(0, 4);
+            int random = Random.Range(0, 7);
             if(random == 0)
             {
                 enemy = EnemyFactory.Instance.CreateLocust(randomPosition);
@@ -58,6 +56,24 @@ public class EnemySpawner : MonoBehaviour
             else if(random == 3)
             {
                 enemy = EnemyFactory.Instance.CreateAsteroidGolem(randomPosition);
+                enemy.GetComponent<Enemy>().SetTarget(player);
+                enemy.transform.SetParent(this.transform, true);
+            }
+            else if (random == 4)
+            {
+                enemy = EnemyFactory.Instance.CreateEliteLocust(randomPosition);
+                enemy.GetComponent<Enemy>().SetTarget(player);
+                enemy.transform.SetParent(this.transform, true);
+            }
+            else if (random == 5)
+            {
+                enemy = EnemyFactory.Instance.CreateEliteVampireShip(randomPosition);
+                enemy.GetComponent<Enemy>().SetTarget(player);
+                enemy.transform.SetParent(this.transform, true);
+            }
+            else if (random == 6)
+            {
+                enemy = EnemyFactory.Instance.CreateEliteAsteroidGolem(randomPosition);
                 enemy.GetComponent<Enemy>().SetTarget(player);
                 enemy.transform.SetParent(this.transform, true);
             }
@@ -114,7 +130,4 @@ public class EnemySpawner : MonoBehaviour
     //    Gizmos.DrawCube(player.transform.position, new Vector3(minDistanceX, minDistanceY, 0));
 
     //}
-
-
-    // Timer for the bosses 
 }

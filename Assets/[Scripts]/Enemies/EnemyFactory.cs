@@ -1,8 +1,9 @@
 /** Author's Name:          Han Bi
  *  Last Modified By:       Han Bi
- *  Date Last Modified:     November 2, 2023
+ *  Date Last Modified:     November 27, 2023
  *  Program Description:    Factory for creating enemy objects 
  *  Revision History:       November 2, 2023: Initial Script
+ *                          November 27 (Ikamjot Hundal): Added Elite Version of the enemies. 
  */
 
 using UnityEngine;
@@ -20,6 +21,15 @@ public class EnemyFactory : Singleton<EnemyFactory>
 
     [SerializeField]
     GameObject vampireShipPrefab;
+
+    [SerializeField]
+    GameObject eliteLocustPrefab;
+
+    [SerializeField]
+    GameObject eliteAsteroidGolemPrefab;
+
+    [SerializeField]
+    GameObject eliteVampireShipPrefab;
 
     [SerializeField]
     GameObject player;
@@ -63,6 +73,27 @@ public class EnemyFactory : Singleton<EnemyFactory>
 
         return _obj;
     }
+
+    public GameObject CreateEliteLocust(Vector2 pos)
+    {
+        var _obj = Instantiate(eliteLocustPrefab, pos, Quaternion.identity);
+        return _obj;
+    }
+
+    public GameObject CreateEliteVampireShip(Vector2 pos)
+    {
+        var _obj = Instantiate(eliteVampireShipPrefab, pos, Quaternion.identity);
+
+        return _obj;
+    }
+
+    public GameObject CreateEliteAsteroidGolem(Vector2 pos)
+    {
+        var _obj = Instantiate(asteroidGolemPrefab, pos, Quaternion.identity);
+
+        return _obj;
+    }
+
 
 
     //for testing
