@@ -1,19 +1,23 @@
-/*  Author's Name:          Mithul Koshy
- *  Last Modified By:       Marcus Ngooi
+/** Author's Name:          Mithul Koshy
+ *  Last Modified By:       Ikamjot Hundal
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    Controls the player.
  *  Revision History:       (Mithul Koshy): Initial PlayerController script.
  *                          November 2, 2023 (Mithul Koshy): Integrated with PlayerTest scripts
  *                          November 3, 2023 (Marcus Ngooi): Added weapon and buff list and functions to add.
  *                                                           Made this script a Singleton.
+ *                          November 24, 2023 (Ikamjot Hundal): Added an variable for the Heart Script 
  */
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Singleton<PlayerController>
 {
     public float moveSpeed = 5f;
+    public float currentHealth, maxHealth;
+    public float additionalHealth = 0f;
     public GameObject bulletPrefab;
     public Transform gunTransform;
     public float bulletSpeed = 10f;
@@ -21,21 +25,15 @@ public class PlayerController : Singleton<PlayerController>
     public float bulletLifetime = 10f; // Time in seconds before bullets despawn
     private float lastShootTime;
 
-    [SerializeField] private List<TEMP_Weapon> weapons = new();
-    [SerializeField] private List<TEMP_Buff> buffs = new();
-
-    public List<TEMP_Weapon> Weapons { get { return weapons; } }
-    public List<TEMP_Buff> Buffs { get { return buffs; } }
-
     private Rigidbody2D rb;
+    private Health playerHealth;
     public Vector2 movement;
-
-    // Reference to the camera
-    public Camera mainCamera;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerHealth = GetComponentInChildren<Health>();
+        playerHealth.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public void Update()
@@ -49,6 +47,13 @@ public class PlayerController : Singleton<PlayerController>
         {
             Shoot();
         }
+
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
+
     }
 
     private void FixedUpdate()
@@ -64,8 +69,8 @@ public class PlayerController : Singleton<PlayerController>
         }
 
         // Update the camera's position to follow the player
-        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
-        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, 0.1f);
+        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPosition, 0.1f);
     }
 
     private void Shoot()
@@ -81,12 +86,21 @@ public class PlayerController : Singleton<PlayerController>
         // Destroy the bullet after its lifetime expires
         Destroy(bullet, bulletLifetime);
     }
-    public void AddWeapon(TEMP_Weapon weapon)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        weapons.Add(weapon);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            currentHealth--;
+            playerHealth.UpdateHealthBar(currentHealth, maxHealth);
+        }
     }
-    public void AddBuff(TEMP_Buff buff)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        buffs.Add(buff);
+        if (other.gameObject.CompareTag("EnemyProjectile"))
+        {
+            currentHealth--;
+            playerHealth.UpdateHealthBar(currentHealth, maxHealth);
+        }
     }
 }

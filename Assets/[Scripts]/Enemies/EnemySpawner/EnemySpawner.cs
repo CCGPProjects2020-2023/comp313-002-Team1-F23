@@ -1,8 +1,10 @@
 /** Author's Name:          Han Bi
- *  Last Modified By:       Han Bi
+ *  Last Modified By:       Ikamjot Hundal
  *  Date Last Modified:     November 2, 2023
- *  Program Description:    A spaner used to randomly spawn enemies
+ *  Program Description:    A spawner used to randomly spawn enemies
  *  Revision History:       November 2, 2023: Initial Script
+ *                          November 21, 2023 (Ikamjot Hundal): Bosses Info
+ *                          November 27, 2023 (Ikamjot )
  */
 using System.Collections;
 using UnityEngine;
@@ -20,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+
         StartCoroutine(SpawnEnemies());
     }
 
@@ -31,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
             Vector3 randomPosition = GenerateRandomSpawnPosition();
             GameObject enemy;
             // Instantiate the enemy at the calculated position
-            int random = Random.Range(0, 4);
+            int random = Random.Range(0, 7);
             if(random == 0)
             {
                 enemy = EnemyFactory.Instance.CreateLocust(randomPosition);
@@ -56,12 +59,30 @@ public class EnemySpawner : MonoBehaviour
                 enemy.GetComponent<Enemy>().SetTarget(player);
                 enemy.transform.SetParent(this.transform, true);
             }
-
-            
+            else if (random == 4)
+            {
+                enemy = EnemyFactory.Instance.CreateEliteLocust(randomPosition);
+                enemy.GetComponent<Enemy>().SetTarget(player);
+                enemy.transform.SetParent(this.transform, true);
+            }
+            else if (random == 5)
+            {
+                enemy = EnemyFactory.Instance.CreateEliteVampireShip(randomPosition);
+                enemy.GetComponent<Enemy>().SetTarget(player);
+                enemy.transform.SetParent(this.transform, true);
+            }
+            else if (random == 6)
+            {
+                enemy = EnemyFactory.Instance.CreateEliteAsteroidGolem(randomPosition);
+                enemy.GetComponent<Enemy>().SetTarget(player);
+                enemy.transform.SetParent(this.transform, true);
+            }
 
             // Adjust the spawn rate based on your needs
             yield return new WaitForSeconds(spawnRate);
         }
+
+
     }
 
     Vector3 GenerateRandomSpawnPosition()

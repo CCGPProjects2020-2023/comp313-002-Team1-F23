@@ -1,4 +1,9 @@
-//Created by Mithul Koshy
+/** Author's Name:          Mithul Koshy
+ *  Last Modified By:       Mithul Koshy
+ *  Date Last Modified:     October 26, 2023
+ *  Program Description:    Triggers the appropriate map chunk.
+ *  Revision History:       October 26, 2023 (Mithul Koshy): Initial ChunkTrigger script.
+ */
 
 using System.Collections;
 using System.Collections.Generic;

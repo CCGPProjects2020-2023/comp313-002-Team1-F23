@@ -1,4 +1,4 @@
-/*  Author's Name:          Marcus Ngooi
+/** Author's Name:          Marcus Ngooi
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    An enum containing the defined types of sound in the game.

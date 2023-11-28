@@ -1,4 +1,4 @@
-/*  Author's Name:          Marcus Ngooi
+/** Author's Name:          Marcus Ngooi
  *  Last Modified By:       Han Bi
  *  Date Last Modified:     October 25, 2023
  *  Program Description:    Parent class implementing Singleton pattern. 

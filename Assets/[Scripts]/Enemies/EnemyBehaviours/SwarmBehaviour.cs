@@ -1,6 +1,10 @@
-/**Created by Han Bi
- * Used for the 'container' that holds the swarm of enemies
+/** Author's Name:          Han Bi
+ *  Last Modified By:       Han Bi
+ *  Date Last Modified:     November 2, 2023
+ *  Program Description:    Used for the 'container' that holds the swarm of enemies
+ *  Revision History:       November 2, 2023: Initial Script
  */
+
 using UnityEngine;
 
 public class SwarmBehaviour : EnemyBehaviours

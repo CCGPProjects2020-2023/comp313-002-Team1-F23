@@ -1,4 +1,4 @@
-/*  Author's Name:          Han Bi
+/** Author's Name:          Han Bi
  *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     November 1, 2023
  *  Program Description:    Manages experience in the game.

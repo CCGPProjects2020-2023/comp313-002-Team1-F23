@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+/** Author's Name:          Laura Amangeldiyeva
+ *  Last Modified By:       Laura Amangeldiyeva
+ *  Date Last Modified:     October 10, 2023
+ *  Program Description:    A script that moves the player.
+ *  Revision History:       October 10, 2023 (Laura Amangeldiyeva): Initial PlayerMove script.
+ */
+
 using UnityEngine;
-
-
-//Created and modified on 10/30 by Laura A
 
 public class PlayerMove : MonoBehaviour
 {

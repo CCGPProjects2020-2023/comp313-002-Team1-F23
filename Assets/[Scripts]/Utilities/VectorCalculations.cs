@@ -1,6 +1,10 @@
-/** Created by Han Bi
- * Used for custom vector calculations that need to be done for project
+/** Author's Name:          Han Bi
+ *  Last Modified By:       Han Bi
+ *  Date Last Modified:     October 25, 2023
+ *  Program Description:    Used for custom vector calculations that need to be done for project
+ *  Revision History:       October 25, 2023 (Han Bi): Initial BuffType script.
  */
+
 using UnityEngine;
 
 public static class VectorCalculation2D 

@@ -1,4 +1,9 @@
-//Created by Mithul Koshy 10/25
+/** Author's Name:          Mithul Koshy
+ *  Last Modified By:       Mithul Koshy
+ *  Date Last Modified:     October 25, 2023
+ *  Program Description:    Arranges asteroids as props in the level.
+ *  Revision History:       October 25, 2023 (Mithul Koshy): Initial AsteroidUI script.
+ */
 
 using UnityEngine;
 using UnityEngine.UI;
