@@ -34,5 +34,12 @@ public abstract class Minigame : MonoBehaviour
         empowerType = weaponType;
     }
 
+    /// <summary>
+    /// Must be called when player completes minigame
+    /// </summary>
+    protected virtual void CompleteMinigame()
+    {
+        OnMinigameComplete(this);
+    }
 
 }

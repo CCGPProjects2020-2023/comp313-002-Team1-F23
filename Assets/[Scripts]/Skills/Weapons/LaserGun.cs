@@ -16,6 +16,14 @@ public class LaserGun : Weapon
 
     private const string ProjectileSpawner = "ProjectileSpawner";
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            EvolveWeapon();
+        }
+    }
+
     private void Start()
     {
         isActive = false;
@@ -26,20 +34,33 @@ public class LaserGun : Weapon
         baseDamage = weaponSO.baseDamage;
         baseCooldown = weaponSO.baseCooldown;
         baseProjectileSpeed = weaponSO.baseProjectileSpeed;
+
+ 
     }
+
+
+
     public override void Behaviour()
     {
         gunTransform = PlayerController.Instance.gunTransform;
         isActive = true;
         StartCoroutine(Fire());
     }
+
     IEnumerator Fire()
     {
         while (isActive)
         {
             SoundManager.Instance.PlaySfx(SfxEvent.ShootLaserGun);
-            Instantiate(laserPrefab, gunTransform.position, gunTransform.rotation);
+            GameObject laser = Instantiate(laserPrefab, gunTransform.position, gunTransform.rotation);
+            if (isEvolved)
+            {
+                // Modify the laser if the weapon is evolved
+                laser.GetComponent<Laser>().SetEvolvedProperties();
+            }
             yield return new WaitForSeconds(weaponSO.baseCooldown);
         }
     }
+
+
 }

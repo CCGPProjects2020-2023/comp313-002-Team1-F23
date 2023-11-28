@@ -46,8 +46,10 @@ public class LocationIndicator : MonoBehaviour
 
     private void Update()
     {
-        print(rd.isVisible);
-        if (!rd.isVisible)
+        //Debug.Log($"{gameObject.name} is visible: {rd.isVisible}");
+
+
+        if (!rd.isVisible)//IMPORTANT: this counts the editor camera too!
         {
             if (!indicator.activeSelf)
             {
