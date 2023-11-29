@@ -14,4 +14,6 @@ public enum SfxEvent
     LevelUp,
     ShootLaserGun,
     ShootMissile
+    ShootLaserGun,
+    DroneShot
 }

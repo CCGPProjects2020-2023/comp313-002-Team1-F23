@@ -28,13 +28,14 @@ public class SkillManager : Singleton<SkillManager>
 
     [SerializeField] private int numberOfRandomizedSkills = 3;
 
-    private const string firstWeapon = "LaserGun";
+    private const string firstWeapon = "AttackDrones";
 
     // Start is called before the first frame update
     void Start()
     {
         availableWeapons = GetComponentsInChildren<Weapon>().ToList();
         availableBuffs = GetComponentsInChildren<Buff>().ToList();
+
         // For now with one character, we manually add this weapon at the beginning
         // as the first character's starting weapon.
         Weapon weaponToAdd = availableWeapons.Find(weapon => weapon.name == firstWeapon);

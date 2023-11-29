@@ -9,6 +9,7 @@
  *                          November 28, 2023 (Ikamjot Hundal): Made the basecooldown public for access
  */
 
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Weapon : Skill
@@ -24,6 +25,9 @@ public class Weapon : Skill
     public bool empowered = false;
     public bool isEvolved = false;
     [SerializeField] private float evolvedDamageMultiplier = 1.5f;
+    public float BaseCooldown { get => baseCooldown; private set => baseCooldown = value; }
+    public float BaseProjectileSpeed { get => baseProjectileSpeed; private set => baseProjectileSpeed = value; }
+    public WeaponType WeaponType { get => weaponType; private set => weaponType = value; }
 
     public WeaponSO WeaponSO { get { return weaponSO; } }
 
