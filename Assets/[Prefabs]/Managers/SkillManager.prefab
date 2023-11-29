@@ -44,13 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da790547954d3f64dbe838a4a3b168f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: RedTarget
-  currentLevel: 2
-  maxLevel: 3
+  skillName: 
+  currentLevel: 0
+  maxLevel: 0
   buffType: 1
-  initalDamageRate: 10
-  increasedDamageRate: 3
-  damageManager: {fileID: 0}
+  buffLevelSOs:
+  - {fileID: 11400000, guid: 2ff5cfbbace1fe847a9badaa217eab62, type: 2}
+  - {fileID: 11400000, guid: bb41cb6d52414eb4da0b95b81e0ad706, type: 2}
+  - {fileID: 11400000, guid: e19dd090afccee146a97d8ea9465e71d, type: 2}
+  - {fileID: 11400000, guid: 92fcd649a4cdd3c4aaba0178cbb94fdd, type: 2}
 --- !u!1 &3400732151025344925
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +101,7 @@ MonoBehaviour:
   currentLevel: 1
   maxLevel: 3
   buffType: 0
+  buffLevelSOs: []
   increaseHealthPercentage: 10
 --- !u!1 &4441455267972880974
 GameObject:
@@ -279,8 +282,7 @@ MonoBehaviour:
   currentLevel: 1
   maxLevel: 4
   buffType: 2
-  decreaseCooldownRate: 18
-  coolDownManager: {fileID: 0}
+  buffLevelSOs: []
 --- !u!1 &7638008050366524535
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,10 +331,11 @@ MonoBehaviour:
   currentLevel: 0
   maxLevel: 0
   weaponType: 0
-  baseDamage: 0
-  baseCooldown: 0
-  baseProjectileSpeed: 0
-  weaponSO: {fileID: 0}
+  calculatedDamage: 0
+  calculatedCooldown: 0
+  calculatedProjectileSpeed: 0
+  weaponLevelSOs: []
+  empoweredModifier: 0.25
   empowered: 0
   isEvolved: 0
   evolvedDamageMultiplier: 1.5
@@ -397,6 +400,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9473e97056cc1b64d9534e9aa75d6e72, type: 2}
   empoweredModifier: 0.25
   empowered: 0
+  isEvolved: 0
+  evolvedDamageMultiplier: 1.5
   dronePrefab: {fileID: 0}
   numberOfDrones: 2
   isActive: 0

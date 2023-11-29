@@ -29,9 +29,7 @@ public class AttackDrones : Weapon
         weaponType = weaponLevelSOs[0].WeaponType;
         skillName = weaponType.ToString();
         maxLevel = weaponLevelSOs[0].MaxLevel;
-        CalculateCooldown();
-        CalculateDamage();
-        CalculateProjectileSpeed();
+        CalculateStats();
 
         player = GameObject.FindGameObjectWithTag("Player");
     }

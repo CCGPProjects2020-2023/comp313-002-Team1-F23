@@ -21,10 +21,7 @@ public class LaserGun : Weapon
 
     private const string ProjectileSpawner = "ProjectileSpawner";
 
-
     WeaponSO weaponSOCopy;
-
-
 
     private void Update()
     {
@@ -33,24 +30,17 @@ public class LaserGun : Weapon
             EvolveWeapon();
         }
 
-       // weaponSOCopy.baseCooldown = baseCooldown;
-
-
-       
+       // weaponSOCopy.baseCooldown = baseCooldown; 
     }
 
     private void Start()
     {
-       
-        weaponSOCopy = Instantiate(weaponSO);
         isActive = false;
         gunTransform = GameObject.FindWithTag(ProjectileSpawner).GetComponent<Transform>();
         weaponType = weaponLevelSOs[0].WeaponType;
         skillName = weaponType.ToString();
         maxLevel = weaponLevelSOs[0].MaxLevel;
-        CalculateDamage();
-        CalculateCooldown();
-        CalculateProjectileSpeed();
+        CalculateStats();
     }
 
 

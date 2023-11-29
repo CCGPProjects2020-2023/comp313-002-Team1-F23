@@ -1,5 +1,5 @@
 /**Author's Name:          Ikamjot Hundal
- * Last Modified By:       Ikamjot Hundal
+ * Last Modified By:       Marcus Ngooi
  * Date Last Modified:     November 1st, 2023 
  * Description:            Child Class to TEMP_Buff.cs for managing Cooldown Rate
  * ------------------------------------------------------------------------
@@ -9,81 +9,82 @@
  *                         November 1, 2023 (Ikamjot Hundal): Setting the BuffType
  *                         November 3, 2023 (Ikamjot Hundal): Revamping the calucations 
  *                         November 28, 2023 (Ikamjot Hundal): Updated the ApplyBuff to be applied certain times and updating laser gun for now. 
+ *                         November 29, 2023 (Marcus Ngooi): Adjusted Buff to be consistent with new stats system.
  */
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class StopWatch : Buff
 {
-    [SerializeField] private float decreaseCooldownRate = 10f;
+    // [SerializeField] private float decreaseCooldownRate = 10f;
 
-    [SerializeField] TEMP_CoolDownManager coolDownManager;
+    // [SerializeField] TEMP_CoolDownManager coolDownManager;
 
 
-    [Header("Weapons")]
-    [SerializeField] LaserGun laserGunObject;
+    // [Header("Weapons")]
+    // [SerializeField] LaserGun laserGunObject;
 
-    [SerializeField] MissileLauncher missileLauncherObject;
+    // [SerializeField] MissileLauncher missileLauncherObject;
 
-    [SerializeField] AttackDrones attackDronesObject;
+    // [SerializeField] AttackDrones attackDronesObject;
 
     private void Start()
     {
-        buffType = BuffType.Stopwatch;
-        laserGunObject = FindAnyObjectByType<LaserGun>();
-        missileLauncherObject = FindAnyObjectByType<MissileLauncher>();
-        attackDronesObject = FindAnyObjectByType<AttackDrones>();
+        buffType = buffLevelSOs[0].BuffType;
+        skillName = buffType.ToString();
+        maxLevel = buffLevelSOs[0].MaxLevel;
+
+        //laserGunObject = FindAnyObjectByType<LaserGun>();
+        //missileLauncherObject = FindAnyObjectByType<MissileLauncher>();
+        //attackDronesObject = FindAnyObjectByType<AttackDrones>();
 
     }
 
-    public override void ApplyBuff()
-    {
-        if (currentLevel < maxLevel)
-        {
-            LaserGunReduction();
-            AttackDroneReduction();
+    // public override void ApplyBuff()
+    // {
+    //     if (currentLevel < maxLevel)
+    //     {
+    //         LaserGunReduction();
+    //         AttackDroneReduction();
 
-            currentLevel++;
-        }
-        else
-        {
-            Debug.Log("No more level");
-        }
-    }
-
-
-    public void LaserGunReduction()
-    {
-        float laserGunReduction = currentLevel * decreaseCooldownRate / 100 * laserGunObject.baseCooldown;
-
-        Debug.Log(laserGunReduction);
-
-        laserGunObject.baseCooldown = laserGunObject.baseCooldown - laserGunReduction;
-
-        Debug.Log(laserGunObject.baseCooldown);
-    }
+    //         currentLevel++;
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("No more level");
+    //     }
+    // }
 
 
-   /* public void MissileLauncherReduction()
-    {
-        float missileLauncherReduction = currentLevel * decreaseCooldownRate / 100 * missileLauncherObject.baseCooldown;
+    // public void LaserGunReduction()
+    // {
+    //     float laserGunReduction = currentLevel * decreaseCooldownRate / 100 * laserGunObject.baseCooldown;
 
-        Debug.Log(missileLauncherReduction);
+    //     Debug.Log(laserGunReduction);
 
-        missileLauncherObject.baseCooldown = missileLauncherObject.baseCooldown - missileLauncherReduction;
+    //     laserGunObject.baseCooldown = laserGunObject.baseCooldown - laserGunReduction;
 
-        Debug.Log(missileLauncherObject.baseCooldown);
-    } */
+    //     Debug.Log(laserGunObject.baseCooldown);
+    // }
 
-    public void AttackDroneReduction()
-    {
-        float attackDroneReduction = currentLevel * decreaseCooldownRate / 100 * attackDronesObject.baseCooldown;
 
-        Debug.Log(attackDroneReduction);
+    ///* public void MissileLauncherReduction()
+    // {
+    //     float missileLauncherReduction = currentLevel * decreaseCooldownRate / 100 * missileLauncherObject.baseCooldown;
 
-        attackDronesObject.baseCooldown = attackDronesObject.baseCooldown - attackDroneReduction;
+    //     Debug.Log(missileLauncherReduction);
 
-        Debug.Log(attackDronesObject.baseCooldown);
-    } 
+    //     missileLauncherObject.baseCooldown = missileLauncherObject.baseCooldown - missileLauncherReduction;
+
+    //     Debug.Log(missileLauncherObject.baseCooldown);
+    // } */
+
+    // public void AttackDroneReduction()
+    // {
+    //     float attackDroneReduction = currentLevel * decreaseCooldownRate / 100 * attackDronesObject.baseCooldown;
+
+    //     Debug.Log(attackDroneReduction);
+
+    //     attackDronesObject.baseCooldown = attackDronesObject.baseCooldown - attackDroneReduction;
+
+    //     Debug.Log(attackDronesObject.baseCooldown);
+    // } 
 }

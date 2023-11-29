@@ -1,12 +1,12 @@
 /** Author's Name:          Mithul Koshy
- *  Last Modified By:       Mithul Koshy
+ *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     November 28, 2023
  *  Program Description:    A script to handle the MissileLauncher weapon.
- *  Revision History:       November 28, 2023 (Mithul Koshy): 
+ *  Revision History:       November 28, 2023 (Mithul Koshy):
+ *                          November 29, 2023 (Marcus Ngooi): Updated with new stats system.
  */
 
 using System.Collections;
-using System.Reflection;
 using UnityEngine;
 
 public class MissileLauncher : Weapon
@@ -29,12 +29,10 @@ public class MissileLauncher : Weapon
     {
         isActive = false;
         launcherTransform = GameObject.FindWithTag(ProjectileSpawner).GetComponent<Transform>();
-        weaponType = weaponSO.WeaponType;
+        weaponType = weaponLevelSOs[0].WeaponType;
         skillName = weaponType.ToString();
-        maxLevel = weaponSO.MaxLevel;
-        baseDamage = weaponSO.BaseDamage;
-        baseCooldown = weaponSO.BaseCooldown;
-        baseProjectileSpeed = weaponSO.BaseProjectileSpeed;
+        maxLevel = weaponLevelSOs[0].MaxLevel;
+        CalculateStats();
     }
 
     public override void Behaviour()
@@ -54,7 +52,7 @@ public class MissileLauncher : Weapon
             {
                 missile.GetComponent<Missile>().SetEvolvedProperties();
             }
-            yield return new WaitForSeconds(weaponSO.BaseCooldown);
+            yield return new WaitForSeconds(calculatedCooldown);
         }
     }
 }

@@ -1,8 +1,9 @@
 /** Author's Name:          Mithul Koshy
- *  Last Modified By:       Mithul Koshy
+ *  Last Modified By:       Marcus Ngooi
  *  Date Last Modified:     November 28, 2023
  *  Program Description:    A script to handle the Missile.
- *  Revision History:       November 28, 2023 (Mithul Koshy): 
+ *  Revision History:       November 28, 2023 (Mithul Koshy):
+ *                          November 29, 2023 (Marcus Ngooi): Adjusted weapon projectile to be consistent with new stats system.
  */
 
 using UnityEngine;
@@ -16,7 +17,7 @@ public class Missile : MonoBehaviour
     {
         missileLauncher = GameObject.FindWithTag("MissileLauncher").GetComponent<MissileLauncher>();
         Rigidbody2D rBody = GetComponent<Rigidbody2D>();
-        rBody.velocity = missileLauncher.WeaponSO.BaseProjectileSpeed * transform.up;
+        rBody.velocity = missileLauncher.CalculatedProjectileSpeed * transform.up;
         Destroy(gameObject, lifespan);
     }
 

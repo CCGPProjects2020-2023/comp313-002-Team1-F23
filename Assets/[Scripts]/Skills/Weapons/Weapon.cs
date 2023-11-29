@@ -27,8 +27,6 @@ public class Weapon : Skill
 
     [SerializeField] protected float empoweredModifier = 0.25f;
 
-
-
     public bool empowered = false;
     public WeaponType WeaponType { get => weaponType; }
     public float CalculatedDamage { get => calculatedDamage; }
@@ -43,41 +41,50 @@ public class Weapon : Skill
     }
     public void CalculateDamage()
     {
-        // TODO: Add amounts from buffs, persistent upgrades.
-
-        if (!empowered)
-        {
-            // TODO: Find more performant approach later
-            Buff redTarget = SkillManager.Instance.GetBuff(BuffType.RedTarget);
-            if (redTarget != null)
-            {
-                //calculatedDamage = weaponLevelSOs[currentLevel].BaseDamage + redTarget.;
-            }
-        }
-        else
+        // TODO: Add amounts persistent upgrades.
+        if (empowered)
         {
             calculatedDamage = weaponLevelSOs[currentLevel].BaseDamage * (1 + empoweredModifier);
+        }
+        Buff redTarget = SkillManager.Instance.GetBuff(BuffType.RedTarget);
+        if (redTarget != null)
+        {
+            calculatedDamage += redTarget.GetBuffAmount();
         }
     }
     public void CalculateCooldown()
     {
-        // TODO: Add amounts from buffs, persistent upgrades.
-        calculatedCooldown = weaponLevelSOs[currentLevel].BaseCooldown;
+        // TODO: Add amounts from persistent upgrades.
+        calculatedCooldown = weaponLevelSOs[currentLevel - 1].BaseCooldown;
+        Buff stopWatch = SkillManager.Instance.GetBuff(BuffType.Stopwatch);
+        if (stopWatch != null)
+        {
+            calculatedCooldown -= stopWatch.GetBuffAmount() / 100;
+        }
     }
     public void CalculateProjectileSpeed()
     {
         // TODO: Add amounts from buffs, persistent upgrades.
-        calculatedProjectileSpeed = weaponLevelSOs[currentLevel].BaseProjectileSpeed;
+        calculatedProjectileSpeed = weaponLevelSOs[currentLevel - 1].BaseProjectileSpeed;
+    }
+    public void CalculateStats()
+    {
+        CalculateDamage();
+        CalculateCooldown();
+        CalculateProjectileSpeed();
     }
     public void EmpowerWeapon()
     {
-        empowered = true;
+        if (!empowered)
+        {
+            empowered = true;
+        }
+
     }
     public void EvolveWeapon()
     {
         if (!isEvolved)
         {
-            baseDamage *= evolvedDamageMultiplier;
             isEvolved = true;
         }
     }
