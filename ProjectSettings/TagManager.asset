@@ -9,6 +9,7 @@ TagManager:
   - EnemyProjectile
   - LaserGun
   - ProjectileSpawner
+  - ChargingArea
   layers:
   - Default
   - TransparentFX
