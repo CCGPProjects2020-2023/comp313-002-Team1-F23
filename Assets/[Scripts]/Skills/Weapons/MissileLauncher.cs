@@ -29,12 +29,12 @@ public class MissileLauncher : Weapon
     {
         isActive = false;
         launcherTransform = GameObject.FindWithTag(ProjectileSpawner).GetComponent<Transform>();
-        weaponType = weaponSO.weaponType;
+        weaponType = weaponSO.WeaponType;
         skillName = weaponType.ToString();
-        maxLevel = weaponSO.maxLevel;
-        baseDamage = weaponSO.baseDamage;
-        baseCooldown = weaponSO.baseCooldown;
-        baseProjectileSpeed = weaponSO.baseProjectileSpeed;
+        maxLevel = weaponSO.MaxLevel;
+        baseDamage = weaponSO.BaseDamage;
+        baseCooldown = weaponSO.BaseCooldown;
+        baseProjectileSpeed = weaponSO.BaseProjectileSpeed;
     }
 
     public override void Behaviour()
@@ -54,7 +54,7 @@ public class MissileLauncher : Weapon
             {
                 missile.GetComponent<Missile>().SetEvolvedProperties();
             }
-            yield return new WaitForSeconds(weaponSO.baseCooldown);
+            yield return new WaitForSeconds(weaponSO.BaseCooldown);
         }
     }
 }

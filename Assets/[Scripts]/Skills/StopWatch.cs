@@ -38,33 +38,12 @@ public class StopWatch : Buff
 
     public override void ApplyBuff()
     {
-        // TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
-        //weaponSO.baseCooldown = currentLevel * decreaseCooldownRate / 100 * weaponSO.baseCooldown;
-
-        // --------Specific to Laser Gun ---------- Cons: It directly modify the SO, not the game object. 
-
-        /* TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * laserGunObject.WeaponSO.baseCooldown;
-
-         Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
-
-
-         laserGunObject.WeaponSO.baseCooldown = laserGunObject.WeaponSO.baseCooldown - TEMP_CoolDownManager.Instance.coolDownReduction;
-
-         Debug.Log(laserGunObject.WeaponSO.baseCooldown);
-
-         */
-        //---------------------------------------------------------------
-
-
         if (currentLevel < maxLevel)
         {
-
-            //TEMP_CoolDownManager.Instance.baseCoolDown = laserGunObject.baseCooldown;
-
             LaserGunReduction();
+            MissileLauncherReduction();
+            AttackDroneReduction();
 
-
-            //weaponSO.baseCooldown = weapon.baseCooldown;
             currentLevel++;
         }
         else
@@ -97,7 +76,7 @@ public class StopWatch : Buff
         Debug.Log(missileLauncherObject.baseCooldown);
     }
 
-    /*public void AttackDroneReduction()
+    public void AttackDroneReduction()
     {
         float attackDroneReduction = currentLevel * decreaseCooldownRate / 100 * attackDronesObject.baseCooldown;
 
@@ -106,5 +85,5 @@ public class StopWatch : Buff
         missileLauncherObject.baseCooldown = missileLauncherObject.baseCooldown - attackDroneReduction;
 
         Debug.Log(missileLauncherObject.baseCooldown);
-    } */
+    } 
 }

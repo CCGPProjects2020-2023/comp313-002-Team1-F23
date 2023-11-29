@@ -32,7 +32,9 @@ public class LaserGun : Weapon
             EvolveWeapon();
         }
 
-        weaponSOCopy.baseCooldown = baseCooldown;
+       // weaponSOCopy.baseCooldown = baseCooldown;
+
+
        
     }
 

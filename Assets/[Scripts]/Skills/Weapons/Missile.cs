@@ -16,7 +16,7 @@ public class Missile : MonoBehaviour
     {
         missileLauncher = GameObject.FindWithTag("MissileLauncher").GetComponent<MissileLauncher>();
         Rigidbody2D rBody = GetComponent<Rigidbody2D>();
-        rBody.velocity = missileLauncher.WeaponSO.baseProjectileSpeed * transform.up;
+        rBody.velocity = missileLauncher.WeaponSO.BaseProjectileSpeed * transform.up;
         Destroy(gameObject, lifespan);
     }
 

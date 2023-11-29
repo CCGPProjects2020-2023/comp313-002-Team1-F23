@@ -28,7 +28,7 @@ public class SkillManager : Singleton<SkillManager>
 
     [SerializeField] private int numberOfRandomizedSkills = 3;
 
-    private const string firstWeapon = "AttackDrones";
+    private const string firstWeapon = "LaserGun";
 
     // Start is called before the first frame update
     void Start()
