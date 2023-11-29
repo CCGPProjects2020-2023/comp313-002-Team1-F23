@@ -1,6 +1,6 @@
 /** Author's Name:          Marcus Ngooi
- *  Last Modified By:       Marcus Ngooi
- *  Date Last Modified:     October 25, 2023
+ *  Last Modified By:       Mithul Koshy
+ *  Date Last Modified:     November 28, 2023
  *  Program Description:    Base class for a Weapon.
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial Weapon script.
  *                          November 17, 2023 (Han Bi): Added empowered variable and function
@@ -8,6 +8,8 @@
  *                          November 29, 2023 (Marcus Ngooi): Removed unused functions.
  *                          November 29, 2023 (Marcus Ngooi): Added Calculate functions for stats.
  *                                                            Added debugging to virtual Behaviour() function.
+ *                          November 28, 2023 (Mithul): Added weapon evolution scripts
+ *                          November 28, 2023 (Ikamjot Hundal): Made the basecooldown public for access
  */
 
 using System.Collections.Generic;
@@ -25,11 +27,15 @@ public class Weapon : Skill
 
     [SerializeField] protected float empoweredModifier = 0.25f;
 
+
+
     public bool empowered = false;
     public WeaponType WeaponType { get => weaponType; }
     public float CalculatedDamage { get => calculatedDamage; }
     public float CalculatedCooldown { get => calculatedCooldown; }
     public float CalculatedProjectileSpeed { get => calculatedProjectileSpeed; }
+    public bool isEvolved = false;
+    [SerializeField] private float evolvedDamageMultiplier = 1.5f;
 
     public virtual void Behaviour()
     {
@@ -66,5 +72,13 @@ public class Weapon : Skill
     public void EmpowerWeapon()
     {
         empowered = true;
+    }
+    public void EvolveWeapon()
+    {
+        if (!isEvolved)
+        {
+            baseDamage *= evolvedDamageMultiplier;
+            isEvolved = true;
+        }
     }
 }

@@ -24,6 +24,16 @@ public class Laser : MonoBehaviour
         }
         Destroy(gameObject, lifespan);
     }
+
+    public void SetEvolvedProperties()
+    {
+
+        SpriteRenderer laserSpriteRenderer = GetComponent<SpriteRenderer>();
+        if (laserSpriteRenderer != null)
+        {
+            laserSpriteRenderer.color = Color.red; // Change to red for evolved state
+        }
+    }
     public void SetWeapon(Weapon weapon)
     {
         this.weapon = weapon;

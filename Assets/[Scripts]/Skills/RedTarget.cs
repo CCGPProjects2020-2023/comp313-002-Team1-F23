@@ -18,8 +18,6 @@ public class RedTarget : Buff
 
     [SerializeField] private TEMP_DamageManager damageManager;
 
-   // [SerializeField] private int currentLevel = 3;
-
     private void Start()
     {
         buffType = BuffType.RedTarget;

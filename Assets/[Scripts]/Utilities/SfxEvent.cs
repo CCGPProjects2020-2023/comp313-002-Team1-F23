@@ -4,6 +4,7 @@
  *  Program Description:    Contains all the Sfx events in the game.
  *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial SfxEvent enum script.
  *                          November 4, 2023 (Marcus Ngooi): Added ShootLaserGun event.
+ *                          November 28, 2023 (Mithul Koshy): Added ShootMissile event.
  */
 
 public enum SfxEvent
@@ -12,5 +13,6 @@ public enum SfxEvent
     CollectOre,
     LevelUp,
     ShootLaserGun,
+    ShootMissile,
     DroneShot
 }
