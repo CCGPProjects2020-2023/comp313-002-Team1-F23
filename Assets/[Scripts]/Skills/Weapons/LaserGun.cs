@@ -5,6 +5,8 @@
  *  Revision History:       November 3, 2023 (Marcus Ngooi): Initial LaserGun script.
  *                          November 28, 2023 (Marcus Ngooi): Adjustments from weaponSO change.
  *                                                            Refactoring.
+ *                          November 28, 2023 (Ikamjot Hundal): Instantiate a copy of the WeaponSO 
+ *                              and use that copy to make changes to base cooldown
  */
 
 using System.Collections;
@@ -18,8 +20,28 @@ public class LaserGun : Weapon
 
     private const string ProjectileSpawner = "ProjectileSpawner";
 
+
+    WeaponSO weaponSOCopy;
+
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            EvolveWeapon();
+        }
+
+       // weaponSOCopy.baseCooldown = baseCooldown;
+
+
+       
+    }
+
     private void Start()
     {
+       
+        weaponSOCopy = Instantiate(weaponSO);
         isActive = false;
         gunTransform = GameObject.FindWithTag(ProjectileSpawner).GetComponent<Transform>();
         weaponType = weaponSO.WeaponType;
@@ -29,21 +51,32 @@ public class LaserGun : Weapon
         baseCooldown = weaponSO.BaseCooldown;
         baseProjectileSpeed = weaponSO.BaseProjectileSpeed;
     }
+
+
+
     public override void Behaviour()
     {
         gunTransform = PlayerController.Instance.gunTransform;
         isActive = true;
         StartCoroutine(Fire());
     }
+
     IEnumerator Fire()
     {
         while (isActive)
         {
             SoundManager.Instance.PlaySfx(SfxEvent.ShootLaserGun);
             GameObject laser = Instantiate(laserPrefab, gunTransform.position, gunTransform.rotation);
+            if (isEvolved)
+            {
+                // Modify the laser if the weapon is evolved
+                laser.GetComponent<Laser>().SetEvolvedProperties();
+            }
             Laser laserScript = laser.GetComponent<Laser>();
             laserScript.SetWeapon(this);
             yield return new WaitForSeconds(this.baseCooldown);
         }
     }
+
+
 }
