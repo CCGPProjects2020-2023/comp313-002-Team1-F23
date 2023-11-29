@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3501d88fc8d60042bda443888ff8f3a, type: 3}
-  m_Name: AttackDrones
+  m_Name: LaserGun01
   m_EditorClassIdentifier: 
   maxLevel: 4
-  baseDamage: 5
+  baseDamage: 10
   baseCooldown: 1
   baseProjectileSpeed: 10
-  weaponType: 4
+  weaponType: 0

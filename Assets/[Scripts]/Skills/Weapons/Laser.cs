@@ -20,8 +20,7 @@ public class Laser : MonoBehaviour
         if (weapon != null)
         {
             // baseProjectileSpeed is temp. Must account for base + upgrade
-            rBody.velocity = weapon.BaseProjectileSpeed * transform.up;
-            
+            rBody.velocity = weapon.CalculatedProjectileSpeed * transform.up;
         }
         Destroy(gameObject, lifespan);
     }

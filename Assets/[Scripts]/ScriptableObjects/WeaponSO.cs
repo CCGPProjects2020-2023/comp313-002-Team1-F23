@@ -12,7 +12,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "Scriptable Objects/Weapon")]
 public class WeaponSO : ScriptableObject
 {
-
     [SerializeField] private int maxLevel;
     [SerializeField] private float baseDamage;
     [SerializeField] private float baseCooldown;
@@ -20,8 +19,8 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private WeaponType weaponType;
 
     public int MaxLevel { get => maxLevel; private set => maxLevel = value; }
+    public WeaponType WeaponType { get => weaponType; private set => weaponType = value; }
     public float BaseDamage { get => baseDamage; private set => baseDamage = value; }
     public float BaseCooldown { get => baseCooldown; private set => baseCooldown = value; }
     public float BaseProjectileSpeed { get => baseProjectileSpeed; private set => baseProjectileSpeed = value; }
-    public WeaponType WeaponType { get => weaponType; private set => weaponType = value; }
 }

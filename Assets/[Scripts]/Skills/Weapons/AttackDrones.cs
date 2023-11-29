@@ -5,9 +5,9 @@
  *  Revision History:       November 3, 2023 (Marcus Ngooi): Initial AttackDrones script.
  *                          November 28, 2023 (Marcus Ngooi): Logic for spawning drones.
  *                                                            Adjustments from WeaponSO change.
+ *                          November 29, 2023 (Marcus Ngooi): Adjusted for new stats system.
  */
 
-using System.Collections;
 using UnityEngine;
 
 public class AttackDrones : Weapon
@@ -26,12 +26,12 @@ public class AttackDrones : Weapon
     {
         isActive = false;
 
-        weaponType = weaponSO.WeaponType;
+        weaponType = weaponLevelSOs[0].WeaponType;
         skillName = weaponType.ToString();
-        maxLevel = weaponSO.MaxLevel;
-        baseDamage = weaponSO.BaseDamage;
-        baseCooldown = weaponSO.BaseCooldown;
-        baseProjectileSpeed = weaponSO.BaseProjectileSpeed;
+        maxLevel = weaponLevelSOs[0].MaxLevel;
+        CalculateCooldown();
+        CalculateDamage();
+        CalculateProjectileSpeed();
 
         player = GameObject.FindGameObjectWithTag("Player");
     }

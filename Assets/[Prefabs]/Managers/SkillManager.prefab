@@ -82,10 +82,15 @@ MonoBehaviour:
   currentLevel: 0
   maxLevel: 0
   weaponType: 0
-  baseDamage: 0
-  baseCooldown: 0
-  baseProjectileSpeed: 0
-  weaponSO: {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
+  calculatedDamage: 0
+  calculatedCooldown: 0
+  calculatedProjectileSpeed: 0
+  weaponLevelSOs:
+  - {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
+  - {fileID: 11400000, guid: 1d8ba83a16af73642ab9149c2a6a4477, type: 2}
+  - {fileID: 11400000, guid: 607aa503e9129b3428459459ae136eea, type: 2}
+  - {fileID: 11400000, guid: b6a75e88dcce5bb46886be5baeca0801, type: 2}
+  empoweredModifier: 0.25
   empowered: 0
   laserPrefab: {fileID: 2388194765667144922, guid: e2bce216ede8f5640b8f3a488e3b44e9, type: 3}
   gunTransform: {fileID: 0}
@@ -182,10 +187,15 @@ MonoBehaviour:
   currentLevel: 0
   maxLevel: 0
   weaponType: 4
-  baseDamage: 0
-  baseCooldown: 0
-  baseProjectileSpeed: 0
-  weaponSO: {fileID: 11400000, guid: 90ca61f587f9dee488c1eea902942c9d, type: 2}
+  calculatedDamage: 0
+  calculatedCooldown: 0
+  calculatedProjectileSpeed: 0
+  weaponLevelSOs:
+  - {fileID: 11400000, guid: 4acfbc31f4bc86040be3a0a070c624f7, type: 2}
+  - {fileID: 11400000, guid: 599a6419678b8ed4e9cd1e567b0b4292, type: 2}
+  - {fileID: 11400000, guid: 2a3aa0e6521fc8844b314d5cfd0071fc, type: 2}
+  - {fileID: 11400000, guid: 9473e97056cc1b64d9534e9aa75d6e72, type: 2}
+  empoweredModifier: 0.25
   empowered: 0
   dronePrefab: {fileID: 0}
   numberOfDrones: 2

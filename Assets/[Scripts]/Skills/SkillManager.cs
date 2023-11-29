@@ -30,6 +30,9 @@ public class SkillManager : Singleton<SkillManager>
 
     private const string firstWeapon = "AttackDrones";
 
+    public List<Weapon> CurrentWeapons { get => currentWeapons; }
+    public List<Buff> CurrentBuffs { get => currentBuffs; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,8 +59,6 @@ public class SkillManager : Singleton<SkillManager>
             skillToLevelUp = currentWeapons.Find(weapon => weapon.name == skill.name);
             if (skillToLevelUp == null)
             {
-                
-
                 Weapon weaponToAdd = availableWeapons.Find(weapon => weapon.name == skill.name);
                 AddCurrentWeapon(weaponToAdd);
                 ActivateWeapon(weaponToAdd);
@@ -121,17 +122,24 @@ public class SkillManager : Singleton<SkillManager>
     {
         weapon.Behaviour();
     }
-
     public void ActivateBuff(Buff buff)
     {
         buff.ApplyBuff();
     }
-
+    public Buff GetBuff(BuffType buffType)
+    {
+        Buff currentBuff = CurrentBuffs.Find(buff => buff.name == buffType.ToString());
+        if (currentBuff != null)
+        {
+            return currentBuff;
+        }
+        return null;
+    }
     public List<Weapon> GetUnEmpoweredWeapons()
     {
         List<Weapon> unempoweredWeapons = new();
 
-        foreach(var weapon in currentWeapons)
+        foreach (var weapon in currentWeapons)
         {
             if (!weapon.empowered)
             {

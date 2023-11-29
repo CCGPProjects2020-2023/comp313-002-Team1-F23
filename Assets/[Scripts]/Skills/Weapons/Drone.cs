@@ -75,7 +75,7 @@ public class Drone : MonoBehaviour
                 laser.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             }
 
-            yield return new WaitForSeconds(attackDrones.BaseCooldown);
+            yield return new WaitForSeconds(attackDrones.CalculatedCooldown);
         }
     }
 }

@@ -3,47 +3,68 @@
  *  Date Last Modified:     October 25, 2023
  *  Program Description:    Base class for a Weapon.
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial Weapon script.
- *                          November 3, 2023 (Marcus Ngooi): 
  *                          November 17, 2023 (Han Bi): Added empowered variable and function
+ *                          November 28, 2023 (Marcus Ngooi): Added modifier amounts to account for upgrades and buffs.
+ *                          November 29, 2023 (Marcus Ngooi): Removed unused functions.
+ *                          November 29, 2023 (Marcus Ngooi): Added Calculate functions for stats.
+ *                                                            Added debugging to virtual Behaviour() function.
  */
 
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : Skill
 {
     [SerializeField] protected WeaponType weaponType;
-    [SerializeField] protected float baseDamage;
-    [SerializeField] protected float baseCooldown;
-    [SerializeField] protected float baseProjectileSpeed;
 
-    [SerializeField] protected WeaponSO weaponSO;
+    [SerializeField] protected float calculatedDamage = 0f;
+    [SerializeField] protected float calculatedCooldown = 0f;
+    [SerializeField] protected float calculatedProjectileSpeed = 0f;
+
+    [SerializeField] protected List<WeaponSO> weaponLevelSOs = new();
+
+    [SerializeField] protected float empoweredModifier = 0.25f;
 
     public bool empowered = false;
-    public float BaseCooldown { get => baseCooldown; private set => baseCooldown = value; }
-    public float BaseProjectileSpeed { get => baseProjectileSpeed; private set => baseProjectileSpeed = value; }
-    public WeaponType WeaponType { get => weaponType; private set => weaponType = value; }
+    public WeaponType WeaponType { get => weaponType; }
+    public float CalculatedDamage { get => calculatedDamage; }
+    public float CalculatedCooldown { get => calculatedCooldown; }
+    public float CalculatedProjectileSpeed { get => calculatedProjectileSpeed; }
 
-    public WeaponSO WeaponSO { get { return weaponSO; } }
     public virtual void Behaviour()
     {
-
+        Debug.Log("Behaviour() from base Weapon class called.");
     }
-    public Vector2 FindTarget()
+    public void CalculateDamage()
     {
-        return new Vector2(0, 0);
-    }
-    public void IncreaseProjectiles(int increase)
-    {
+        // TODO: Add amounts from buffs, persistent upgrades.
 
-    }
-
-    public void EmpowerWeapon()
-    {
         if (!empowered)
         {
-            baseDamage *= 1.25f;
+            // TODO: Find more performant approach later
+            Buff redTarget = SkillManager.Instance.GetBuff(BuffType.RedTarget);
+            if (redTarget != null)
+            {
+                //calculatedDamage = weaponLevelSOs[currentLevel].BaseDamage + redTarget.;
+            }
+        }
+        else
+        {
+            calculatedDamage = weaponLevelSOs[currentLevel].BaseDamage * (1 + empoweredModifier);
         }
     }
-
+    public void CalculateCooldown()
+    {
+        // TODO: Add amounts from buffs, persistent upgrades.
+        calculatedCooldown = weaponLevelSOs[currentLevel].BaseCooldown;
+    }
+    public void CalculateProjectileSpeed()
+    {
+        // TODO: Add amounts from buffs, persistent upgrades.
+        calculatedProjectileSpeed = weaponLevelSOs[currentLevel].BaseProjectileSpeed;
+    }
+    public void EmpowerWeapon()
+    {
+        empowered = true;
+    }
 }

@@ -7,9 +7,8 @@
  *                         October 28th, 2023: Updated the script to be the child of TEMP_Buff
  *                         October 30th 2023: Changed to override method
  *                         November 1st, 2023: Setting the BuffType
+ *                         November 29, 2023 (Marcus Ngooi): Adjusted Buff to be consistent with new stats system.
  */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RedTarget : Buff
