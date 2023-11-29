@@ -18,36 +18,23 @@ public class StopWatch : Buff
 {
     [SerializeField] private float decreaseCooldownRate = 10f;
 
-    // public BuffType stopWatchType { private get; set; }
-
     [SerializeField] TEMP_CoolDownManager coolDownManager;
 
-    WeaponSO weaponSO;
 
-    LaserGun laserGunObject;
+    [Header("Weapons")]
+    [SerializeField] LaserGun laserGunObject;
 
-    Weapon weapon;
+    [SerializeField] MissileLauncher missileLauncherObject;
 
-
-    //[SerializeField] private int currentLevel = 3;
+    [SerializeField] AttackDrones attackDronesObject;
 
     private void Start()
     {
         buffType = BuffType.Stopwatch;
-        //weapon = FindAnyObjectByType<Weapon>();
         laserGunObject = FindAnyObjectByType<LaserGun>();
-        //weaponSO = FindAnyObjectByType<WeaponSO>();
-        //weaponSO = FindAnyObjectByType<WeaponSO>();
-
+        missileLauncherObject = FindAnyObjectByType<MissileLauncher>();
 
     }
-
-    private void Awake()
-    {
-        //weaponSO = FindAnyObjectByType<WeaponSO>();
-       
-    }
-
 
     public override void ApplyBuff()
     {
@@ -74,14 +61,7 @@ public class StopWatch : Buff
 
             //TEMP_CoolDownManager.Instance.baseCoolDown = laserGunObject.baseCooldown;
 
-            TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * laserGunObject.baseCooldown;
-
-            Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
-
-            laserGunObject.baseCooldown = laserGunObject.baseCooldown - TEMP_CoolDownManager.Instance.coolDownReduction;
-
-            Debug.Log(laserGunObject.baseCooldown);
-
+            LaserGunReduction();
 
 
             //weaponSO.baseCooldown = weapon.baseCooldown;
@@ -92,4 +72,39 @@ public class StopWatch : Buff
             Debug.Log("No more level");
         }
     }
+
+
+    public void LaserGunReduction()
+    {
+        float laserGunReduction = currentLevel * decreaseCooldownRate / 100 * laserGunObject.baseCooldown;
+
+        Debug.Log(laserGunReduction);
+
+        laserGunObject.baseCooldown = laserGunObject.baseCooldown - laserGunReduction;
+
+        Debug.Log(laserGunObject.baseCooldown);
+    }
+
+
+    public void MissileLauncherReduction()
+    {
+        float missileLauncherReduction = currentLevel * decreaseCooldownRate / 100 * missileLauncherObject.baseCooldown;
+
+        Debug.Log(missileLauncherReduction);
+
+        missileLauncherObject.baseCooldown = missileLauncherObject.baseCooldown - missileLauncherReduction;
+
+        Debug.Log(missileLauncherObject.baseCooldown);
+    }
+
+    /*public void AttackDroneReduction()
+    {
+        float attackDroneReduction = currentLevel * decreaseCooldownRate / 100 * attackDronesObject.baseCooldown;
+
+        Debug.Log(attackDroneReduction);
+
+        missileLauncherObject.baseCooldown = missileLauncherObject.baseCooldown - attackDroneReduction;
+
+        Debug.Log(missileLauncherObject.baseCooldown);
+    } */
 }
