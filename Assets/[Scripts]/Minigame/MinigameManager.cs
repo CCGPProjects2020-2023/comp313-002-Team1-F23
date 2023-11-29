@@ -1,8 +1,13 @@
 /** Author's Name:          Han Bi
- *  Last Modified By:       Han Bi
+ *  Modified By:       Han Bi
  *  Date Last Modified:     November 17, 2023
  *  Program Description:    A manager that manages minigames
  *  Revision History:       November 17, 2023 (Han Bi): Initial script
+ *  
+ *  Last Modified By:       Laura Amangeldiyeva
+ *  Date Last Modified:     November 27, 2023
+ *  Program Description:    A manager that manages minigames
+ *  Revision History:       November 27, 2023 (Laura Amangeldiyeva): Changed the script to spawn CaptureTheHill mini game for game testing
  */
 
 
@@ -103,7 +108,8 @@ public class MinigameManager : MonoBehaviour
         if(!minigamesSpawned.Contains(weapon))
         {
             minigamesSpawned.Add(weapon);
-            SpawnMinigame(RandomMinigame(), weapon);
+            //SpawnMinigame(RandomMinigame(), weapon);
+            SpawnMinigame(MinigameType.CaptureTheHill, weapon);
         }
         
     }
@@ -122,9 +128,9 @@ public class MinigameManager : MonoBehaviour
         if (minigamePrefabs.ContainsKey(gameType))
         {
             var _obj = Instantiate(minigamePrefabs[gameType], GenerateSpawnLocation(), Quaternion.identity);
-            _obj.GetComponent<Minigame>().Initalize(weapon);
-            _obj.GetComponent<Minigame>().OnMinigameComplete += HandleMiniGameCompleted;
-            _obj.transform.SetParent(transform);
+            //_obj.GetComponent<Minigame>().Initalize(weapon);
+           // _obj.GetComponent<Minigame>().OnMinigameComplete += HandleMiniGameCompleted;
+           // _obj.transform.SetParent(transform);
         }
         else
         {
