@@ -81,7 +81,6 @@ public class CaptureTheHill : MonoBehaviour
     private void SpawnChargingStation()
     {
         // Implement spawning logic as needed
-        // For example, you can instantiate a new charging station prefab here
         Debug.Log("Charging station spawned!");
     }
 }
