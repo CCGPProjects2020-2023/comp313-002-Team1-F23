@@ -3,6 +3,8 @@
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    A class representing a laser gun.
  *  Revision History:       November 3, 2023 (Marcus Ngooi): Initial LaserGun script.
+ *                          November 28, 2023 (Marcus Ngooi): Adjustments from weaponSO change.
+ *                                                            Refactoring.
  */
 
 using System.Collections;
@@ -20,12 +22,12 @@ public class LaserGun : Weapon
     {
         isActive = false;
         gunTransform = GameObject.FindWithTag(ProjectileSpawner).GetComponent<Transform>();
-        weaponType = weaponSO.weaponType;
+        weaponType = weaponSO.WeaponType;
         skillName = weaponType.ToString();
-        maxLevel = weaponSO.maxLevel;
-        baseDamage = weaponSO.baseDamage;
-        baseCooldown = weaponSO.baseCooldown;
-        baseProjectileSpeed = weaponSO.baseProjectileSpeed;
+        maxLevel = weaponSO.MaxLevel;
+        baseDamage = weaponSO.BaseDamage;
+        baseCooldown = weaponSO.BaseCooldown;
+        baseProjectileSpeed = weaponSO.BaseProjectileSpeed;
     }
     public override void Behaviour()
     {
@@ -38,8 +40,10 @@ public class LaserGun : Weapon
         while (isActive)
         {
             SoundManager.Instance.PlaySfx(SfxEvent.ShootLaserGun);
-            Instantiate(laserPrefab, gunTransform.position, gunTransform.rotation);
-            yield return new WaitForSeconds(weaponSO.baseCooldown);
+            GameObject laser = Instantiate(laserPrefab, gunTransform.position, gunTransform.rotation);
+            Laser laserScript = laser.GetComponent<Laser>();
+            laserScript.SetWeapon(this);
+            yield return new WaitForSeconds(this.baseCooldown);
         }
     }
 }

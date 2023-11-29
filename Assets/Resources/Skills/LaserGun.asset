@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LaserGun
   m_EditorClassIdentifier: 
   maxLevel: 4
-  baseDamage: 15
+  baseDamage: 10
   baseCooldown: 1
   baseProjectileSpeed: 10
   weaponType: 0

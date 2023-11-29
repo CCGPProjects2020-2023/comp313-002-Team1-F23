@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3501d88fc8d60042bda443888ff8f3a, type: 3}
   m_Name: AttackDrones
   m_EditorClassIdentifier: 
-  skillName: AttackDrones
   maxLevel: 4
   baseDamage: 5
   baseCooldown: 1

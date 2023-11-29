@@ -4145,6 +4145,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: skillName
       value: 
       objectReference: {fileID: 0}
@@ -4152,6 +4156,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: LaserGun
       objectReference: {fileID: 0}
+    - target: {fileID: 5690972821758793939, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 90ca61f587f9dee488c1eea902942c9d, type: 2}
+    - target: {fileID: 5690972821758793939, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: dronePrefab
+      value: 
+      objectReference: {fileID: 834869972855464035, guid: f33d1634d7bbae147acbc77d35ad83eb, type: 3}
     - target: {fileID: 6436655887629292773, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

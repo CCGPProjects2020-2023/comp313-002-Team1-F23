@@ -3,6 +3,7 @@
  *  Date Last Modified:     October 26, 2023
  *  Program Description:    Manages sound --> Plays sounds and changes volume.
  *  Revision History:       October 26, 2023 (Marcus Ngooi): Initial SoundManager script.
+ *                          November 28, 2023 (Marcus Ngooi): Add AttackDrone sound effects.
  */
 
 using UnityEngine;
@@ -19,6 +20,7 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] AudioClip collectOreClip;
     [SerializeField] AudioClip levelUpClip;
     [SerializeField] AudioClip shootLaserGunClip;
+    [SerializeField] AudioClip DroneShotClip;
 
     [Header("Debug")]
     [SerializeField] private float musicVolume = 1f;
@@ -73,6 +75,9 @@ public class SoundManager : Singleton<SoundManager>
                 break;
             case SfxEvent.ShootLaserGun:
                 sfxAudioSource.PlayOneShot(shootLaserGunClip);
+                break;
+            case SfxEvent.DroneShot:
+                sfxAudioSource.PlayOneShot(DroneShotClip);
                 break;
         }
     }

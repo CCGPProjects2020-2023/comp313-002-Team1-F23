@@ -86,6 +86,7 @@ MonoBehaviour:
   baseCooldown: 0
   baseProjectileSpeed: 0
   weaponSO: {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
+  empowered: 0
   laserPrefab: {fileID: 2388194765667144922, guid: e2bce216ede8f5640b8f3a488e3b44e9, type: 3}
   gunTransform: {fileID: 0}
   isActive: 0
@@ -177,6 +178,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198a9cf6cb8d44545b7003629d60f424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillName: 
+  currentLevel: 0
+  maxLevel: 0
+  weaponType: 4
+  baseDamage: 0
+  baseCooldown: 0
+  baseProjectileSpeed: 0
+  weaponSO: {fileID: 11400000, guid: 90ca61f587f9dee488c1eea902942c9d, type: 2}
+  empowered: 0
+  dronePrefab: {fileID: 0}
+  numberOfDrones: 2
+  isActive: 0
 --- !u!1 &9057057146125611075
 GameObject:
   m_ObjectHideFlags: 0

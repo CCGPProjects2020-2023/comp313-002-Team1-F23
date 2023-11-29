@@ -11,5 +11,6 @@ public enum SfxEvent
     SkillToLevelUpSelect,
     CollectOre,
     LevelUp,
-    ShootLaserGun
+    ShootLaserGun,
+    DroneShot
 }
