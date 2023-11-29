@@ -3,6 +3,8 @@
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    A class representing a laser gun.
  *  Revision History:       November 3, 2023 (Marcus Ngooi): Initial LaserGun script.
+ *                          November 28, 2023 (Ikamjot Hundal): Instantiate a copy of the WeaponSO 
+ *                              and use that copy to make changes to base cooldown
  */
 
 using System.Collections;
@@ -16,26 +18,34 @@ public class LaserGun : Weapon
 
     private const string ProjectileSpawner = "ProjectileSpawner";
 
+
+    WeaponSO weaponSOCopy;
+
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
             EvolveWeapon();
         }
+
+        weaponSOCopy.baseCooldown = baseCooldown;
+       
     }
 
     private void Start()
     {
+       
+        weaponSOCopy = Instantiate(weaponSO);
         isActive = false;
         gunTransform = GameObject.FindWithTag(ProjectileSpawner).GetComponent<Transform>();
-        weaponType = weaponSO.weaponType;
+        weaponType = weaponSOCopy.weaponType;
         skillName = weaponType.ToString();
-        maxLevel = weaponSO.maxLevel;
-        baseDamage = weaponSO.baseDamage;
-        baseCooldown = weaponSO.baseCooldown;
-        baseProjectileSpeed = weaponSO.baseProjectileSpeed;
-
- 
+        maxLevel = weaponSOCopy.maxLevel;
+        baseDamage = weaponSOCopy.baseDamage;
+        baseCooldown = weaponSOCopy.baseCooldown;
+        baseProjectileSpeed = weaponSOCopy.baseProjectileSpeed;
     }
 
 
@@ -58,7 +68,7 @@ public class LaserGun : Weapon
                 // Modify the laser if the weapon is evolved
                 laser.GetComponent<Laser>().SetEvolvedProperties();
             }
-            yield return new WaitForSeconds(weaponSO.baseCooldown);
+            yield return new WaitForSeconds(weaponSOCopy.baseCooldown);
         }
     }
 

@@ -6,6 +6,7 @@
  *                          November 3, 2023 (Marcus Ngooi): 
  *                          November 17, 2023 (Han Bi): Added empowered variable and function
  *                          November 28, 2023 (Mithul): Added weapon evolution scripts
+ *                          November 28, 2023 (Ikamjot Hundal): Made the basecooldown public for access
  */
 
 using UnityEngine;
@@ -14,7 +15,7 @@ public class Weapon : Skill
 {
     [SerializeField] protected WeaponType weaponType;
     [SerializeField] protected float baseDamage;
-    [SerializeField] protected float baseCooldown;
+    public float baseCooldown;
     [SerializeField] protected float baseProjectileSpeed;
     [SerializeField] protected WeaponSO weaponSO;
 

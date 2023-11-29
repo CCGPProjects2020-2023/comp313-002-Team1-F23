@@ -3,11 +3,12 @@
  * Date Last Modified:     November 1st, 2023 
  * Description:            Child Class to TEMP_Buff.cs for managing Cooldown Rate
  * ------------------------------------------------------------------------
- * Revision History:       October 26th, 2023: Initial StopWatch script.
- *                         October 28th, 2023: Updated the script to be the child of TEMP_Buff
- *                         October 30th 2023: Changed to override method
- *                         November 1st, 2023: Setting the BuffType
- *                         November 3rd, 2023: Revamping the calucations 
+ * Revision History:       October 26, 2023 (Ikamjot Hundal): Initial StopWatch script.
+ *                         October 28, 2023 (Ikamjot Hundal): Updated the script to be the child of TEMP_Buff
+ *                         October 30 2023 (Ikamjot Hundal): Changed to override method
+ *                         November 1, 2023 (Ikamjot Hundal): Setting the BuffType
+ *                         November 3, 2023 (Ikamjot Hundal): Revamping the calucations 
+ *                         November 28, 2023 (Ikamjot Hundal): Updated the ApplyBuff to be applied certain times and updating laser gun for now. 
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -15,24 +16,80 @@ using UnityEngine;
 
 public class StopWatch : Buff
 {
-    [SerializeField] private float initialCooldownRate = 15f;
     [SerializeField] private float decreaseCooldownRate = 10f;
 
     // public BuffType stopWatchType { private get; set; }
 
     [SerializeField] TEMP_CoolDownManager coolDownManager;
 
+    WeaponSO weaponSO;
+
+    LaserGun laserGunObject;
+
+    Weapon weapon;
+
+
     //[SerializeField] private int currentLevel = 3;
 
     private void Start()
     {
         buffType = BuffType.Stopwatch;
+        //weapon = FindAnyObjectByType<Weapon>();
+        laserGunObject = FindAnyObjectByType<LaserGun>();
+        //weaponSO = FindAnyObjectByType<WeaponSO>();
+        //weaponSO = FindAnyObjectByType<WeaponSO>();
+
+
     }
+
+    private void Awake()
+    {
+        //weaponSO = FindAnyObjectByType<WeaponSO>();
+       
+    }
+
 
     public override void ApplyBuff()
     {
-        TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
+        // TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * TEMP_CoolDownManager.Instance.baseCoolDown;
+        //weaponSO.baseCooldown = currentLevel * decreaseCooldownRate / 100 * weaponSO.baseCooldown;
 
-        Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
+        // --------Specific to Laser Gun ---------- Cons: It directly modify the SO, not the game object. 
+
+        /* TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * laserGunObject.WeaponSO.baseCooldown;
+
+         Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
+
+
+         laserGunObject.WeaponSO.baseCooldown = laserGunObject.WeaponSO.baseCooldown - TEMP_CoolDownManager.Instance.coolDownReduction;
+
+         Debug.Log(laserGunObject.WeaponSO.baseCooldown);
+
+         */
+        //---------------------------------------------------------------
+
+
+        if (currentLevel < maxLevel)
+        {
+
+            //TEMP_CoolDownManager.Instance.baseCoolDown = laserGunObject.baseCooldown;
+
+            TEMP_CoolDownManager.Instance.coolDownReduction = currentLevel * decreaseCooldownRate / 100 * laserGunObject.baseCooldown;
+
+            Debug.Log(TEMP_CoolDownManager.Instance.coolDownReduction);
+
+            laserGunObject.baseCooldown = laserGunObject.baseCooldown - TEMP_CoolDownManager.Instance.coolDownReduction;
+
+            Debug.Log(laserGunObject.baseCooldown);
+
+
+
+            //weaponSO.baseCooldown = weapon.baseCooldown;
+            currentLevel++;
+        }
+        else
+        {
+            Debug.Log("No more level");
+        }
     }
 }
