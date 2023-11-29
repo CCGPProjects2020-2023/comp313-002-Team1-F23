@@ -33,6 +33,7 @@ public class StopWatch : Buff
         buffType = BuffType.Stopwatch;
         laserGunObject = FindAnyObjectByType<LaserGun>();
         missileLauncherObject = FindAnyObjectByType<MissileLauncher>();
+        attackDronesObject = FindAnyObjectByType<AttackDrones>();
 
     }
 
@@ -41,7 +42,6 @@ public class StopWatch : Buff
         if (currentLevel < maxLevel)
         {
             LaserGunReduction();
-            MissileLauncherReduction();
             AttackDroneReduction();
 
             currentLevel++;
@@ -65,7 +65,7 @@ public class StopWatch : Buff
     }
 
 
-    public void MissileLauncherReduction()
+   /* public void MissileLauncherReduction()
     {
         float missileLauncherReduction = currentLevel * decreaseCooldownRate / 100 * missileLauncherObject.baseCooldown;
 
@@ -74,7 +74,7 @@ public class StopWatch : Buff
         missileLauncherObject.baseCooldown = missileLauncherObject.baseCooldown - missileLauncherReduction;
 
         Debug.Log(missileLauncherObject.baseCooldown);
-    }
+    } */
 
     public void AttackDroneReduction()
     {
@@ -82,8 +82,8 @@ public class StopWatch : Buff
 
         Debug.Log(attackDroneReduction);
 
-        missileLauncherObject.baseCooldown = missileLauncherObject.baseCooldown - attackDroneReduction;
+        attackDronesObject.baseCooldown = attackDronesObject.baseCooldown - attackDroneReduction;
 
-        Debug.Log(missileLauncherObject.baseCooldown);
+        Debug.Log(attackDronesObject.baseCooldown);
     } 
 }
