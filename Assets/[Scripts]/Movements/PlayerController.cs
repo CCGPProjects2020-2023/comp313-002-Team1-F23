@@ -25,6 +25,10 @@ public class PlayerController : Singleton<PlayerController>
     public float bulletLifetime = 10f; // Time in seconds before bullets despawn
     private float lastShootTime;
 
+
+    [SerializeField]
+    bool invincible;
+
     private Rigidbody2D rb;
     private Health playerHealth;
     public Vector2 movement;
@@ -88,6 +92,7 @@ public class PlayerController : Singleton<PlayerController>
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (invincible) { return; }
         if (other.gameObject.CompareTag("Enemy"))
         {
             currentHealth--;
@@ -97,6 +102,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (invincible) { return; }
         if (other.gameObject.CompareTag("EnemyProjectile"))
         {
             currentHealth--;

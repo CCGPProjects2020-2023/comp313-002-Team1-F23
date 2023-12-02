@@ -1,20 +1,49 @@
 /** Author's Name:          Han Bi
- *  Last Modified By:       Ikamjot Hundal
- *  Date Last Modified:     November 2, 2023
+ *  Last Modified By:       Han Bi
+ *  Date Last Modified:     Dec. 1, 2023
  *  Program Description:    A spawner used to randomly spawn enemies
  *  Revision History:       November 2, 2023: Initial Script
  *                          November 21, 2023 (Ikamjot Hundal): Bosses Info
- *                          November 27, 2023 (Ikamjot )
+ *                          November 27, 2023 (Ikamjot)
+ *                          Dec. 1, 2023 Refactored spawn logic
  */
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using static Enemy;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float minDistanceY;
-    public float minDistanceX;
-    public float spawnRate;
-    public GameObject player;
+    readonly int SPAWN_DELAY = 1;
+
+    [SerializeField]
+    private float minDistanceY;
+    [SerializeField]
+    private float minDistanceX;   
+
+    private GameObject player;
+
+    float timeElapsed = 0f;
+    float nodeTimeElapsed = 0f;
+    int nodeIndex = 0;
+
+    EnemyType mainType;
+    
+    int nextTransition = -1;
+    int enemiesThisWave = 0;
+    int incrementPerDelay;
+
+    bool transition = false;
+
+    //for transitions:
+    EnemyType secondaryType;
+    [SerializeField]
+    [Tooltip("The % of the time the current node needs to elapse before it begins to transition to the next node.")]
+    int percentBeginTransition;
+
+    [SerializeField]
+    List<SpawnNodeSO> spawnNodes;
 
     void Start()
     {
@@ -22,77 +51,152 @@ public class EnemySpawner : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+        
+        if(spawnNodes.Count < 1)
+        {
+            Debug.LogError("Enemy Spawner does not have spawn Nodes");
+        }
 
-        StartCoroutine(SpawnEnemies());
+        nodeIndex = 0;
+        CalculateNodeVariables(nodeIndex);
+        StartCoroutine(nameof(SpawnWaves));
+        
     }
 
-    IEnumerator SpawnEnemies()
+    private void CalculateNodeVariables(int nodeIndex)
+    {
+        SpawnNodeSO activeNode;
+        SpawnNodeSO nextNode;
+
+        try
+        {
+            activeNode = spawnNodes[nodeIndex];
+        }
+        catch(Exception e)
+        {
+            Debug.Log($"Enemy Spawner error:\n{e}");
+            return;
+        }
+
+        try
+        {
+            nextNode = spawnNodes[nodeIndex + 1];
+        }
+        catch
+        {
+            nextNode = null;
+        }
+
+        int waveNumber = 0;
+        
+
+        //if there is another node after this, do some additional calculations for transition
+        if(nextNode != null)
+        {
+            transition = true;
+            nextTransition = nextNode.startTime;
+            secondaryType = nextNode.enemyType;
+            waveNumber = (nextNode.startTime - activeNode.startTime)/SPAWN_DELAY;
+
+        }
+        else
+        {
+            transition = false;
+            nextTransition = -1;
+            secondaryType = EnemyType.Invalid;
+            waveNumber = 60 / SPAWN_DELAY; //by default calculates with 60 seconds
+        }
+
+        mainType = activeNode.enemyType;
+        incrementPerDelay = (activeNode.minSpawnRate - activeNode.maxSpawnRate) / waveNumber;
+
+        nodeTimeElapsed = 0f;
+        enemiesThisWave = activeNode.minSpawnRate;
+    }
+
+
+    private void Update()
+    {
+        timeElapsed += Time.deltaTime;
+
+        if(nextTransition > 0f && timeElapsed >= nextTransition)
+        {
+            nodeIndex++;
+            CalculateNodeVariables(nodeIndex);
+        }
+    }
+
+    IEnumerator SpawnWaves()
     {
         while (true)
         {
-            // Calculate a random position within the specified range
-            Vector3 randomPosition = GenerateRandomSpawnPosition();
-            GameObject enemy;
-            // Instantiate the enemy at the calculated position
-            int random = Random.Range(0, 7);
-            if(random == 0)
-            {
-                enemy = EnemyFactory.Instance.CreateLocust(randomPosition);
-                enemy.GetComponent<Enemy>().SetTarget(player);
-                enemy.transform.SetParent(this.transform, true);
-            }
-            else if (random == 1)
-            {
-                enemy = EnemyFactory.Instance.CreateVampireShip(randomPosition);
-                enemy.GetComponent<Enemy>().SetTarget(player);
-                enemy.transform.SetParent(this.transform, true);
+            int secondaryEnemiesThisWave = GetNumberOfSecondaryEnemies();
 
-            }
-            else if (random == 2)
+            for (int i = 0; i < enemiesThisWave - secondaryEnemiesThisWave; i++)
             {
-                enemy = EnemyFactory.Instance.CreateLocustSwarm(randomPosition, new Vector3(randomPosition.x*-1, randomPosition.y*-1, -1));
-                enemy.transform.SetParent(this.transform, true);
-            }
-            else if(random == 3)
-            {
-                enemy = EnemyFactory.Instance.CreateAsteroidGolem(randomPosition);
-                enemy.GetComponent<Enemy>().SetTarget(player);
-                enemy.transform.SetParent(this.transform, true);
-            }
-            else if (random == 4)
-            {
-                enemy = EnemyFactory.Instance.CreateEliteLocust(randomPosition);
-                enemy.GetComponent<Enemy>().SetTarget(player);
-                enemy.transform.SetParent(this.transform, true);
-            }
-            else if (random == 5)
-            {
-                enemy = EnemyFactory.Instance.CreateEliteVampireShip(randomPosition);
-                enemy.GetComponent<Enemy>().SetTarget(player);
-                enemy.transform.SetParent(this.transform, true);
-            }
-            else if (random == 6)
-            {
-                enemy = EnemyFactory.Instance.CreateEliteAsteroidGolem(randomPosition);
-                enemy.GetComponent<Enemy>().SetTarget(player);
-                enemy.transform.SetParent(this.transform, true);
+
+                var enemy = EnemyFactory.Instance.CreateEnemy(mainType, GenerateRandomSpawnPosition());
+                
+                if(enemy != null)
+                {
+                    enemy.GetComponent<Enemy>().SetTarget(player);
+                }
             }
 
-            // Adjust the spawn rate based on your needs
-            yield return new WaitForSeconds(spawnRate);
+            for (int i = 0; i < secondaryEnemiesThisWave; i++)
+            {
+                var enemy = EnemyFactory.Instance.CreateEnemy(secondaryType, GenerateRandomSpawnPosition());
+
+                if (enemy != null)
+                {
+                    enemy.GetComponent<Enemy>().SetTarget(player);
+                }
+            }
+
+            enemiesThisWave += incrementPerDelay;
+            yield return new WaitForSeconds(SPAWN_DELAY);
         }
-
 
     }
 
+    private int GetNumberOfSecondaryEnemies()
+    {
+        if (transition)
+        {
+            //calculate probability of spawning a secondary type enemy
+            nodeTimeElapsed = timeElapsed - spawnNodes[nodeIndex].startTime;
+            float progress = (nodeTimeElapsed / nextTransition) * 100f;
+            if (progress > percentBeginTransition)
+            {
+                float percentTransition = (progress - percentBeginTransition) / (100f - percentBeginTransition);
+                int numberOfSecondaryEnemies = (int)((percentTransition / 100) * (enemiesThisWave));
+                return numberOfSecondaryEnemies;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public void StopSpawning()
+    {
+        StopAllCoroutines();
+    }
+
+
     Vector3 GenerateRandomSpawnPosition()
     {
-        float x = Random.Range(-minDistanceX, minDistanceX);
-        float y = Random.Range(-minDistanceY, minDistanceY);
+        float x = UnityEngine.Random.Range(-minDistanceX, minDistanceX);
+        float y = UnityEngine.Random.Range(-minDistanceY, minDistanceY);
 
         //we either need to clamp X or Y
         //need to divide numbers by 2 since they will be added to player (at the center)
-        float random = Random.Range(-1, 1);
+        float random = UnityEngine.Random.Range(-1, 1);
         if(random < 0)//clamp X
         {
             if(x < 0)

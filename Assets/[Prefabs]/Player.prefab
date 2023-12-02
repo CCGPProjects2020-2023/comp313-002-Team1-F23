@@ -135,11 +135,13 @@ MonoBehaviour:
   moveSpeed: 4
   currentHealth: 10
   maxHealth: 10
+  additionalHealth: 0
   bulletPrefab: {fileID: 2388194765667144922, guid: f3bbf39e5d890734997d0980bbc3ac03, type: 3}
   gunTransform: {fileID: 3382693506766808253}
   bulletSpeed: 10
   shootCooldown: 0.5
   bulletLifetime: 10
+  invincible: 0
   movement: {x: 0, y: 0}
 --- !u!50 &5178592485023243740
 Rigidbody2D:

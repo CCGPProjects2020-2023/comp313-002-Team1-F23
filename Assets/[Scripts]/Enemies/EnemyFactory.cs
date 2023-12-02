@@ -32,6 +32,8 @@ public class EnemyFactory : Singleton<EnemyFactory>
     GameObject eliteVampireShipPrefab;
 
     [SerializeField]
+    Transform enemyHolder;
+
     GameObject player;
 
     public override void Awake()
@@ -43,19 +45,38 @@ public class EnemyFactory : Singleton<EnemyFactory>
         }
     }
 
+    public GameObject CreateEnemy(Enemy.EnemyType type, Vector2 pos)
+    {
+        return type switch
+        {
+            Enemy.EnemyType.Locust => CreateLocust(pos),
+            Enemy.EnemyType.VampireShip => CreateVampireShip(pos),
+            Enemy.EnemyType.LocustSwarm => CreateLocustSwarm(pos),
+            Enemy.EnemyType.AsteroidGolem => CreateAsteroidGolem(pos),
+            Enemy.EnemyType.EliteVampireShip => CreateEliteVampireShip(pos),
+            Enemy.EnemyType.EliteAsteroidGolem => CreateEliteAsteroidGolem(pos),
+            Enemy.EnemyType.EliteLocust => CreateEliteLocust(pos),
+            Enemy.EnemyType.Invalid => null,
+            _ => null,
+        };
+    }
+
 
     public GameObject CreateLocust(Vector2 pos)
     {
         var _obj = Instantiate(locustPrefab, pos, Quaternion.identity);
+        _obj.transform.SetParent(enemyHolder);
         return _obj;
     }
 
-    public GameObject CreateLocustSwarm(Vector2 pos, Vector2 dest)
+    public GameObject CreateLocustSwarm(Vector2 pos)
     {
         var _obj = Instantiate(locustSwarmPrefab, pos, Quaternion.identity);
         var target = new GameObject();
+        Vector2 dest = new(-pos.x, -pos.y);
         target.transform.position = dest;
         _obj.GetComponent<Enemy>().SetTarget(target);
+        _obj.transform.SetParent(enemyHolder);
 
         return _obj;
     }
@@ -63,34 +84,35 @@ public class EnemyFactory : Singleton<EnemyFactory>
     public GameObject CreateVampireShip(Vector2 pos)
     {
         var _obj = Instantiate(vampireShipPrefab, pos, Quaternion.identity);
-
+        _obj.transform.SetParent(enemyHolder);
         return _obj;
     }
 
     public GameObject CreateAsteroidGolem(Vector2 pos)
     {
         var _obj = Instantiate(asteroidGolemPrefab, pos, Quaternion.identity);
-
+        _obj.transform.SetParent(enemyHolder);
         return _obj;
     }
 
     public GameObject CreateEliteLocust(Vector2 pos)
     {
         var _obj = Instantiate(eliteLocustPrefab, pos, Quaternion.identity);
+        _obj.transform.SetParent(enemyHolder);
         return _obj;
     }
 
     public GameObject CreateEliteVampireShip(Vector2 pos)
     {
         var _obj = Instantiate(eliteVampireShipPrefab, pos, Quaternion.identity);
-
+        _obj.transform.SetParent(enemyHolder);
         return _obj;
     }
 
     public GameObject CreateEliteAsteroidGolem(Vector2 pos)
     {
         var _obj = Instantiate(eliteAsteroidGolemPrefab, pos, Quaternion.identity);
-
+        _obj.transform.SetParent(enemyHolder);
         return _obj;
     }
 
@@ -99,7 +121,7 @@ public class EnemyFactory : Singleton<EnemyFactory>
     //for testing
     public void CreateLocustSwarmTest()
     {
-        CreateLocustSwarm(new Vector3(10, -5), new Vector2(-16, 9));
+        CreateLocustSwarm(new Vector3(10, -5));
     }
 
     //for testing
