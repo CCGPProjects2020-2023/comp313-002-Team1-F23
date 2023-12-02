@@ -7,5 +7,8 @@
 
 public class Asteroid : Enemy
 {
-
+    private void Update()
+    {
+        Death();
+    }
 }

@@ -68,6 +68,4 @@ public class LaserGun : Weapon
             yield return new WaitForSeconds(calculatedCooldown);
         }
     }
-
-
 }

@@ -4153,6 +4153,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: calculatedDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: weaponLevelSOs.Array.size
       value: 4
       objectReference: {fileID: 0}

@@ -15,6 +15,7 @@ public class VampireShip : Enemy
     private void Update()
     {
         LookTowardsTarget();
+        Death();
     }
 
     private void LookTowardsTarget()

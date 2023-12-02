@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6122246861621577839}
   m_Layer: 0
   m_Name: DroneLaser
-  m_TagString: Untagged
+  m_TagString: AttackDrones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.71, y: 1.2}
+  m_Size: {x: 0.18, y: 0.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

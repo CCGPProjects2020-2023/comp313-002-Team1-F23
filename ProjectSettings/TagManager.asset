@@ -10,6 +10,8 @@ TagManager:
   - LaserGun
   - ProjectileSpawner
   - ChargingArea
+  - AttackDrones
+  - MissileLauncher
   layers:
   - Default
   - TransparentFX
