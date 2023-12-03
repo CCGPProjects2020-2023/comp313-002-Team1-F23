@@ -38,7 +38,7 @@ public class GameController : Singleton<GameController>
                 playerStats.Find(x => x.stat == stat).value += 5;
                 break;
             case Stat.MoveSpeed:
-                playerStats.Find(x => x.stat == stat).value += 2;
+                playerStats.Find(x => x.stat == stat).value += 1;
                 break;
         }
 

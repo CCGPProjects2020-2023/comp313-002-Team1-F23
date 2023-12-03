@@ -19367,7 +19367,7 @@ MonoBehaviour:
     maxValue: 25
   - stat: 3
     value: 0
-    maxValue: 10
+    maxValue: 5
   - stat: 4
     value: 0
     maxValue: 0
