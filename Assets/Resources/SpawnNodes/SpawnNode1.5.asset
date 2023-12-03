@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce56ee9ae4b02054390f1de3694f5492, type: 3}
   m_Name: SpawnNode1.5
   m_EditorClassIdentifier: 
-  enemyType: 4
-  startTime: 540
-  minSpawnRate: 32
-  maxSpawnRate: 50
+  enemyType: 2
+  startTime: 600
+  minSpawnRate: 0
+  maxSpawnRate: 0
   specialSpawns: []

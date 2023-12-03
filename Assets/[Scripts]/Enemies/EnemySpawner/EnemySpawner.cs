@@ -31,10 +31,16 @@ public class EnemySpawner : MonoBehaviour
     EnemyType mainType;
     
     int nextTransition = -1;
-    int enemiesThisWave = 0;
-    int incrementPerDelay;
+    float enemiesThisWave = 0;
+    float incrementPerDelay;
 
     bool transition = false;
+
+    //for special nodes
+    int specialIndex = 0;
+
+    List<SpawnNodeSO.SpecialSpawnObject> specialEnemies;
+
 
     //for transitions:
     EnemyType secondaryType;
@@ -60,6 +66,7 @@ public class EnemySpawner : MonoBehaviour
         nodeIndex = 0;
         CalculateNodeVariables(nodeIndex);
         StartCoroutine(nameof(SpawnWaves));
+        StartCoroutine(nameof(CheckForSpecialSpawns));
         
     }
 
@@ -87,7 +94,7 @@ public class EnemySpawner : MonoBehaviour
             nextNode = null;
         }
 
-        int waveNumber = 0;
+        float waveNumber = 0;
         
 
         //if there is another node after this, do some additional calculations for transition
@@ -102,16 +109,18 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             transition = false;
-            nextTransition = -1;
+            nextTransition = -1;//sets it to be invalid when current node is the last node
             secondaryType = EnemyType.Invalid;
             waveNumber = 60 / SPAWN_DELAY; //by default calculates with 60 seconds
         }
 
         mainType = activeNode.enemyType;
-        incrementPerDelay = (activeNode.minSpawnRate - activeNode.maxSpawnRate) / waveNumber;
-
+        incrementPerDelay = (activeNode.maxSpawnRate - activeNode.minSpawnRate) / (float)waveNumber;
         nodeTimeElapsed = 0f;
         enemiesThisWave = activeNode.minSpawnRate;
+
+        specialEnemies = activeNode.specialSpawns;
+        specialIndex = 0;
     }
 
 
@@ -154,9 +163,28 @@ public class EnemySpawner : MonoBehaviour
             }
 
             enemiesThisWave += incrementPerDelay;
+
             yield return new WaitForSeconds(SPAWN_DELAY);
         }
 
+    }
+
+    IEnumerator CheckForSpecialSpawns()
+    {
+        while (true)
+        {
+            if (specialIndex <= specialEnemies.Count - 1) 
+            {
+                if (timeElapsed >= specialEnemies[specialIndex].spawnTime)
+                {
+                    EnemyFactory.Instance.CreateEnemy(specialEnemies[specialIndex].enemyType, GenerateRandomSpawnPosition());
+                    specialIndex++;
+                }
+            }
+            
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     private int GetNumberOfSecondaryEnemies()

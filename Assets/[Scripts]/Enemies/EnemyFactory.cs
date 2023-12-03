@@ -47,6 +47,7 @@ public class EnemyFactory : Singleton<EnemyFactory>
 
     public GameObject CreateEnemy(Enemy.EnemyType type, Vector2 pos)
     {
+        //Debug.Log($"Enemy spawned: {type}");
         return type switch
         {
             Enemy.EnemyType.Locust => CreateLocust(pos),

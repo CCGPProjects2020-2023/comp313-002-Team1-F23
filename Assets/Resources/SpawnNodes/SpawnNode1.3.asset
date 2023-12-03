@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   startTime: 300
-  minSpawnRate: 12
+  minSpawnRate: 18
   maxSpawnRate: 28
   specialSpawns:
-  - enemyType: 0
-    spawnTime: 0
+  - enemyType: 7
+    spawnTime: 360
+  - enemyType: 7
+    spawnTime: 460

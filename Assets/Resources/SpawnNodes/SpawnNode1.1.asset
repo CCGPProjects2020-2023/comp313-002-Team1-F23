@@ -15,5 +15,9 @@ MonoBehaviour:
   enemyType: 1
   startTime: 0
   minSpawnRate: 1
-  maxSpawnRate: 12
-  specialSpawns: []
+  maxSpawnRate: 8
+  specialSpawns:
+  - enemyType: 7
+    spawnTime: 45
+  - enemyType: 6
+    spawnTime: 120
