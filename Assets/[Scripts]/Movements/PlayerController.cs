@@ -17,8 +17,6 @@ public class PlayerController : Singleton<PlayerController>
 {
     public float moveSpeed = 5f;
     public float currentHealth, maxHealth;
-    public float armor;
-    public float damage;
     public float additionalHealth = 0f;
     public GameObject bulletPrefab;
     public Transform gunTransform;
@@ -26,6 +24,10 @@ public class PlayerController : Singleton<PlayerController>
     public float shootCooldown = 0.5f;
     public float bulletLifetime = 10f; // Time in seconds before bullets despawn
     private float lastShootTime;
+
+
+    [SerializeField]
+    bool invincible;
 
     private Rigidbody2D rb;
     private Health playerHealth;
@@ -35,10 +37,6 @@ public class PlayerController : Singleton<PlayerController>
     {
         rb = GetComponent<Rigidbody2D>();
         playerHealth = GetComponentInChildren<Health>();
-        maxHealth += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.Health).value;
-        armor += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.Armor).value;
-        damage += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.Damage).value;
-        moveSpeed += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.MoveSpeed).value;
         playerHealth.UpdateHealthBar(currentHealth, maxHealth);
     }
 
@@ -94,21 +92,18 @@ public class PlayerController : Singleton<PlayerController>
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        float random = Random.value;
+        if (invincible) { return; }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (random >= armor / 100)
-            {
-                currentHealth--;
-                playerHealth.UpdateHealthBar(currentHealth, maxHealth);
-            }
+            currentHealth--;
+            playerHealth.UpdateHealthBar(currentHealth, maxHealth);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        float random = Random.value;
-        if (random >= armor / 100)
+        if (invincible) { return; }
+        if (other.gameObject.CompareTag("EnemyProjectile"))
         {
             currentHealth--;
             playerHealth.UpdateHealthBar(currentHealth, maxHealth);
