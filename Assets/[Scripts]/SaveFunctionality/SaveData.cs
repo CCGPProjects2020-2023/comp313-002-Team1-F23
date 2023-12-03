@@ -40,5 +40,6 @@ public class SaveData
 public class PersistentUpgrades
 {
     public List<Stats> playerStats;
+    public List<int> upgradeLevels;
     public int gold;
 }

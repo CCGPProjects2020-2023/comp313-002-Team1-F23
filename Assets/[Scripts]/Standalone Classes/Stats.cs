@@ -22,5 +22,6 @@ public class Stats
     }
 
     public Stat stat;
-    public float value = 5f;
+    public float value;
+    public float maxValue;
 }

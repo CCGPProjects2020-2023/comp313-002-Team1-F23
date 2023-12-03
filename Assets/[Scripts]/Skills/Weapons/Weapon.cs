@@ -44,7 +44,7 @@ public class Weapon : Skill
         // TODO: Add amounts persistent upgrades.
         if (empowered)
         {
-            calculatedDamage = weaponLevelSOs[currentLevel].BaseDamage * (1 + empoweredModifier);
+            calculatedDamage = (weaponLevelSOs[currentLevel].BaseDamage + PlayerController.Instance.damage) * (1 + empoweredModifier);
         }
         Buff redTarget = SkillManager.Instance.GetBuff(BuffType.RedTarget);
         if (redTarget != null)

@@ -8,37 +8,73 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Stats;
 
-public class GameController : MonoBehaviour
+public class GameController : Singleton<GameController>
 {
-    public static GameController instance; //Singleton
-
-    public List<Stats> playerStats; // [Subject to removal] (Should be in player controller)
-
-    // Public variables
+    public List<Stats> playerStats;
+    public List<Upgrade> upgrades;
     [HideInInspector]public SaveData currentData;
-    private int currentGold = 10; // [Subject to removal] (Should be handle by something else)
+    private int currentGold = 10;
 
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            instance = this;
-        }
-    }
+    private List<int> upgradeLevels;
 
     void Start()
     {
         OnLoad("Save 1");
     }
 
+    public void UpdateStat(Stat stat)
+    {
+        switch (stat)
+        {
+            case Stat.Damage:
+                playerStats.Find(x => x.stat == stat).value += 5;
+                break;
+            case Stat.Health:
+                playerStats.Find(x => x.stat == stat).value += 10;
+                break;
+            case Stat.Armor:
+                playerStats.Find(x => x.stat == stat).value += 5;
+                break;
+            case Stat.MoveSpeed:
+                playerStats.Find(x => x.stat == stat).value += 2;
+                break;
+        }
+
+        for (int i = 0; i< playerStats.Count; i++)
+        {
+            if (playerStats[i].value >= playerStats[i].maxValue)
+            {
+                playerStats[i].value = playerStats[i].maxValue;
+            }
+        }
+    }
+
+    private void GetUpgradeLevels()
+    {
+        upgradeLevels.Clear();
+        foreach(Upgrade u in upgrades)
+        {
+            upgradeLevels.Add(u.currentLevel);
+        }
+    }
+
+    private void SetUpgradeLevels(List<int> list)
+    {
+        for (int i = 0; i < upgradeLevels.Count; i++)
+        {
+            upgrades[i].currentLevel = upgradeLevels[i];
+            upgrades[i].UpdateLevel();
+        }
+    }
+
     public void OnSave(string saveName)
     {
+        GetUpgradeLevels();
+
         this.currentData.persistentUpgrades.playerStats = playerStats;
+        this.currentData.persistentUpgrades.upgradeLevels = upgradeLevels;
         this.currentData.persistentUpgrades.gold = currentGold;
 
         SerializationController.Save(saveName, this.currentData);
@@ -50,7 +86,10 @@ public class GameController : MonoBehaviour
         SaveData.currentData = (SaveData) SerializationController.Load(Application.persistentDataPath + "/spacesurvivor/" + saveName + ".xml");
         
         playerStats = SaveData.currentData.persistentUpgrades.playerStats;
+        upgradeLevels = SaveData.currentData.persistentUpgrades.upgradeLevels;
         currentGold = SaveData.currentData.persistentUpgrades.gold;
+
+        SetUpgradeLevels(upgradeLevels);
         Debug.Log("Loaded");
     }
 }
