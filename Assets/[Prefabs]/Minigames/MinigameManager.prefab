@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea23a20f7d86660498d13a267c709fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captureTheHillPrefab: {fileID: 3709709356008058603, guid: a150f3c9e7d9d284eb65b134bda07a67, type: 3}
+  captureTheHillPrefab: {fileID: 7337282045463595038, guid: 5f86df935b024854cad2986d1c287761, type: 3}
   trapPrefab: {fileID: 4861147764273607863, guid: 26d06563e6613cc40903b4c9d8423af2, type: 3}
   player: {fileID: 0}
   minDistance: 25
