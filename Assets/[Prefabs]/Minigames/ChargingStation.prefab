@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  chargeTime: 45
+  chargeTime: 30
   chargingSlider: {fileID: 0}
 --- !u!114 &7532122017699189978
 MonoBehaviour:
