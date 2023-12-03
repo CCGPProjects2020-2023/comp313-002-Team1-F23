@@ -27,6 +27,17 @@ public abstract class Enemy : MonoBehaviour
 
     public event Action<GameObject> OnTargetChanged  = delegate { };
 
+    public enum EnemyType
+    {
+        Invalid,
+        Locust,
+        VampireShip,
+        LocustSwarm,
+        AsteroidGolem,
+        EliteVampireShip,
+        EliteAsteroidGolem,
+        EliteLocust,
+    }
 
     private void Awake()
     {
