@@ -14,7 +14,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CaptureTheHill : MonoBehaviour
+public class CaptureTheHill : Minigame
 {
     public string playerTag = "Player";
     public float chargeTime = 45f;
@@ -46,9 +46,10 @@ public class CaptureTheHill : MonoBehaviour
 
     private void Start()
     {
-        GameObject Player = GameObject.FindGameObjectWithTag("Player");
-        ChargingSlider S = Player.GetComponentInChildren<ChargingSlider>();
-        chargingSlider = S.gameObject.GetComponent<Slider>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        ChargingSlider slider = player.GetComponentInChildren<ChargingSlider>();
+        chargingSlider = slider.gameObject.GetComponent<Slider>();
+        chargingSlider.gameObject.SetActive(false);
 
     }
 
@@ -63,8 +64,9 @@ public class CaptureTheHill : MonoBehaviour
             }
             else
             {
-                Debug.Log("Hill captured!");
-                SpawnChargingStation();
+                CompleteMinigame();
+                isCharging = false;
+                Destroy(gameObject);
             }
         }
     }
@@ -76,11 +78,5 @@ public class CaptureTheHill : MonoBehaviour
 
         // Update the Slider value
         chargingSlider.value = normalizedValue;
-    }
-
-    private void SpawnChargingStation()
-    {
-        // Implement spawning logic as needed
-        Debug.Log("Charging station spawned!");
     }
 }
