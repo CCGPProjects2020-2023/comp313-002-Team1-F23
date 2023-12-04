@@ -3,6 +3,7 @@
  *  Date Last Modified:     October 12, 2023
  *  Program Description:    Base class, contains data about the class
  *  Revision History:       October 12, 2023: Initial Script
+ *                          December 4, 2023 (Ikamjot Hundal): Added the reference to Game Controller
  */
 
 using System;
@@ -24,7 +25,6 @@ public abstract class Enemy : MonoBehaviour
     public float health;
     public float moveSpeed;
     public float damage;
-
     public event Action<GameObject> OnTargetChanged  = delegate { };
 
     public enum EnemyType
@@ -52,6 +52,8 @@ public abstract class Enemy : MonoBehaviour
     {
         target = obj;
         OnTargetChanged(obj);
+
+
     }
 
     public GameObject GetTarget()
@@ -63,6 +65,10 @@ public abstract class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            // temporary measure until I figure out the proper way (Ikamjot Hundal)
+            GameController.Instance.AddtoEnemyCounter();
+            PlayerPrefs.SetInt("EnemiesKilled", GameController.Instance.enemiesKilledCounter);
+            
             Destroy(this.gameObject);
         }
     }

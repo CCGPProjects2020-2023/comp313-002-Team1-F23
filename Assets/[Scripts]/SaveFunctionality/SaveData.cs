@@ -3,6 +3,7 @@
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    Classes for SaveData and PersistentUpgrades.
  *  Revision History:       November 3, 2023 (Sukhmannat Singh): Initial SaveData and PersistentUpgrades script.
+ *                          December 3, 2023 (Ikamjot Hundal): Added an variable for enemies Counter
  */
 
 using System.Collections.Generic;
@@ -42,4 +43,6 @@ public class PersistentUpgrades
     public List<Stats> playerStats;
     public List<int> upgradeLevels;
     public int gold;
+
+    public int enemiesKillCounter;
 }
