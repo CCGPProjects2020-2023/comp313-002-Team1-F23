@@ -3,7 +3,7 @@
  * Date Last Modified:     December 4, 2023 
  * Description:            Displaying the results of the Level
  * ------------------------------------------------------------------------
- * Revision History:       December 4, 2023 (Ikamjot Hundal): Initial Heart script.
+ * Revision History:       December 4, 2023 (Ikamjot Hundal): Initial DisplayGameOverValues script.
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -19,25 +19,27 @@ public class DisplayGameOverValues : MonoBehaviour
     [SerializeField] private GameObject levelReachedGO;
     [SerializeField] private GameObject enemiesDefeatedGO;
 
-    private TextMeshPro timeSurvivedText;
+    private TextMeshProUGUI timeSurvivedText;
     private TextMeshPro goldEarnedText;
     private TextMeshPro levelReachedText;
     private TextMeshProUGUI enemiesDefeatedText;
 
     [SerializeField] int enemiesKilled;
-
+    [SerializeField] float maxTime;
 
 
     // Temporary Measure
     private void Awake()
     {
-        if (PlayerPrefs.HasKey("EnemiesKilled"))
+        if (PlayerPrefs.HasKey("EnemiesKilled") && PlayerPrefs.HasKey("MaxTime"))
         {
             enemiesKilled = PlayerPrefs.GetInt("EnemiesKilled");
+            maxTime = PlayerPrefs.GetFloat("MaxTime");
         }
         else
         {
             PlayerPrefs.SetInt("EnemiesKilled", enemiesKilled);
+            PlayerPrefs.SetFloat("MaxTime", maxTime);
         }
     }
 
@@ -48,7 +50,13 @@ public class DisplayGameOverValues : MonoBehaviour
         enemiesDefeatedGO = GameObject.Find("EnemiesTxt");
         enemiesDefeatedText = enemiesDefeatedGO.GetComponent<TextMeshProUGUI>();
 
+        timeSurvivedGO = GameObject.Find("SurvivedTxt");
+        timeSurvivedText = timeSurvivedGO.GetComponent<TextMeshProUGUI>();
+
+        timeSurvivedText.text = "Survived: " + maxTime.ToString();
+
         enemiesDefeatedText.text = "Enemies Defeated: " + enemiesKilled.ToString();
+
        
 
     }
