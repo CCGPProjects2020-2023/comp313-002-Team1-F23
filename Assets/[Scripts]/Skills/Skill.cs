@@ -17,8 +17,16 @@ public class Skill: MonoBehaviour
     {
         currentLevel++;
     }
+    //public virtual void LevelUp()
+    //{
+    //    Debug.Log("LevelUp() of base class Skill called.");
+    //}
     public bool IsMaxLevel()
     {
         return currentLevel >= maxLevel;
+    }
+    public bool IsLevelZero()
+    {
+        return currentLevel == 0;
     }
 }

@@ -1,0 +1,14 @@
+at_time 1346946235
+version=3.7
+x=17
+y=0
+z=0
+angle=10
+lx=500
+ly=500
+lz=-700
+size=0.5
+to_pov=/tmp/current_asteroid.pov
+to_png=output/1346946235.png
+w=800
+h=800

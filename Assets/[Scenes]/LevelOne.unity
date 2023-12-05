@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7654458498700960394, guid: 36041ee33b1cff64d960aacfe1ad14c3, type: 3}
+      propertyPath: invincible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4145,13 +4149,49 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: skillName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: calculatedDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d8ba83a16af73642ab9149c2a6a4477, type: 2}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 607aa503e9129b3428459459ae136eea, type: 2}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: b6a75e88dcce5bb46886be5baeca0801, type: 2}
     - target: {fileID: 5167478853382787664, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: m_TagString
       value: LaserGun
       objectReference: {fileID: 0}
+    - target: {fileID: 5690972821758793939, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 90ca61f587f9dee488c1eea902942c9d, type: 2}
+    - target: {fileID: 5690972821758793939, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: dronePrefab
+      value: 
+      objectReference: {fileID: 834869972855464035, guid: f33d1634d7bbae147acbc77d35ad83eb, type: 3}
     - target: {fileID: 6436655887629292773, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

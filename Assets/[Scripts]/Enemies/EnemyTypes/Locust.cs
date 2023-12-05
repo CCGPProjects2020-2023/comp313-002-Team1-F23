@@ -17,6 +17,7 @@ public class Locust: Enemy
     void Update()
     {
         LookTowardsTarget();
+        Death();
     }
 
     private void LookTowardsTarget()

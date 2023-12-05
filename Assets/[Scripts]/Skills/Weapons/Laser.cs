@@ -3,20 +3,25 @@
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    Handles the behaviour of the laser.
  *  Revision History:       November 3, 2023 (Marcus Ngooi): Initial Laser script.
+ *                          November 28, 2023 (Marcus Ngooi): Adjusting script to work with all weapon types.
  */
 
 using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private LaserGun laserGun;
+    [SerializeField] private Weapon weapon;
     [SerializeField] private float lifespan = 10f;
 
-    private void Awake()
+    private void Start()
     {
-        laserGun = GameObject.FindWithTag("LaserGun").GetComponent<LaserGun>();
         Rigidbody2D rBody = GetComponent<Rigidbody2D>();
-        rBody.velocity = laserGun.WeaponSO.baseProjectileSpeed * transform.up;
+
+        if (weapon != null)
+        {
+            // baseProjectileSpeed is temp. Must account for base + upgrade
+            rBody.velocity = weapon.CalculatedProjectileSpeed * transform.up;
+        }
         Destroy(gameObject, lifespan);
     }
 
@@ -28,5 +33,9 @@ public class Laser : MonoBehaviour
         {
             laserSpriteRenderer.color = Color.red; // Change to red for evolved state
         }
+    }
+    public void SetWeapon(Weapon weapon)
+    {
+        this.weapon = weapon;
     }
 }

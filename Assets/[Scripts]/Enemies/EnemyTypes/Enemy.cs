@@ -27,6 +27,17 @@ public abstract class Enemy : MonoBehaviour
 
     public event Action<GameObject> OnTargetChanged  = delegate { };
 
+    public enum EnemyType
+    {
+        Invalid,
+        Locust,
+        VampireShip,
+        LocustSwarm,
+        AsteroidGolem,
+        EliteVampireShip,
+        EliteAsteroidGolem,
+        EliteLocust,
+    }
 
     private void Awake()
     {
@@ -48,6 +59,14 @@ public abstract class Enemy : MonoBehaviour
         return target;
     }
 
+    public void Death()
+    {
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void DropExp()
     {
         //need to implement some sort of check to see if killed by player
@@ -55,6 +74,42 @@ public abstract class Enemy : MonoBehaviour
         capsule.GetComponent<ExpCapsule>().Experience = exp;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("LaserGun"))
+        {
+            try
+            {
+                health -= SkillManager.Instance.CurrentWeapons.Find(x => x.WeaponType == WeaponType.LaserGun).CalculatedDamage;
+            }
+            catch
+            {
+                health -= SkillManager.Instance.CurrentWeapons.Find(x => x.WeaponType == WeaponType.RotatingLaserTower).CalculatedDamage;
+            }
+        }
 
+        if (other.gameObject.CompareTag("AttackDrones"))
+        {
+            try
+            {
+                health -= SkillManager.Instance.CurrentWeapons.Find(x => x.WeaponType == WeaponType.AttackDrones).CalculatedDamage;
+            }
+            catch
+            {
+                health -= SkillManager.Instance.CurrentWeapons.Find(x => x.WeaponType == WeaponType.MobileAttackDrones).CalculatedDamage;
+            }
+        }
 
+        if (other.gameObject.CompareTag("MissileLauncher"))
+        {
+            try
+            {
+                health -= SkillManager.Instance.CurrentWeapons.Find(x => x.WeaponType == WeaponType.MissileLauncher).CalculatedDamage;
+            }
+            catch
+            {
+                health -= SkillManager.Instance.CurrentWeapons.Find(x => x.WeaponType == WeaponType.MissileBarrageLauncher).CalculatedDamage;
+            }
+        }
+    }
 }

@@ -1,5 +1,142 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3387861494280843164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8822205243109885705}
+  - component: {fileID: 4358411055113444959}
+  m_Layer: 0
+  m_Name: RedTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8822205243109885705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387861494280843164}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2824401630415739345}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4358411055113444959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387861494280843164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da790547954d3f64dbe838a4a3b168f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: 
+  currentLevel: 0
+  maxLevel: 0
+  buffType: 1
+  buffLevelSOs:
+  - {fileID: 11400000, guid: 2ff5cfbbace1fe847a9badaa217eab62, type: 2}
+  - {fileID: 11400000, guid: bb41cb6d52414eb4da0b95b81e0ad706, type: 2}
+  - {fileID: 11400000, guid: e19dd090afccee146a97d8ea9465e71d, type: 2}
+  - {fileID: 11400000, guid: 92fcd649a4cdd3c4aaba0178cbb94fdd, type: 2}
+--- !u!1 &3400732151025344925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3118761217130064932}
+  - component: {fileID: 3982301481949832229}
+  m_Layer: 0
+  m_Name: Heart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3118761217130064932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3400732151025344925}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2824401630415739345}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3982301481949832229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3400732151025344925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f8d40c27e04fb48b23691a400417f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: Heart
+  currentLevel: 1
+  maxLevel: 3
+  buffType: 0
+  buffLevelSOs: []
+  increaseHealthPercentage: 10
+--- !u!1 &4441455267972880974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2824401630415739345}
+  m_Layer: 0
+  m_Name: AvailableBuffs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2824401630415739345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441455267972880974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3118761217130064932}
+  - {fileID: 8822205243109885705}
+  - {fileID: 2098914281870060662}
+  m_Father: {fileID: 6436655887629292773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4789493730719561261
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,16 +216,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: 
-  currentLevel: 0
+  currentLevel: 1
   maxLevel: 0
   weaponType: 0
-  baseDamage: 0
-  baseCooldown: 0
-  baseProjectileSpeed: 0
-  weaponSO: {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
+  calculatedDamage: 0
+  calculatedCooldown: 0
+  calculatedProjectileSpeed: 0
+  weaponLevelSOs:
+  - {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
+  - {fileID: 11400000, guid: 1d8ba83a16af73642ab9149c2a6a4477, type: 2}
+  - {fileID: 11400000, guid: 607aa503e9129b3428459459ae136eea, type: 2}
+  - {fileID: 11400000, guid: b6a75e88dcce5bb46886be5baeca0801, type: 2}
+  empoweredModifier: 0.25
+  empowered: 0
+  isEvolved: 0
+  evolvedDamageMultiplier: 1.5
   laserPrefab: {fileID: 2388194765667144922, guid: e2bce216ede8f5640b8f3a488e3b44e9, type: 3}
   gunTransform: {fileID: 0}
   isActive: 0
+--- !u!1 &5290027222889917072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2098914281870060662}
+  - component: {fileID: 4479169567804715714}
+  m_Layer: 0
+  m_Name: StopWatch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2098914281870060662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290027222889917072}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2824401630415739345}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4479169567804715714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290027222889917072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b38ed3c03005db47b903bf4adc144dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: StopWatch
+  currentLevel: 1
+  maxLevel: 4
+  buffType: 2
+  buffLevelSOs: []
 --- !u!1 &7638008050366524535
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +327,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57cf64cd26b35b74791837b83322c930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillName: 
+  currentLevel: 0
+  maxLevel: 0
+  weaponType: 0
+  calculatedDamage: 0
+  calculatedCooldown: 0
+  calculatedProjectileSpeed: 0
+  weaponLevelSOs: []
+  empoweredModifier: 0.25
+  empowered: 0
+  isEvolved: 0
+  evolvedDamageMultiplier: 1.5
+  missilePrefab: {fileID: 0}
+  launcherTransform: {fileID: 0}
+  isActive: 0
 --- !u!1 &8009077913999982299
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +386,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198a9cf6cb8d44545b7003629d60f424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillName: 
+  currentLevel: 0
+  maxLevel: 0
+  weaponType: 4
+  calculatedDamage: 0
+  calculatedCooldown: 0
+  calculatedProjectileSpeed: 0
+  weaponLevelSOs:
+  - {fileID: 11400000, guid: 4acfbc31f4bc86040be3a0a070c624f7, type: 2}
+  - {fileID: 11400000, guid: 599a6419678b8ed4e9cd1e567b0b4292, type: 2}
+  - {fileID: 11400000, guid: 2a3aa0e6521fc8844b314d5cfd0071fc, type: 2}
+  - {fileID: 11400000, guid: 9473e97056cc1b64d9534e9aa75d6e72, type: 2}
+  empoweredModifier: 0.25
+  empowered: 0
+  isEvolved: 0
+  evolvedDamageMultiplier: 1.5
+  dronePrefab: {fileID: 0}
+  numberOfDrones: 2
+  isActive: 0
 --- !u!1 &9057057146125611075
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +436,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8144897236208986673}
+  - {fileID: 2824401630415739345}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4565636453253656938

@@ -46,5 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistanceY: 11.56
   minDistanceX: 20
-  spawnRate: 1
-  player: {fileID: 0}
+  percentBeginTransition: 75
+  spawnNodes:
+  - {fileID: 11400000, guid: c86bcac5cc89a4147adb83328d75ebce, type: 2}
+  - {fileID: 11400000, guid: 82e42f82f469dd4468b5073cf0af96f2, type: 2}
+  - {fileID: 11400000, guid: 72e5c17a686485e4fad8ed734a165176, type: 2}
+  - {fileID: 11400000, guid: 05b64647950cb6e4a9e213afe02f60b1, type: 2}
+  - {fileID: 11400000, guid: 29786edfa0f22fe46ba207b20e5993eb, type: 2}

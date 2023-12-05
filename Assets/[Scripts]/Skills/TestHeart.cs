@@ -15,7 +15,7 @@ public class TestHeart : MonoBehaviour
 
     [SerializeField] Heart heart;
 
-    
+    WeaponSO weaponSO;
 
     [SerializeField] RedTarget redTarget;
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6122246861621577839}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Untagged
+  m_TagString: LaserGun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1c06eec6920324da57e16d6100bc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserGun: {fileID: 0}
+  weapon: {fileID: 0}
   lifespan: 10
 --- !u!70 &6122246861621577839
 CapsuleCollider2D:
@@ -160,6 +160,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.71, y: 1.2}
+  m_Offset: {x: -0.0018892214, y: 0.026448965}
+  m_Size: {x: 0.18479846, y: 0.78437304}
   m_Direction: 0
