@@ -19,15 +19,17 @@ public class DisplayGameOverValues : MonoBehaviour
     [SerializeField] private GameObject levelReachedGO;
     [SerializeField] private GameObject enemiesDefeatedGO;
 
+
     private TextMeshProUGUI timeSurvivedText;
     private TextMeshPro goldEarnedText;
     private TextMeshPro levelReachedText;
     private TextMeshProUGUI enemiesDefeatedText;
 
+    [Header("PlayePrefs")]
     [SerializeField] int enemiesKilled;
     [SerializeField] float maxTime;
 
-
+    [Header("Outsider Scripts")]
     [SerializeField] PlayerHUDHandler playerHUDHandler;
 
     // Temporary Measure
@@ -63,11 +65,5 @@ public class DisplayGameOverValues : MonoBehaviour
 
        
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
