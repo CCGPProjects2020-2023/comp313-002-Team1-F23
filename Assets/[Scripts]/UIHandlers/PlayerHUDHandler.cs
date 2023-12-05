@@ -40,7 +40,7 @@ public class PlayerHUDHandler : MonoBehaviour
             {
                 timeElapsed += Time.deltaTime;
                 PlayerPrefs.SetFloat("MaxTime", timeElapsed);
-                DisplayTime(timeElapsed);
+                DisplayTime(timeElapsed, timerText);
             }
             else
             {
@@ -51,7 +51,7 @@ public class PlayerHUDHandler : MonoBehaviour
         }        
     }
 
-    private void DisplayTime(float timerDisplay)
+    public void DisplayTime(float timerDisplay, TextMeshProUGUI timerText)
     {
         float minutes = Mathf.FloorToInt(timerDisplay / 60);
         float seconds = Mathf.FloorToInt(timerDisplay % 60);

@@ -28,6 +28,8 @@ public class DisplayGameOverValues : MonoBehaviour
     [SerializeField] float maxTime;
 
 
+    [SerializeField] PlayerHUDHandler playerHUDHandler;
+
     // Temporary Measure
     private void Awake()
     {
@@ -53,7 +55,9 @@ public class DisplayGameOverValues : MonoBehaviour
         timeSurvivedGO = GameObject.Find("SurvivedTxt");
         timeSurvivedText = timeSurvivedGO.GetComponent<TextMeshProUGUI>();
 
-        timeSurvivedText.text = "Survived: " + maxTime.ToString();
+        playerHUDHandler = playerHUDHandler.GetComponent<PlayerHUDHandler>();
+
+        playerHUDHandler.DisplayTime(maxTime, timeSurvivedText);
 
         enemiesDefeatedText.text = "Enemies Defeated: " + enemiesKilled.ToString();
 
