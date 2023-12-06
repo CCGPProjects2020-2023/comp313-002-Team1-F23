@@ -70,14 +70,14 @@ public class ExperienceManager : Singleton<ExperienceManager>
         return calculatedLevel;
     }
     // This is going to be needed for the HUD
-    private float CalculateRequiredExperienceForNextLevel()
+    public float CalculateRequiredExperienceForNextLevel()
     {
         float requiredExperienceForNextLevel = (float)Math.Pow(natLogBaseValue, level + 1) - 1;
 
         return requiredExperienceForNextLevel;
     }
     // This is going to be needed for the HUD
-    private float CalculateCurrentExperienceInCurrentLevel()
+    public float CalculateCurrentExperienceInCurrentLevel()
     {
         float totalExperienceForCurrentLevel = (float)Math.Pow(natLogBaseValue, level) - 1;
         float currentExperienceInCurrentLevel = experiencePoints - totalExperienceForCurrentLevel;

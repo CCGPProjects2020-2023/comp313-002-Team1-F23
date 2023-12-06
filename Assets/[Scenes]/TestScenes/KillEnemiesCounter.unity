@@ -725,11 +725,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abb3f772f4985384fbf2bfa4652476f4, type: 3}
---- !u!1 &1701683501 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6214075328554734058, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
-  m_PrefabInstance: {fileID: 3570505493381362093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2090477924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -871,10 +866,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2011576737464097499, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4404851549924486645, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -963,18 +954,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 121899898}
-    - target: {fileID: 6214075328554734058, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8092386064697133562, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
-      propertyPath: timeRunning
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8092386064697133562, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
-      propertyPath: enemiesTextGO
-      value: 
-      objectReference: {fileID: 1701683501}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1049,6 +1028,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 618551591529311811, guid: 23848f20cab283e42bf5035a90848267, type: 3}
+      propertyPath: playerStats.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 618551591529311811, guid: 23848f20cab283e42bf5035a90848267, type: 3}
+      propertyPath: playerStats.Array.data[0].stat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 618551591529311811, guid: 23848f20cab283e42bf5035a90848267, type: 3}
+      propertyPath: playerStats.Array.data[1].stat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 618551591529311811, guid: 23848f20cab283e42bf5035a90848267, type: 3}
+      propertyPath: playerStats.Array.data[2].stat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618551591529311811, guid: 23848f20cab283e42bf5035a90848267, type: 3}
+      propertyPath: playerStats.Array.data[3].stat
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8995875084400009396, guid: 23848f20cab283e42bf5035a90848267, type: 3}
       propertyPath: m_Name
       value: GameController
