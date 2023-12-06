@@ -6,6 +6,7 @@ public class ChargingSlider : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Vector3 offset;
+    [SerializeField] private GameObject visualIndicator;
 
     private void Update()
     {
@@ -27,4 +28,22 @@ public class ChargingSlider : MonoBehaviour
         // Update the Slider value
         slider.value = normalizedValue;
     }
+
+    public void Hide()
+    {
+        if(visualIndicator.activeInHierarchy)
+        {
+            visualIndicator.SetActive(false);
+        }
+    }
+
+    public void Show()
+    {
+        if(!visualIndicator.activeInHierarchy)
+        {
+            visualIndicator.SetActive(true);
+        }
+    }
+
+
 }
