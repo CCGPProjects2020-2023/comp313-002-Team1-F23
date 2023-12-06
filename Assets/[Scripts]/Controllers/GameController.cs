@@ -3,6 +3,7 @@
  *  Date Last Modified:     November 3, 2023
  *  Program Description:    A Controller for the game.
  *  Revision History:       November 3, 2023 (Sukhmannat Singh): Initial GameController script.
+ *                          December 3, 2023 (Ikamjot Hundal): Added a method to add to enemyKillCounter
  */
 
 using System.Collections.Generic;
@@ -17,8 +18,9 @@ public class GameController : Singleton<GameController>
     [HideInInspector]public SaveData currentData;
     private int currentGold = 10;
 
-    private List<int> upgradeLevels;
+    public int enemiesKilledCounter = 0;
 
+    private List<int> upgradeLevels;
     void Start()
     {
         OnLoad("Save 1");
@@ -51,6 +53,11 @@ public class GameController : Singleton<GameController>
         }
     }
 
+    public void AddtoEnemyCounter()
+    {
+        enemiesKilledCounter++;
+    }
+
     private void GetUpgradeLevels()
     {
         upgradeLevels.Clear();
@@ -76,6 +83,7 @@ public class GameController : Singleton<GameController>
         this.currentData.persistentUpgrades.playerStats = playerStats;
         this.currentData.persistentUpgrades.upgradeLevels = upgradeLevels;
         this.currentData.persistentUpgrades.gold = currentGold;
+        this.currentData.persistentUpgrades.enemiesKillCounter = enemiesKilledCounter;
 
         SerializationController.Save(saveName, this.currentData);
         Debug.Log("Saved");
@@ -88,6 +96,7 @@ public class GameController : Singleton<GameController>
         playerStats = SaveData.currentData.persistentUpgrades.playerStats;
         upgradeLevels = SaveData.currentData.persistentUpgrades.upgradeLevels;
         currentGold = SaveData.currentData.persistentUpgrades.gold;
+        enemiesKilledCounter = SaveData.currentData.persistentUpgrades.enemiesKillCounter;
 
         SetUpgradeLevels(upgradeLevels);
         Debug.Log("Loaded");

@@ -3,6 +3,7 @@
  *  Date Last Modified:     November 1, 2023
  *  Program Description:    Selects the appopriate window in the main menu.
  *  Revision History:       November 1, 2023 (Mithul Koshy): Initial WindowSelection script.
+ *                          December 5, 2023 (Ikamjot Hundal): Removed the setting windowSelectionPanel to false
  */
 
 using System.Collections;
@@ -18,9 +19,6 @@ public class WindowSelection : MonoBehaviour
 
     private void Start()
     {
-        // Initially, the character selection panel should be inactive
-        windowSelectionPanel.SetActive(false);
-
         // Add click listeners to the buttons
         openWindowSelectionButton.onClick.AddListener(OpenCharacterSelection);
         backButton.onClick.AddListener(CloseCharacterSelection);
