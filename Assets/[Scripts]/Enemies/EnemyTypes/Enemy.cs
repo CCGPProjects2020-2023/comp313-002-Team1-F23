@@ -1,9 +1,10 @@
 /** Author's Name:          Han Bi
- *  Last Modified By:       Han Bi
- *  Date Last Modified:     October 12, 2023
+ *  Last Modified By:       Marcus Ngooi
+ *  Date Last Modified:     December 6, 2023
  *  Program Description:    Base class, contains data about the class
  *  Revision History:       October 12, 2023: Initial Script
  *                          December 4, 2023 (Ikamjot Hundal): Added the reference to Game Controller
+ *                          December 6, 2023 (Marcus Ngooi): Call DropExp() on death.
  */
 
 using System;
@@ -66,6 +67,7 @@ public abstract class Enemy : MonoBehaviour
         if (health <= 0)
         {
             // temporary measure until I figure out the proper way (Ikamjot Hundal)
+            DropExp();
             GameController.Instance.AddtoEnemyCounter();
             PlayerPrefs.SetInt("EnemiesKilled", GameController.Instance.enemiesKilledCounter);
             

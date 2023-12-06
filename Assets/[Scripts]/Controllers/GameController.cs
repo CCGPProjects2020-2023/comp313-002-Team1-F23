@@ -1,13 +1,12 @@
 /** Author's Name:          Sukhmannat Singh
- *  Last Modified By:       Sukhmannat Singh
- *  Date Last Modified:     November 3, 2023
+ *  Last Modified By:       Ikamjot Hundal
+ *  Date Last Modified:     December 3, 2023
  *  Program Description:    A Controller for the game.
  *  Revision History:       November 3, 2023 (Sukhmannat Singh): Initial GameController script.
  *                          December 3, 2023 (Ikamjot Hundal): Added a method to add to enemyKillCounter
  */
 
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using static Stats;
 

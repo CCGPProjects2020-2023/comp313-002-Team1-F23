@@ -75,6 +75,7 @@ public class SoundManager : Singleton<SoundManager>
                 sfxAudioSource.PlayOneShot(collectOreClip);
                 break;
             case SfxEvent.LevelUp:
+                Debug.Log("This happened.");
                 sfxAudioSource.PlayOneShot(levelUpClip);
                 break;
             case SfxEvent.ShootLaserGun:

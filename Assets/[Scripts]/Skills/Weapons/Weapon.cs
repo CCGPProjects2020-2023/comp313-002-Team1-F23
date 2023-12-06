@@ -1,6 +1,6 @@
 /** Author's Name:          Marcus Ngooi
- *  Last Modified By:       Mithul Koshy
- *  Date Last Modified:     November 28, 2023
+ *  Last Modified By:       Marcus Ngooi
+ *  Date Last Modified:     December 6, 2023
  *  Program Description:    Base class for a Weapon.
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial Weapon script.
  *                          November 17, 2023 (Han Bi): Added empowered variable and function
