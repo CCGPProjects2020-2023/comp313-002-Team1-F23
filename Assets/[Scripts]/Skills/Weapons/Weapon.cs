@@ -43,15 +43,18 @@ public class Weapon : Skill
     public void CalculateDamage()
     {
         // TODO: Add amounts persistent upgrades.
+
+        calculatedDamage = weaponLevelSOs[currentLevel].BaseDamage;
         if (empowered)
         {
-            calculatedDamage = (weaponLevelSOs[currentLevel].BaseDamage + PlayerController.Instance.damage) * (1 + empoweredModifier);
+            calculatedDamage *= (1 + empoweredModifier);
         }
         Buff redTarget = SkillManager.Instance.GetBuff(BuffType.RedTarget);
         if (redTarget != null)
         {
             calculatedDamage += redTarget.GetBuffAmount();
-        }
+         }
+        Debug.Log("Calculated Damage:" + calculatedDamage);
     }
     public void CalculateCooldown()
     {
@@ -62,14 +65,18 @@ public class Weapon : Skill
         {
             calculatedCooldown -= stopWatch.GetBuffAmount() / 100;
         }
+        Debug.Log("Calculated Cooldown:" + calculatedCooldown);
     }
     public void CalculateProjectileSpeed()
     {
         // TODO: Add amounts from buffs, persistent upgrades.
         calculatedProjectileSpeed = weaponLevelSOs[currentLevel].BaseProjectileSpeed;
+        Debug.Log("Calculated Projectile Speed:" + calculatedProjectileSpeed);
     }
-    public void CalculateStats()
+    public override void CalculateStats()
     {
+        Debug.Log("Weapon:" + skillName);
+        Debug.Log("Weapon Level:" + currentLevel);
         CalculateDamage();
         CalculateCooldown();
         CalculateProjectileSpeed();

@@ -25,7 +25,6 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] AudioClip DroneShotClip;
     [SerializeField] AudioClip MissileShotClip;
 
-
     [Header("Debug")]
     [SerializeField] private float musicVolume = 1f;
     [SerializeField] private float sfxVolume = 1f;

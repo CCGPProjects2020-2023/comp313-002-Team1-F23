@@ -4237,8 +4237,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: currentLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: calculatedDamage
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: evolvedLaserPrefab
@@ -4294,7 +4298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: currentLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: missilePrefab
@@ -4302,7 +4306,7 @@ PrefabInstance:
       objectReference: {fileID: 2388194765667144922, guid: eaea8e651074471419a3c3f17df54168, type: 3}
     - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: calculatedDamage
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: evolvedMissilePrefab
@@ -4336,6 +4340,10 @@ PrefabInstance:
       propertyPath: dronePrefab
       value: 
       objectReference: {fileID: 834869972855464035, guid: f33d1634d7bbae147acbc77d35ad83eb, type: 3}
+    - target: {fileID: 5690972821758793939, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: calculatedDamage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6436655887629292773, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

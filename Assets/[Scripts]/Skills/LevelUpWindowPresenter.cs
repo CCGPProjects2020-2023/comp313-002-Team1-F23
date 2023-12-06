@@ -7,9 +7,9 @@
 
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class LevelUpWindowPresenter : Singleton<LevelUpWindowPresenter>
 {
@@ -69,7 +69,7 @@ public class LevelUpWindowPresenter : Singleton<LevelUpWindowPresenter>
     private void UnpopulateWindow()
     {
         Button[] buttons = levelUpWindowCanvas.GetComponentsInChildren<Button>();
-        for (int i = 0;i < buttons.Length; i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
             Destroy(buttons[i]);
         }

@@ -29,7 +29,7 @@ public class SkillManager : Singleton<SkillManager>
 
     [SerializeField] private int numberOfRandomizedSkills = 3;
 
-    private const string firstWeapon = "MissileLauncher";
+    private const string firstWeapon = "AttackDrones";
 
     public List<Weapon> CurrentWeapons { get => currentWeapons; }
     public List<Buff> CurrentBuffs { get => currentBuffs; }
@@ -45,12 +45,6 @@ public class SkillManager : Singleton<SkillManager>
         Weapon weaponToAdd = availableWeapons.Find(weapon => weapon.name == firstWeapon);
         //replaced code with this so event is consistently triggered
         LevelUpSkill(weaponToAdd);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
     public void LevelUpSkill(Skill skill)
     {
@@ -80,6 +74,7 @@ public class SkillManager : Singleton<SkillManager>
         if (skillToLevelUp != null)
         {
             skillToLevelUp.LevelUp();
+            skillToLevelUp.CalculateStats();
         }
         else
         {

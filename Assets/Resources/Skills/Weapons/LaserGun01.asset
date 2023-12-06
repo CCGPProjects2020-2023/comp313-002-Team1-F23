@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3501d88fc8d60042bda443888ff8f3a, type: 3}
   m_Name: LaserGun01
   m_EditorClassIdentifier: 
-  maxLevel: 4
+  maxLevel: 3
   baseDamage: 10
   baseCooldown: 1
   baseProjectileSpeed: 10
