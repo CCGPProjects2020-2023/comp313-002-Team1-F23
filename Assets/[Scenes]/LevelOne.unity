@@ -4200,6 +4200,26 @@ PrefabInstance:
       propertyPath: weaponLevelSOs.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: b6a75e88dcce5bb46886be5baeca0801, type: 2}
+    - target: {fileID: 4479169567804715714, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: buffLevelSOs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479169567804715714, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: buffLevelSOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: dcda10deb9fe6b6478e7b87c5a772a0c, type: 2}
+    - target: {fileID: 4479169567804715714, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: buffLevelSOs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 71f213653370a04439c96aea09bdfc8a, type: 2}
+    - target: {fileID: 4479169567804715714, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: buffLevelSOs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 470f7387a48645d44a01e70dea7ac34f, type: 2}
+    - target: {fileID: 4479169567804715714, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: buffLevelSOs.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: cf81dd53c330c6e4a9be868120b93934, type: 2}
     - target: {fileID: 5167478853382787664, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: m_TagString
       value: LaserGun

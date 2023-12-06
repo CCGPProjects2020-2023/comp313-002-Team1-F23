@@ -10,6 +10,7 @@
  *                                                            Added debugging to virtual Behaviour() function.
  *                          November 28, 2023 (Mithul): Added weapon evolution scripts
  *                          November 28, 2023 (Ikamjot Hundal): Made the basecooldown public for access
+ *                          December 6, 2023 (Marcus Ngooi): Bug fixes.
  */
 
 using System.Collections.Generic;
@@ -55,7 +56,7 @@ public class Weapon : Skill
     public void CalculateCooldown()
     {
         // TODO: Add amounts from persistent upgrades.
-        calculatedCooldown = weaponLevelSOs[currentLevel - 1].BaseCooldown;
+        calculatedCooldown = weaponLevelSOs[currentLevel].BaseCooldown;
         Buff stopWatch = SkillManager.Instance.GetBuff(BuffType.Stopwatch);
         if (stopWatch != null)
         {
@@ -65,7 +66,7 @@ public class Weapon : Skill
     public void CalculateProjectileSpeed()
     {
         // TODO: Add amounts from buffs, persistent upgrades.
-        calculatedProjectileSpeed = weaponLevelSOs[currentLevel - 1].BaseProjectileSpeed;
+        calculatedProjectileSpeed = weaponLevelSOs[currentLevel].BaseProjectileSpeed;
     }
     public void CalculateStats()
     {

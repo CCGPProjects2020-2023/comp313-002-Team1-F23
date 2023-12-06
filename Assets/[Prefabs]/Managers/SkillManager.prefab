@@ -233,6 +233,7 @@ MonoBehaviour:
   evolvedDamageMultiplier: 1.5
   laserPrefab: {fileID: 2388194765667144922, guid: e2bce216ede8f5640b8f3a488e3b44e9, type: 3}
   gunTransform: {fileID: 0}
+  evolvedLaserPrefab: {fileID: 0}
   isActive: 0
 --- !u!1 &5290027222889917072
 GameObject:
@@ -282,7 +283,11 @@ MonoBehaviour:
   currentLevel: 1
   maxLevel: 4
   buffType: 2
-  buffLevelSOs: []
+  buffLevelSOs:
+  - {fileID: 11400000, guid: dcda10deb9fe6b6478e7b87c5a772a0c, type: 2}
+  - {fileID: 11400000, guid: 71f213653370a04439c96aea09bdfc8a, type: 2}
+  - {fileID: 11400000, guid: 470f7387a48645d44a01e70dea7ac34f, type: 2}
+  - {fileID: 11400000, guid: cf81dd53c330c6e4a9be868120b93934, type: 2}
 --- !u!1 &7638008050366524535
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +346,11 @@ MonoBehaviour:
   evolvedDamageMultiplier: 1.5
   missilePrefab: {fileID: 0}
   launcherTransform: {fileID: 0}
+  evolvedMissilePrefab: {fileID: 0}
   isActive: 0
+  evolvedMissileSizeIncrease: 1.5
+  evolvedMissileExplosionRadius: 5
+  evolvedMissileDamage: 20
 --- !u!1 &8009077913999982299
 GameObject:
   m_ObjectHideFlags: 0
