@@ -54,6 +54,7 @@ public class ExperienceManager : Singleton<ExperienceManager>
     }
     public void LevelUp()
     {
+        Debug.Log("LevelUp() called.");
         SoundManager.Instance.PlaySfx(SfxEvent.LevelUp);
         IsLevellingUp = true;
         ExperienceThresholdReached?.Invoke();

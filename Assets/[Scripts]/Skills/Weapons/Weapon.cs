@@ -1,6 +1,6 @@
 /** Author's Name:          Marcus Ngooi
- *  Last Modified By:       Mithul Koshy
- *  Date Last Modified:     November 28, 2023
+ *  Last Modified By:       Marcus Ngooi
+ *  Date Last Modified:     December 6, 2023
  *  Program Description:    Base class for a Weapon.
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial Weapon script.
  *                          November 17, 2023 (Han Bi): Added empowered variable and function
@@ -10,6 +10,7 @@
  *                                                            Added debugging to virtual Behaviour() function.
  *                          November 28, 2023 (Mithul): Added weapon evolution scripts
  *                          November 28, 2023 (Ikamjot Hundal): Made the basecooldown public for access
+ *                          December 6, 2023 (Marcus Ngooi): Bug fixes.
  */
 
 using System.Collections.Generic;
@@ -55,7 +56,7 @@ public class Weapon : Skill
     public void CalculateCooldown()
     {
         // TODO: Add amounts from persistent upgrades.
-        calculatedCooldown = weaponLevelSOs[currentLevel - 1].BaseCooldown;
+        calculatedCooldown = weaponLevelSOs[currentLevel].BaseCooldown;
         Buff stopWatch = SkillManager.Instance.GetBuff(BuffType.Stopwatch);
         if (stopWatch != null)
         {
@@ -65,7 +66,7 @@ public class Weapon : Skill
     public void CalculateProjectileSpeed()
     {
         // TODO: Add amounts from buffs, persistent upgrades.
-        calculatedProjectileSpeed = weaponLevelSOs[currentLevel - 1].BaseProjectileSpeed;
+        calculatedProjectileSpeed = weaponLevelSOs[currentLevel].BaseProjectileSpeed;
     }
     public void CalculateStats()
     {
@@ -82,10 +83,8 @@ public class Weapon : Skill
 
     }
     public void EvolveWeapon()
-    {
-        if (!isEvolved)
-        {
-            isEvolved = true;
-        }
+    {       
+            isEvolved = !isEvolved; // Toggle the evolved state.
+        
     }
 }

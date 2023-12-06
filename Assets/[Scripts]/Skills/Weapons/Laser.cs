@@ -4,6 +4,8 @@
  *  Program Description:    Handles the behaviour of the laser.
  *  Revision History:       November 3, 2023 (Marcus Ngooi): Initial Laser script.
  *                          November 28, 2023 (Marcus Ngooi): Adjusting script to work with all weapon types.
+ *                          December 05, 2023 (Mithul Koshy): Modified Laser to include evolved laser.
+ *                          
  */
 
 using UnityEngine;
@@ -25,15 +27,7 @@ public class Laser : MonoBehaviour
         Destroy(gameObject, lifespan);
     }
 
-    public void SetEvolvedProperties()
-    {
 
-        SpriteRenderer laserSpriteRenderer = GetComponent<SpriteRenderer>();
-        if (laserSpriteRenderer != null)
-        {
-            laserSpriteRenderer.color = Color.red; // Change to red for evolved state
-        }
-    }
     public void SetWeapon(Weapon weapon)
     {
         this.weapon = weapon;

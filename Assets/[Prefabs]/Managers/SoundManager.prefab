@@ -310,6 +310,7 @@ MonoBehaviour:
   levelUpClip: {fileID: 8300000, guid: 67482d85288d48544beb4a893d40d410, type: 3}
   shootLaserGunClip: {fileID: 8300000, guid: 77415444118a3f54083a054ac655ef91, type: 3}
   DroneShotClip: {fileID: 8300000, guid: 02f1a9bf49aecfb419ea411e3d8b74c7, type: 3}
+  MissileShotClip: {fileID: 8300000, guid: 277f752047c22a549bfda1190bad96f6, type: 3}
   musicVolume: 1
   sfxVolume: 1
   musicParameter: MusicVol

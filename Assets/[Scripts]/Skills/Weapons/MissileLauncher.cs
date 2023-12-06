@@ -4,16 +4,25 @@
  *  Program Description:    A script to handle the MissileLauncher weapon.
  *  Revision History:       November 28, 2023 (Mithul Koshy):
  *                          November 29, 2023 (Marcus Ngooi): Updated with new stats system.
+ *                          December 05, 2023 (Mithul Koshy): Added new missile launcher evolutions
  */
 
 using System.Collections;
+using System.Reflection;
 using UnityEngine;
+
 
 public class MissileLauncher : Weapon
 {
     [SerializeField] private GameObject missilePrefab;
     [SerializeField] private Transform launcherTransform;
+    [SerializeField] private GameObject evolvedMissilePrefab;
     [SerializeField] private bool isActive;
+
+    // Add variables for evolved missile parameters.
+    [SerializeField] private float evolvedMissileSizeIncrease = 1.5f;
+    [SerializeField] private float evolvedMissileExplosionRadius = 5f;
+    [SerializeField] private int evolvedMissileDamage = 20;
 
     private const string ProjectileSpawner = "ProjectileSpawner";
 
@@ -41,17 +50,30 @@ public class MissileLauncher : Weapon
         isActive = true;
         StartCoroutine(Fire());
     }
-
     IEnumerator Fire()
     {
         while (isActive)
         {
             SoundManager.Instance.PlaySfx(SfxEvent.ShootMissile);
-            GameObject missile = Instantiate(missilePrefab, launcherTransform.position, launcherTransform.rotation);
+
             if (isEvolved)
             {
-                missile.GetComponent<Missile>().SetEvolvedProperties();
+                // Shoot an evolved missile.
+                GameObject missile = Instantiate(evolvedMissilePrefab, launcherTransform.position, launcherTransform.rotation);
+                Missile missileScript = missile.GetComponent<Missile>();
+
+                // Modify evolved missile size.
+                missileScript.SetWeapon(this);
+                missileScript.transform.localScale *= evolvedMissileSizeIncrease;
             }
+            else
+            {
+                // Shoot a regular missile.
+                GameObject missile = Instantiate(missilePrefab, launcherTransform.position, launcherTransform.rotation);
+                Missile missileScript = missile.GetComponent<Missile>();
+                missileScript.SetWeapon(this);
+            }
+
             yield return new WaitForSeconds(calculatedCooldown);
         }
     }
