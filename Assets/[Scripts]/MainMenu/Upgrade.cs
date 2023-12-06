@@ -6,12 +6,19 @@ using TMPro;
 public class Upgrade : MonoBehaviour
 {
     public int currentLevel, maxLevel;
+    public float gold;
     public TMP_Text text;
+    public UpgradesMenu upgradesMenu;
 
-    public void IncreaseLevel() 
+    public void IncreaseLevel(string stat)
     {
-        currentLevel += 1;
-        UpdateLevel();
+        if (GameController.Instance.gold > gold)
+        {
+            GameController.Instance.gold -= gold;
+            currentLevel += 1;
+            upgradesMenu.UpgradeStat(stat);
+            UpdateLevel();
+        }
     }
 
     public void UpdateLevel()

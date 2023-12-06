@@ -7,10 +7,11 @@
 
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelUpWindowPresenter : MonoBehaviour
+public class LevelUpWindowPresenter : Singleton<LevelUpWindowPresenter>
 {
     public event Action SkillToLevelUpSelected;
 
@@ -59,15 +60,16 @@ public class LevelUpWindowPresenter : MonoBehaviour
             buttonGameObj.transform.SetParent(buttonParent, false);
             RectTransform rectTransform = buttonGameObj.GetComponent<RectTransform>();
             rectTransform.anchoredPosition = new Vector2(0, 100 - 200 * i);
-            buttonGameObj.GetComponentInChildren<Text>().text = randomSkills[i].name;
+            buttonGameObj.GetComponentInChildren<TextMeshProUGUI>().text = randomSkills[i].name;
             Button button = buttonGameObj.GetComponent<Button>();
-            button.onClick.AddListener(() => OnButtonClicked(i));
+            int temp = i;
+            button.onClick.AddListener(() => OnButtonClicked(temp));
         }
     }
     private void UnpopulateWindow()
     {
         Button[] buttons = levelUpWindowCanvas.GetComponentsInChildren<Button>();
-        for (int i = 0;i < buttons.Length; i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
             Destroy(buttons[i]);
         }

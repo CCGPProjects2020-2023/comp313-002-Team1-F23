@@ -46,8 +46,6 @@ public class LaserGun : Weapon
         CalculateStats();
     }
 
-
-
     public override void Behaviour()
     {
         gunTransform = PlayerController.Instance.gunTransform;

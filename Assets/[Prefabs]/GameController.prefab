@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8995875084400009396
+--- !u!1 &1930976083108172847
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9179364190423709327}
-  - component: {fileID: 618551591529311811}
+  - component: {fileID: 6858841775805051087}
+  - component: {fileID: 1903686120855961214}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -17,39 +17,61 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9179364190423709327
+--- !u!4 &6858841775805051087
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8995875084400009396}
+  m_GameObject: {fileID: 1930976083108172847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 48.86086, y: 0.056785583, z: -1.5400176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &618551591529311811
+--- !u!114 &1903686120855961214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8995875084400009396}
+  m_GameObject: {fileID: 1930976083108172847}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9915548606c85c74aa9c9dab473d8cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: []
-  upgrades: []
+  playerStats:
+  - stat: 0
+    value: 0
+    maxValue: 25
+  - stat: 1
+    value: 0
+    maxValue: 50
+  - stat: 2
+    value: 0
+    maxValue: 25
+  - stat: 3
+    value: 0
+    maxValue: 5
+  - stat: 4
+    value: 0
+    maxValue: 3
+  upgrades:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentData:
     persistentUpgrades:
       playerStats: []
       upgradeLevels: 
       gold: 0
       enemiesKillCounter: 0
+  gold: 5000
   enemiesKilledCounter: 0
+  upgradeLevels: 

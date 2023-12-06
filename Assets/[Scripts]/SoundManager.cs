@@ -8,6 +8,7 @@
 
  */
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -16,6 +17,8 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSource musicAudioSource;
     [SerializeField] AudioSource sfxAudioSource;
+    [Header("Additional SFX Audio Sources")]
+    [SerializeField] AudioSource levelUpAudioSource;
 
     [Header("SFX Audio Clips")]
     [SerializeField] AudioClip skillToLevelUpSelectClip;
@@ -24,7 +27,6 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] AudioClip shootLaserGunClip;
     [SerializeField] AudioClip DroneShotClip;
     [SerializeField] AudioClip MissileShotClip;
-
 
     [Header("Debug")]
     [SerializeField] private float musicVolume = 1f;
@@ -75,8 +77,7 @@ public class SoundManager : Singleton<SoundManager>
                 sfxAudioSource.PlayOneShot(collectOreClip);
                 break;
             case SfxEvent.LevelUp:
-                Debug.Log("This happened.");
-                sfxAudioSource.PlayOneShot(levelUpClip);
+                StartCoroutine(nameof(PlayLevelUpWithLoweredVolume));
                 break;
             case SfxEvent.ShootLaserGun:
                 sfxAudioSource.PlayOneShot(shootLaserGunClip);
@@ -114,5 +115,25 @@ public class SoundManager : Singleton<SoundManager>
                 Debug.LogError("Please assign the sound type before setting volume");
                 break;
         }
+    }
+
+
+    private IEnumerator PlayLevelUpWithLoweredVolume()
+    {
+        Debug.Log("Playing LevelUp Sound");
+        // Store the current volume of the sfxAudioSource
+        float originalVolume = sfxAudioSource.volume;
+
+        // Lower the volume for all other sound effects
+        sfxAudioSource.volume = originalVolume * 0.5f; // Adjust the factor as needed
+
+        // Play the LevelUp sound effect
+        levelUpAudioSource.PlayOneShot(levelUpClip, originalVolume);
+
+        // Wait for the LevelUp sound effect to finish playing
+        yield return new WaitForSeconds(levelUpClip.length - 1f); //removing one second since clip is 1 second too long
+
+        // Restore the original volume after the LevelUp sound effect is done
+        sfxAudioSource.volume = originalVolume;
     }
 }
