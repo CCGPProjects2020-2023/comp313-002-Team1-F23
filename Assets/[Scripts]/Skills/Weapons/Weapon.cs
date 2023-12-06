@@ -82,10 +82,8 @@ public class Weapon : Skill
 
     }
     public void EvolveWeapon()
-    {
-        if (!isEvolved)
-        {
-            isEvolved = true;
-        }
+    {       
+            isEvolved = !isEvolved; // Toggle the evolved state.
+        
     }
 }

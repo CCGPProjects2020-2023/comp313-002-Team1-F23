@@ -31,7 +31,6 @@ public class LaserGun : Weapon
         if (Input.GetKeyDown(KeyCode.T))
         {
             EvolveWeapon();
-            ToggleEvolution();
         }
 
        // weaponSOCopy.baseCooldown = baseCooldown; 
@@ -86,8 +85,5 @@ public class LaserGun : Weapon
         }
     }
 
-    private void ToggleEvolution()
-    {
-        isEvolved = !isEvolved; // Toggle the evolved state.
-    }
+
 }

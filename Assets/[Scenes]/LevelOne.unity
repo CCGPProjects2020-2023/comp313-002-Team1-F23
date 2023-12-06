@@ -4162,7 +4162,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: bc05588e4afd99d44bfc57ab5fc142bd, type: 2}
     - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: isEvolved
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3286842112261869363, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: skillName
