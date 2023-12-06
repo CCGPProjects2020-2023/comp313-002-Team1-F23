@@ -8,23 +8,43 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Stats;
 
 public class GameController : Singleton<GameController>
 {
     public List<Stats> playerStats;
     public List<Upgrade> upgrades;
-    [HideInInspector]public SaveData currentData;
+    [HideInInspector] public SaveData currentData;
     private int currentGold = 10;
 
     public int enemiesKilledCounter = 0;
 
     private List<int> upgradeLevels;
+
     void Start()
     {
+        if (ExperienceManager.Instance != null)
+        {
+            ExperienceManager.Instance.ExperienceThresholdReached += OnExperienceThresholdReached;
+        }
+        if (LevelUpWindowPresenter.Instance != null)
+        {
+            LevelUpWindowPresenter.Instance.SkillToLevelUpSelected += OnSkillToLevelUpSelected;
+        }
         OnLoad("Save 1");
     }
-
+    private void OnDestroy()
+    {
+        if (ExperienceManager.Instance != null)
+        {
+            ExperienceManager.Instance.ExperienceThresholdReached -= OnExperienceThresholdReached;
+        }
+        if (LevelUpWindowPresenter.Instance != null)
+        {
+            LevelUpWindowPresenter.Instance.SkillToLevelUpSelected -= OnSkillToLevelUpSelected;
+        }
+    }
     public void UpdateStat(Stat stat)
     {
         switch (stat)
@@ -43,7 +63,7 @@ public class GameController : Singleton<GameController>
                 break;
         }
 
-        for (int i = 0; i< playerStats.Count; i++)
+        for (int i = 0; i < playerStats.Count; i++)
         {
             if (playerStats[i].value >= playerStats[i].maxValue)
             {
@@ -56,11 +76,18 @@ public class GameController : Singleton<GameController>
     {
         enemiesKilledCounter++;
     }
-
-    private void GetUpgradeLevels()
+    public void PauseTime()
+    {
+        Time.timeScale = 0;
+    }
+    public void ResumeTime()
+    {
+        Time.timeScale = 1;
+    }
+    public void GetUpgradeLevels()
     {
         upgradeLevels.Clear();
-        foreach(Upgrade u in upgrades)
+        foreach (Upgrade u in upgrades)
         {
             upgradeLevels.Add(u.currentLevel);
         }
@@ -90,8 +117,8 @@ public class GameController : Singleton<GameController>
 
     private void OnLoad(string saveName)
     {
-        SaveData.currentData = (SaveData) SerializationController.Load(Application.persistentDataPath + "/spacesurvivor/" + saveName + ".xml");
-        
+        SaveData.currentData = (SaveData)SerializationController.Load(Application.persistentDataPath + "/spacesurvivor/" + saveName + ".xml");
+
         playerStats = SaveData.currentData.persistentUpgrades.playerStats;
         upgradeLevels = SaveData.currentData.persistentUpgrades.upgradeLevels;
         currentGold = SaveData.currentData.persistentUpgrades.gold;
@@ -99,5 +126,13 @@ public class GameController : Singleton<GameController>
 
         SetUpgradeLevels(upgradeLevels);
         Debug.Log("Loaded");
+    }
+    private void OnExperienceThresholdReached()
+    {
+        PauseTime();
+    }
+    private void OnSkillToLevelUpSelected()
+    {
+        ResumeTime();
     }
 }

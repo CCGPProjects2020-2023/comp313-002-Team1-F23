@@ -1,10 +1,11 @@
 /** Author's Name:          Marcus Ngooi
  *  Last Modified By:       Marcus Ngooi
- *  Date Last Modified:     October 25, 2023
+ *  Date Last Modified:     December 6, 2023
  *  Program Description:    Manages the "skills" which are weapons and buffs.
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial SkillManager script.
  *                          November 17, 2023 (Han Bi): Added OnNewWeaponAdded event and triggers, updated start function
  *                          November 26, 2023 (Ikamjot Hundal): Added BuffActivated and Updated LevelUpSkill
+ *                          December 6, 2023 (Marcus Ngooi): Bug fixes.
  */
 
 using System;

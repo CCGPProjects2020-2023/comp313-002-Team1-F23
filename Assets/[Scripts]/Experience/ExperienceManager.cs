@@ -15,8 +15,6 @@ public class ExperienceManager : Singleton<ExperienceManager>
 {
     public event Action ExperienceThresholdReached;
 
-    [SerializeField] private LevelUpWindowPresenter levelUpWindowPresenter;
-
     [SerializeField] private float experiencePoints = 0;
     [SerializeField] private int level;
 
@@ -30,16 +28,20 @@ public class ExperienceManager : Singleton<ExperienceManager>
     // Start is called before the first frame update
     private void Start()
     {
-        if (levelUpWindowPresenter != null)
+        if (LevelUpWindowPresenter.Instance != null)
         {
-            levelUpWindowPresenter.SkillToLevelUpSelected += OnSkillToLevelUpSelected;
+            LevelUpWindowPresenter.Instance.SkillToLevelUpSelected += OnSkillToLevelUpSelected;
+        }
+        else
+        {
+            Debug.Log("levelUpWindowPresenter was null.");
         }
     }
     private void OnDestroy()
     {
-        if (levelUpWindowPresenter != null)
+        if (LevelUpWindowPresenter.Instance != null)
         {
-            levelUpWindowPresenter.SkillToLevelUpSelected -= OnSkillToLevelUpSelected;
+            LevelUpWindowPresenter.Instance.SkillToLevelUpSelected -= OnSkillToLevelUpSelected;
         }
     }
     public void GainExperience(float points)
@@ -54,7 +56,6 @@ public class ExperienceManager : Singleton<ExperienceManager>
     }
     public void LevelUp()
     {
-        Debug.Log("LevelUp() called.");
         SoundManager.Instance.PlaySfx(SfxEvent.LevelUp);
         IsLevellingUp = true;
         ExperienceThresholdReached?.Invoke();
