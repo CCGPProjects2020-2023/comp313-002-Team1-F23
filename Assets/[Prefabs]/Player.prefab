@@ -137,6 +137,7 @@ MonoBehaviour:
   maxHealth: 10
   armor: 0
   damage: 0
+  goldGain: 1
   additionalHealth: 0
   bulletPrefab: {fileID: 2388194765667144922, guid: f3bbf39e5d890734997d0980bbc3ac03, type: 3}
   gunTransform: {fileID: 3382693506766808253}

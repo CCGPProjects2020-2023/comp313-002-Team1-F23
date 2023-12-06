@@ -19,6 +19,7 @@ public class PlayerController : Singleton<PlayerController>
     public float currentHealth, maxHealth; 
     public float armor;
     public float damage;
+    public float goldGain;
     public float additionalHealth = 0f;
     public GameObject bulletPrefab;
     public Transform gunTransform;
@@ -43,6 +44,7 @@ public class PlayerController : Singleton<PlayerController>
         armor += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.Armor).value;
         damage += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.Damage).value;
         moveSpeed += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.MoveSpeed).value;
+        goldGain += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.GoldGain).value;
         currentHealth = maxHealth;
         playerHealth.UpdateHealthBar(currentHealth, maxHealth);
     }
@@ -61,6 +63,7 @@ public class PlayerController : Singleton<PlayerController>
 
         if (currentHealth <= 0)
         {
+            GameController.Instance.SaveGold("Save 1");
             SceneManager.LoadScene("GameOver");
         }
 

@@ -42,7 +42,7 @@ public class PersistentUpgrades
 {
     public List<Stats> playerStats;
     public List<int> upgradeLevels;
-    public int gold;
+    public float gold;
 
     public int enemiesKillCounter;
 }

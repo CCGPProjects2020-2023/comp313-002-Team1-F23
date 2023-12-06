@@ -16,11 +16,11 @@ public class GameController : Singleton<GameController>
     public List<Stats> playerStats;
     public List<Upgrade> upgrades;
     [HideInInspector] public SaveData currentData;
-    private int currentGold = 10;
+    public float gold;
 
     public int enemiesKilledCounter = 0;
 
-    private List<int> upgradeLevels;
+    public List<int> upgradeLevels;
 
     void Start()
     {
@@ -32,6 +32,7 @@ public class GameController : Singleton<GameController>
         {
             LevelUpWindowPresenter.Instance.SkillToLevelUpSelected += OnSkillToLevelUpSelected;
         }
+        upgradeLevels = new List<int>();
         OnLoad("Save 1");
     }
     private void OnDestroy()
@@ -59,6 +60,9 @@ public class GameController : Singleton<GameController>
                 playerStats.Find(x => x.stat == stat).value += 5;
                 break;
             case Stat.MoveSpeed:
+                playerStats.Find(x => x.stat == stat).value += 1;
+                break;
+            case Stat.GoldGain:
                 playerStats.Find(x => x.stat == stat).value += 1;
                 break;
         }
@@ -108,7 +112,17 @@ public class GameController : Singleton<GameController>
 
         this.currentData.persistentUpgrades.playerStats = playerStats;
         this.currentData.persistentUpgrades.upgradeLevels = upgradeLevels;
-        this.currentData.persistentUpgrades.gold = currentGold;
+        this.currentData.persistentUpgrades.gold = gold;
+        this.currentData.persistentUpgrades.enemiesKillCounter = enemiesKilledCounter;
+
+        SerializationController.Save(saveName, this.currentData);
+        Debug.Log("Saved");
+    }
+    public void SaveGold(string saveName)
+    {
+        this.currentData.persistentUpgrades.playerStats = playerStats;
+        this.currentData.persistentUpgrades.upgradeLevels = upgradeLevels;
+        this.currentData.persistentUpgrades.gold = gold;
         this.currentData.persistentUpgrades.enemiesKillCounter = enemiesKilledCounter;
 
         SerializationController.Save(saveName, this.currentData);
@@ -121,7 +135,7 @@ public class GameController : Singleton<GameController>
 
         playerStats = SaveData.currentData.persistentUpgrades.playerStats;
         upgradeLevels = SaveData.currentData.persistentUpgrades.upgradeLevels;
-        currentGold = SaveData.currentData.persistentUpgrades.gold;
+        gold = SaveData.currentData.persistentUpgrades.gold;
         enemiesKilledCounter = SaveData.currentData.persistentUpgrades.enemiesKillCounter;
 
         SetUpgradeLevels(upgradeLevels);
