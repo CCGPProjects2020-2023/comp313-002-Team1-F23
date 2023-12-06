@@ -523,6 +523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7031759230171096721, guid: 37c3e346d49df2541be459b823d3f5fd, type: 3}
+      propertyPath: MissileShotClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 277f752047c22a549bfda1190bad96f6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4201,9 +4205,45 @@ PrefabInstance:
       value: LaserGun
       objectReference: {fileID: 0}
     - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: currentLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: missilePrefab
       value: 
+      objectReference: {fileID: 2388194765667144922, guid: eaea8e651074471419a3c3f17df54168, type: 3}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: calculatedDamage
+      value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: evolvedMissilePrefab
+      value: 
+      objectReference: {fileID: 2388194765667144922, guid: ba708e15e93eefd4f8a2929eda6d4b36, type: 3}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5432f9d09e801094792c6dd716d92ad9, type: 2}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 71f50b47f345c274bb88c31cf06aeca0, type: 2}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: d2528873216f8eb4a8f891c1644c534d, type: 2}
+    - target: {fileID: 5421168115864223926, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: weaponLevelSOs.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: e138d514bb5420e4bbbe1f5d213ca8ca, type: 2}
     - target: {fileID: 5690972821758793939, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: weaponSO
       value: 
