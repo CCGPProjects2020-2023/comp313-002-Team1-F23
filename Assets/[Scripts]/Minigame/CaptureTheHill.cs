@@ -65,11 +65,9 @@ public class CaptureTheHill : Minigame
             }
             else
             {
-                currentChargeTime += Time.deltaTime;
-                UpdateSlider();
                 CompleteMinigame();
                 isCharging = false;
-                Destroy(gameObject, 1);
+                Destroy(gameObject);
             }
         }
     }
