@@ -86,12 +86,14 @@ public class Weapon : Skill
         if (!empowered)
         {
             empowered = true;
+            CalculateStats();
         }
 
     }
     public void EvolveWeapon()
     {       
             isEvolved = !isEvolved; // Toggle the evolved state.
+        
         
     }
 }
