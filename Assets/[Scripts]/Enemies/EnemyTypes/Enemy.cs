@@ -71,7 +71,6 @@ public abstract class Enemy : MonoBehaviour
             GameController.Instance.AddtoEnemyCounter();
             PlayerPrefs.SetInt("EnemiesKilled", GameController.Instance.enemiesKilledCounter);
             GameController.Instance.inGameGold += PlayerController.Instance.goldGain;
-            GameController.Instance.AddToInGameGoldCounter();
             PlayerPrefs.SetFloat("InGameGold", GameController.Instance.inGameGold);
             Destroy(this.gameObject);
         }

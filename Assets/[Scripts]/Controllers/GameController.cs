@@ -82,11 +82,6 @@ public class GameController : Singleton<GameController>
     {
         enemiesKilledCounter++;
     }
-
-    public void AddToInGameGoldCounter()
-    {
-        inGameGold++;
-    }
     public void PauseTime()
     {
         Time.timeScale = 0;

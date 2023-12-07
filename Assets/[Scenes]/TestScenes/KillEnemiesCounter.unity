@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7654458498700960394, guid: 36041ee33b1cff64d960aacfe1ad14c3, type: 3}
       propertyPath: invincible
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 121899898}
+    - target: {fileID: 6797886883695752178, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8092386064697133562, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
       propertyPath: goldAmountGO
       value: 

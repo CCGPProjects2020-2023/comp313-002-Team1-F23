@@ -71,7 +71,9 @@ public class PlayerController : Singleton<PlayerController>
 
         if (SceneManager.GetActiveScene().name != "GameOver" && currentHealth <= 0)
         {
+            GameController.Instance.gold += GameController.Instance.inGameGold;
             GameController.Instance.SaveGold("Save 1");
+
             SceneManager.LoadScene("GameOver");
             
         }

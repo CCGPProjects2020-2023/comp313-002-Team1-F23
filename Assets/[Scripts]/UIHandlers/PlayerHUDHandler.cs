@@ -94,13 +94,12 @@ public class PlayerHUDHandler : MonoBehaviour
 
                 enemiesText.text = $"Enemies Killed: {GameController.Instance.enemiesKilledCounter}";
 
-                levelBar.fillAmount = ExperienceManager.Instance.CalculateCurrentExperienceInCurrentLevel();
+                levelBar.fillAmount = (ExperienceManager.Instance.CalculateCurrentExperienceInCurrentLevel() / ExperienceManager.Instance.CalculateRequiredExperienceForNextLevel());
 
                 levelText.text = $"LVL: {ExperienceManager.Instance.Level}";
                 PlayerPrefs.SetInt("MaxLevel", ExperienceManager.Instance.Level);
                 goldAmountText.text = $"GOLD: {GameController.Instance.inGameGold}";
 
-                GameController.Instance.gold += GameController.Instance.inGameGold;
             }
             else
             {
@@ -113,8 +112,7 @@ public class PlayerHUDHandler : MonoBehaviour
                 SceneManager.LoadScene("GameOver");
             }
         }
-
-       // 
+        // 
     }
 
     public void DisplayTime(float timerDisplay, TextMeshProUGUI timerText)
