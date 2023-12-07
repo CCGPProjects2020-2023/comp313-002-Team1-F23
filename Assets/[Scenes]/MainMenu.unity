@@ -15368,6 +15368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExperienceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7193987516792662136, guid: cf122c3ce9b775f4f9e3447fd8139295, type: 3}
+      propertyPath: natLogBaseValue
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

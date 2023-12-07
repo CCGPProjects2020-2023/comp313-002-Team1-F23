@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b925c7c225126747be59489d9f0a7a1, type: 3}
   m_Name: StopWatch04
   m_EditorClassIdentifier: 
-  maxLevel: 4
+  maxLevel: 3
   baseBuffAmount: 12
   buffType: 2

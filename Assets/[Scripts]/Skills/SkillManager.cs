@@ -5,7 +5,8 @@
  *  Revision History:       October 25, 2023 (Marcus Ngooi): Initial SkillManager script.
  *                          November 17, 2023 (Han Bi): Added OnNewWeaponAdded event and triggers, updated start function
  *                          November 26, 2023 (Ikamjot Hundal): Added BuffActivated and Updated LevelUpSkill
- *                          December 6, 2023 (Marcus Ngooi): Bug fixes.
+ *                          December 6, 2023 (Marcus Ngooi): Skills stats now recalculated on level up.
+ *                          December 7, 2023 (Marcus Ngooi): Increased random range in pool of skills provided.
  */
 
 using System;
@@ -89,9 +90,10 @@ public class SkillManager : Singleton<SkillManager>
         allSkills.AddRange(availableBuffs.FindAll(buff => !buff.IsMaxLevel()));
         int index = 0;
 
-        for (int i = 0; i < numberOfRandomizedSkills; i++)
+        int numberOfAvailableSkills = allSkills.Count;
+        for (int i = 0; i < Math.Min(numberOfRandomizedSkills, numberOfAvailableSkills); i++)
         {
-            index = UnityEngine.Random.Range(0, numberOfRandomizedSkills);
+            index = UnityEngine.Random.Range(0, allSkills.Count);
             randomSkills.Add(allSkills[index]);
             allSkills.RemoveAt(index);
         }
