@@ -59,14 +59,9 @@ MonoBehaviour:
     maxValue: 5
   - stat: 4
     value: 0
-    maxValue: 0
-  - stat: 5
-    value: 0
-    maxValue: 0
-  - stat: 6
-    value: 0
-    maxValue: 0
+    maxValue: 3
   upgrades:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -77,4 +72,6 @@ MonoBehaviour:
       upgradeLevels: 
       gold: 0
       enemiesKillCounter: 0
+  gold: 5000
   enemiesKilledCounter: 0
+  upgradeLevels: 

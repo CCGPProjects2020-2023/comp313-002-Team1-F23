@@ -70,7 +70,7 @@ public abstract class Enemy : MonoBehaviour
             DropExp();
             GameController.Instance.AddtoEnemyCounter();
             PlayerPrefs.SetInt("EnemiesKilled", GameController.Instance.enemiesKilledCounter);
-            
+            GameController.Instance.gold += PlayerController.Instance.goldGain;
             Destroy(this.gameObject);
         }
     }

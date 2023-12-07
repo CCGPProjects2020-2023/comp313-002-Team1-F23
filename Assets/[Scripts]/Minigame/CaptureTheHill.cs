@@ -17,7 +17,8 @@ using UnityEngine.UI;
 public class CaptureTheHill : Minigame
 {
     string playerTag = "Player";
-    public float chargeTime = 45f;
+    [SerializeField]
+    public float chargeTime;
 
     private float currentChargeTime = 0f;
     private bool isCharging = false;
@@ -64,9 +65,11 @@ public class CaptureTheHill : Minigame
             }
             else
             {
+                currentChargeTime += Time.deltaTime;
+                UpdateSlider();
                 CompleteMinigame();
                 isCharging = false;
-                Destroy(gameObject);
+                Destroy(gameObject, 1);
             }
         }
     }
@@ -74,7 +77,7 @@ public class CaptureTheHill : Minigame
     private void UpdateSlider()
     {
         // Calculate the normalized value for the slider
-        float normalizedValue = currentChargeTime / chargeTime;
+        float normalizedValue = Mathf.Clamp01(currentChargeTime / chargeTime);
 
         // Update the Slider value
         slider.value = normalizedValue;

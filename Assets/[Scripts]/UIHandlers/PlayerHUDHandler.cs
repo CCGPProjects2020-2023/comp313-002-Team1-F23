@@ -78,9 +78,10 @@ public class PlayerHUDHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string levelTextString = ExperienceManager.Instance.Level.ToString();
+        
         if (timeRunning == true)
         {
+            //string levelTextString = ExperienceManager.Instance.Level.ToString();
             if (timeElapsed <= maxTime)
             {
                 timeElapsed += Time.deltaTime;
@@ -91,15 +92,14 @@ public class PlayerHUDHandler : MonoBehaviour
 
                 levelBar.fillAmount = ExperienceManager.Instance.CalculateCurrentExperienceInCurrentLevel();
 
-                levelText.text = $"LVL: {levelTextString}";
-
-
+                levelText.text = $"LVL: {ExperienceManager.Instance.Level}";
+                PlayerPrefs.SetInt("MaxLevel", ExperienceManager.Instance.Level);
             }
             else
             {
                 timeElapsed = maxTime;
                 enemiesText.text = $"Enemies Killed: {GameController.Instance.enemiesKilledCounter}";
-                levelText.text = $"LVL: {levelTextString}";
+                levelText.text = $"LVL: {ExperienceManager.Instance.Level}";
                 PlayerPrefs.SetFloat("MaxTime", timeElapsed);
                 SceneManager.LoadScene("GameOver");
             }

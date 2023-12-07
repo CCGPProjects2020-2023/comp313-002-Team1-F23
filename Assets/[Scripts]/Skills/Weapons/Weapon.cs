@@ -38,7 +38,7 @@ public class Weapon : Skill
 
     public virtual void Behaviour()
     {
-        Debug.Log("Behaviour() from base Weapon class called.");
+        //Debug.Log("Behaviour() from base Weapon class called.");
     }
     public void CalculateDamage()
     {
@@ -54,7 +54,7 @@ public class Weapon : Skill
         {
             calculatedDamage += redTarget.GetBuffAmount();
          }
-        Debug.Log("Calculated Damage:" + calculatedDamage);
+        //Debug.Log("Calculated Damage:" + calculatedDamage);
     }
     public void CalculateCooldown()
     {
@@ -65,18 +65,18 @@ public class Weapon : Skill
         {
             calculatedCooldown -= stopWatch.GetBuffAmount() / 100;
         }
-        Debug.Log("Calculated Cooldown:" + calculatedCooldown);
+        //Debug.Log("Calculated Cooldown:" + calculatedCooldown);
     }
     public void CalculateProjectileSpeed()
     {
         // TODO: Add amounts from buffs, persistent upgrades.
         calculatedProjectileSpeed = weaponLevelSOs[currentLevel].BaseProjectileSpeed;
-        Debug.Log("Calculated Projectile Speed:" + calculatedProjectileSpeed);
+        //Debug.Log("Calculated Projectile Speed:" + calculatedProjectileSpeed);
     }
     public override void CalculateStats()
     {
-        Debug.Log("Weapon:" + skillName);
-        Debug.Log("Weapon Level:" + currentLevel);
+        //Debug.Log("Weapon:" + skillName);
+        //Debug.Log("Weapon Level:" + currentLevel);
         CalculateDamage();
         CalculateCooldown();
         CalculateProjectileSpeed();

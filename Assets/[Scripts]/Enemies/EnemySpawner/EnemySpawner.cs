@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float minDistanceY;
     [SerializeField]
-    private float minDistanceX;   
+    private float minDistanceX;
 
     private GameObject player;
 
@@ -139,6 +139,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log($"Enemies this wave:{enemiesThisWave}");
             int secondaryEnemiesThisWave = GetNumberOfSecondaryEnemies();
 
             for (int i = 0; i < enemiesThisWave - secondaryEnemiesThisWave; i++)

@@ -464,6 +464,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2011576737464097499, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040430461623911543, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4404851549924486645, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -549,6 +557,30 @@ PrefabInstance:
       value: PlayerHUDCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4479963734804347358, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203924123370230351, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214075328554734058, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092386064697133562, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: timeRunning
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109343353758419800, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373841416156245221, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509170851817890472, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
