@@ -108,8 +108,8 @@ public class MinigameManager : MonoBehaviour
         if(!minigamesSpawned.Contains(weapon))
         {
             minigamesSpawned.Add(weapon);
-            //SpawnMinigame(RandomMinigame(), weapon);
-            SpawnMinigame(MinigameType.CaptureTheHill, weapon);
+            SpawnMinigame(RandomMinigame(), weapon);
+            //SpawnMinigame(MinigameType.CaptureTheHill, weapon);
         }
         
     }

@@ -139,7 +139,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log($"Enemies this wave:{enemiesThisWave}");
+            //Debug.Log($"Enemies this wave:{enemiesThisWave}");
             int secondaryEnemiesThisWave = GetNumberOfSecondaryEnemies();
 
             for (int i = 0; i < enemiesThisWave - secondaryEnemiesThisWave; i++)
