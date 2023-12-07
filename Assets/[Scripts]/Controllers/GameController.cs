@@ -18,6 +18,8 @@ public class GameController : Singleton<GameController>
     [HideInInspector] public SaveData currentData;
     public float gold;
 
+    public float inGameGold = 0;
+
     public int enemiesKilledCounter = 0;
 
     public List<int> upgradeLevels;
@@ -80,6 +82,11 @@ public class GameController : Singleton<GameController>
     {
         enemiesKilledCounter++;
     }
+
+    public void AddToInGameGoldCounter()
+    {
+        inGameGold++;
+    }
     public void PauseTime()
     {
         Time.timeScale = 0;
@@ -113,8 +120,6 @@ public class GameController : Singleton<GameController>
         this.currentData.persistentUpgrades.playerStats = playerStats;
         this.currentData.persistentUpgrades.upgradeLevels = upgradeLevels;
         this.currentData.persistentUpgrades.gold = gold;
-        this.currentData.persistentUpgrades.enemiesKillCounter = enemiesKilledCounter;
-
         SerializationController.Save(saveName, this.currentData);
         Debug.Log("Saved");
     }
@@ -123,8 +128,6 @@ public class GameController : Singleton<GameController>
         this.currentData.persistentUpgrades.playerStats = playerStats;
         this.currentData.persistentUpgrades.upgradeLevels = upgradeLevels;
         this.currentData.persistentUpgrades.gold = gold;
-        this.currentData.persistentUpgrades.enemiesKillCounter = enemiesKilledCounter;
-
         SerializationController.Save(saveName, this.currentData);
         Debug.Log("Saved");
     }
@@ -136,7 +139,6 @@ public class GameController : Singleton<GameController>
         playerStats = SaveData.currentData.persistentUpgrades.playerStats;
         upgradeLevels = SaveData.currentData.persistentUpgrades.upgradeLevels;
         gold = SaveData.currentData.persistentUpgrades.gold;
-        enemiesKilledCounter = SaveData.currentData.persistentUpgrades.enemiesKillCounter;
 
         SetUpgradeLevels(upgradeLevels);
         Debug.Log("Loaded");

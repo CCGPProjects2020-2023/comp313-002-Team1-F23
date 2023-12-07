@@ -36,6 +36,10 @@ public class PlayerController : Singleton<PlayerController>
     private Health playerHealth;
     public Vector2 movement;
 
+
+
+    string sceneName;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,6 +51,9 @@ public class PlayerController : Singleton<PlayerController>
         goldGain += GameController.Instance.playerStats.Find(x => x.stat == Stats.Stat.GoldGain).value;
         currentHealth = maxHealth;
         playerHealth.UpdateHealthBar(currentHealth, maxHealth);
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
     }
 
     public void Update()
@@ -58,13 +65,15 @@ public class PlayerController : Singleton<PlayerController>
         // Shooting
         if (Input.GetMouseButton(0) && Time.time - lastShootTime > shootCooldown)
         {
+
             Shoot();
         }
 
-        if (currentHealth <= 0)
+        if (SceneManager.GetActiveScene().name != "GameOver" && currentHealth <= 0)
         {
             GameController.Instance.SaveGold("Save 1");
             SceneManager.LoadScene("GameOver");
+            
         }
 
 

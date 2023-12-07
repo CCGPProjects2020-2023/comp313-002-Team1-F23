@@ -27,7 +27,9 @@ public class PlayerHUDHandler : MonoBehaviour
 
     [SerializeField] Image levelBar;
 
-    [SerializeField] float levelAmount; 
+    [SerializeField] GameObject goldAmountGO;
+    TextMeshProUGUI goldAmountText;
+
 
     [Header("Altering the Time ")]
     [SerializeField] private float timeElapsed = 0;
@@ -37,24 +39,27 @@ public class PlayerHUDHandler : MonoBehaviour
 
     private int enemiesKilled;
     private float timeResult;
-    private int inGamelevel; 
-
+    private int inGamelevel;
+    private float inGameGold;
 
 
     // Temporary Measure
     private void Awake()
     {
-        if (PlayerPrefs.HasKey("EnemiesKilled") && PlayerPrefs.HasKey("MaxTime") && PlayerPrefs.HasKey("MaxLevel"))
+        if (PlayerPrefs.HasKey("EnemiesKilled") && PlayerPrefs.HasKey("MaxTime") && PlayerPrefs.HasKey("MaxLevel") && PlayerPrefs.HasKey("InGameGold"))
         {
             enemiesKilled = PlayerPrefs.GetInt("EnemiesKilled");
             timeResult = PlayerPrefs.GetFloat("MaxTime");
             inGamelevel = PlayerPrefs.GetInt("MaxLevel");
+            inGameGold = PlayerPrefs.GetFloat("InGameGold");
         }
         else
         {
             PlayerPrefs.SetInt("EnemiesKilled", enemiesKilled);
             PlayerPrefs.SetFloat("MaxTime", timeResult);
             PlayerPrefs.SetInt("MaxLevel", inGamelevel);
+            PlayerPrefs.SetFloat("InGameGold", inGameGold);
+
         }
     }
 
@@ -64,15 +69,14 @@ public class PlayerHUDHandler : MonoBehaviour
         timerText = timerTextGO.GetComponent<TextMeshProUGUI>();
         enemiesText = enemiesTextGO.GetComponent<TextMeshProUGUI>();
         levelText = levelTextGO.GetComponent<TextMeshProUGUI>();
-
+        goldAmountText = goldAmountGO.GetComponent<TextMeshProUGUI>();
 
         enemiesText.text = "Enemies Killed: " + enemiesKilled.ToString();
 
         DisplayTime(timeResult, timerText);
 
         levelText.text = "LVL: " + inGamelevel.ToString();
-
-
+        goldAmountText.text = "GOLD: " + inGameGold.ToString();
     }
 
     // Update is called once per frame
@@ -94,16 +98,23 @@ public class PlayerHUDHandler : MonoBehaviour
 
                 levelText.text = $"LVL: {ExperienceManager.Instance.Level}";
                 PlayerPrefs.SetInt("MaxLevel", ExperienceManager.Instance.Level);
+                goldAmountText.text = $"GOLD: {GameController.Instance.inGameGold}";
+
+                GameController.Instance.gold += GameController.Instance.inGameGold;
             }
             else
             {
                 timeElapsed = maxTime;
                 enemiesText.text = $"Enemies Killed: {GameController.Instance.enemiesKilledCounter}";
                 levelText.text = $"LVL: {ExperienceManager.Instance.Level}";
+                goldAmountText.text = $"GOLD: {GameController.Instance.inGameGold}";
                 PlayerPrefs.SetFloat("MaxTime", timeElapsed);
+                PlayerPrefs.SetFloat("InGameGold", inGameGold);
                 SceneManager.LoadScene("GameOver");
             }
         }
+
+       // 
     }
 
     public void DisplayTime(float timerDisplay, TextMeshProUGUI timerText)

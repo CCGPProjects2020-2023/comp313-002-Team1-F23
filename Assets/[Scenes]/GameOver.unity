@@ -182,7 +182,7 @@ MonoBehaviour:
   enemiesTextGO: {fileID: 1739168080}
   levelTextGO: {fileID: 1942963992}
   levelBar: {fileID: 474111800}
-  levelAmount: 0
+  goldAmountGO: {fileID: 1307618020}
   timeElapsed: 0
   timeRunning: 0
   maxTime: 600
@@ -572,6 +572,10 @@ PrefabInstance:
       propertyPath: timeRunning
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8092386064697133562, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
+      propertyPath: goldAmountGO
+      value: 
+      objectReference: {fileID: 1307618020}
     - target: {fileID: 8109343353758419800, guid: 82195504924de2e45a68fd7630b3dd32, type: 3}
       propertyPath: m_IsActive
       value: 0
