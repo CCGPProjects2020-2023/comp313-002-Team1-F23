@@ -120,7 +120,7 @@ public class SoundManager : Singleton<SoundManager>
 
     private IEnumerator PlayLevelUpWithLoweredVolume()
     {
-        Debug.Log("Playing LevelUp Sound");
+        
         // Store the current volume of the sfxAudioSource
         float originalVolume = sfxAudioSource.volume;
 

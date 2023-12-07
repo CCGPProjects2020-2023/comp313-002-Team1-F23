@@ -227,12 +227,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 6533143763079997201}
     m_Modifications:
     - target: {fileID: 1013791954084714709, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013791954084714709, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013791954084714709, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1382304953136361929, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577009290847808564, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040821939730501446, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3040821939730501446, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -250,6 +266,14 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 6533143763079997201}
+    - target: {fileID: 7698229601696333572, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319141641514185548, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8426158706914240227, guid: cc5144bbf406c3f4989ced095dc59f1c, type: 3}
       propertyPath: unit
       value: 

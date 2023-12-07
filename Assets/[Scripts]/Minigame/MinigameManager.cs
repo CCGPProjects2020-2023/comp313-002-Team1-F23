@@ -108,8 +108,8 @@ public class MinigameManager : MonoBehaviour
         if(!minigamesSpawned.Contains(weapon))
         {
             minigamesSpawned.Add(weapon);
-            //SpawnMinigame(RandomMinigame(), weapon);
-            SpawnMinigame(MinigameType.CaptureTheHill, weapon);
+            SpawnMinigame(RandomMinigame(), weapon);
+            //SpawnMinigame(MinigameType.CaptureTheHill, weapon);
         }
         
     }
@@ -118,7 +118,6 @@ public class MinigameManager : MonoBehaviour
     {
         game.EmpowerType.EmpowerWeapon();
         game.OnMinigameComplete -= HandleMiniGameCompleted;
-        Destroy(game.gameObject);
     }
 
     public void SpawnMinigame(MinigameType gameType, Weapon weapon)
@@ -128,9 +127,9 @@ public class MinigameManager : MonoBehaviour
         if (minigamePrefabs.ContainsKey(gameType))
         {
             var _obj = Instantiate(minigamePrefabs[gameType], GenerateSpawnLocation(), Quaternion.identity);
-            //_obj.GetComponent<Minigame>().Initalize(weapon);
-           // _obj.GetComponent<Minigame>().OnMinigameComplete += HandleMiniGameCompleted;
-           // _obj.transform.SetParent(transform);
+            _obj.GetComponent<Minigame>().Initalize(weapon);
+            _obj.GetComponent<Minigame>().OnMinigameComplete += HandleMiniGameCompleted;
+            _obj.transform.SetParent(transform);
         }
         else
         {
