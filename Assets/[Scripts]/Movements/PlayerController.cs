@@ -9,7 +9,6 @@
  *                          November 24, 2023 (Ikamjot Hundal): Added an variable for the Heart Script 
  */
 
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

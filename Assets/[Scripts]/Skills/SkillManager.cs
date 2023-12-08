@@ -30,16 +30,39 @@ public class SkillManager : Singleton<SkillManager>
 
     [SerializeField] private int numberOfRandomizedSkills = 3;
 
-    private const string firstWeapon = "AttackDrones";
+    [SerializeField] private string firstWeapon = "AttackDrones";
 
     public List<Weapon> CurrentWeapons { get => currentWeapons; }
     public List<Buff> CurrentBuffs { get => currentBuffs; }
+
+    private Dictionary<Weapon, Buff> evolutionPairs = new();
+
+    /// <summary>
+    /// Definition of evolution pairs. For example, AttackDrones and Stopwatch must both be max level to evolve AttackDrones.
+    /// </summary>
+    private Dictionary<WeaponType, BuffType> evolutionTypePairs = new()
+    {
+        {WeaponType.AttackDrones, BuffType.Stopwatch }, 
+        {WeaponType.LaserGun, BuffType.RedTarget }, 
+        {WeaponType.MissileLauncher, BuffType.Heart }
+    };
 
     // Start is called before the first frame update
     void Start()
     {
         availableWeapons = GetComponentsInChildren<Weapon>().ToList();
         availableBuffs = GetComponentsInChildren<Buff>().ToList();
+
+        // Add the evolution pairs to the dictionary: there are three pairs.
+        foreach (var evolutionTypePair in evolutionTypePairs)
+        {
+            Weapon weapon = availableWeapons.Find(w => w.WeaponType == evolutionTypePair.Key);
+            Buff buff = availableBuffs.Find(b => b.BuffType == evolutionTypePair.Value);
+            if (weapon != null && buff != null)
+            {
+                AddEvolutionPair(weapon, buff);
+            }
+        }
 
         // For now with one character, we manually add this weapon at the beginning
         // as the first character's starting weapon.
@@ -76,6 +99,14 @@ public class SkillManager : Singleton<SkillManager>
         {
             skillToLevelUp.LevelUp();
             skillToLevelUp.CalculateStats();
+            foreach (var pair in evolutionPairs)
+            {
+                if ((pair.Key == skillToLevelUp || pair.Value == skillToLevelUp) && pair.Key.IsMaxLevel() && pair.Value.IsMaxLevel())
+                {
+                    pair.Key.EvolveWeapon();
+                    break;
+                }
+            }
         }
         else
         {
@@ -146,5 +177,12 @@ public class SkillManager : Singleton<SkillManager>
         }
 
         return unempoweredWeapons;
+    }
+    public void AddEvolutionPair(Weapon weapon, Buff buff)
+    {
+        if (!evolutionPairs.ContainsKey(weapon))
+        {
+            evolutionPairs.Add(weapon, buff);
+        }
     }
 }

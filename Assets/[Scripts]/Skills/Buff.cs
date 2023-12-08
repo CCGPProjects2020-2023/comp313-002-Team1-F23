@@ -17,6 +17,8 @@ public class Buff : Skill
     [SerializeField] protected BuffType buffType;
     [SerializeField] protected List<BuffSO> buffLevelSOs = new();
 
+    public BuffType BuffType { get { return buffType; } }
+
     public virtual void ApplyBuff() { }
 
     public float GetBuffAmount()

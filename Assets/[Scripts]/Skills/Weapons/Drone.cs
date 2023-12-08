@@ -52,6 +52,32 @@ public class Drone : MonoBehaviour
         return closest;
     }
 
+    //IEnumerator Fire()
+    //{
+    //    while (attackDrones.IsActive)
+    //    {
+    //        // Find the closest enemy
+    //        closestEnemy = FindClosestEnemy();
+
+    //        SoundManager.Instance.PlaySfx(SfxEvent.DroneShot);
+
+    //        // If an enemy is found, fire a laser at it
+    //        if (closestEnemy != null)
+    //        {
+    //            GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+    //            Vector3 direction = (closestEnemy.transform.position - transform.position).normalized;
+    //            laser.GetComponent<Rigidbody2D>().velocity = direction * laserSpeed;
+
+    //            // Calculate the angle of the direction vector
+    //            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+
+    //            // Set the rotation of the laser
+    //            laser.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    //        }
+
+    //        yield return new WaitForSeconds(attackDrones.CalculatedCooldown);
+    //    }
+    //}
     IEnumerator Fire()
     {
         while (attackDrones.IsActive)
@@ -59,23 +85,42 @@ public class Drone : MonoBehaviour
             // Find the closest enemy
             closestEnemy = FindClosestEnemy();
 
-            SoundManager.Instance.PlaySfx(SfxEvent.DroneShot);
-
             // If an enemy is found, fire a laser at it
             if (closestEnemy != null)
             {
-                GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-                Vector3 direction = (closestEnemy.transform.position - transform.position).normalized;
-                laser.GetComponent<Rigidbody2D>().velocity = direction * laserSpeed;
+                // Determine the number of lasers to fire
+                int numLasers = attackDrones.isEvolved ? 3 : 1;
 
-                // Calculate the angle of the direction vector
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+                for (int i = 0; i < numLasers; i++)
+                {
+                    // Check if the enemy still exists
+                    if (closestEnemy == null)
+                    {
+                        break;
+                    }
 
-                // Set the rotation of the laser
-                laser.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                    SoundManager.Instance.PlaySfx(SfxEvent.DroneShot);
+
+                    GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+                    Vector3 direction = (closestEnemy.transform.position - transform.position).normalized;
+                    laser.GetComponent<Rigidbody2D>().velocity = direction * laserSpeed;
+
+                    // Calculate the angle of the direction vector
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+
+                    // Set the rotation of the laser
+                    laser.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+                    // If evolved, wait for a short delay before firing the next laser
+                    if (attackDrones.isEvolved)
+                    {
+                        yield return new WaitForSeconds(0.1f);
+                    }
+                }
             }
 
             yield return new WaitForSeconds(attackDrones.CalculatedCooldown);
         }
     }
+
 }
