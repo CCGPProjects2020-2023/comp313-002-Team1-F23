@@ -1,12 +1,13 @@
 /** Author's Name:          Mithul Koshy
  *  Last Modified By:       Ikamjot Hundal
- *  Date Last Modified:     November 24, 2023
+ *  Date Last Modified:     December 7, 2023
  *  Program Description:    Controls the player.
  *  Revision History:       (Mithul Koshy): Initial PlayerController script.
  *                          November 2, 2023 (Mithul Koshy): Integrated with PlayerTest scripts
  *                          November 3, 2023 (Marcus Ngooi): Added weapon and buff list and functions to add.
  *                                                           Made this script a Singleton.
  *                          November 24, 2023 (Ikamjot Hundal): Added an variable for the Heart Script 
+ *                          December 7, 2023 (Ikamjot Hundal): Fixed the Saving bug when player died
  */
 
 using UnityEngine;

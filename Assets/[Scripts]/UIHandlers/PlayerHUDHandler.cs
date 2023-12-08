@@ -1,10 +1,10 @@
 /**Author's Name:          Ikamjot Hundal
  * Last Modified By:       Ikamjot Hundal
- * Date Last Modified:     December 4, 2023 
+ * Date Last Modified:     December 5, 2023 
  * Description:            Displaying the results of the Level
  * ------------------------------------------------------------------------
  * Revision History:       December 4, 2023 (Ikamjot Hundal): Initial PlayerHUDHandler script.
- *                         December 5, 2023 (Ikamjot Hundal):
+ *                         December 5, 2023 (Ikamjot Hundal): Added Levels, Enemies, and Gold related features.  
  */
 
 using System.Collections;

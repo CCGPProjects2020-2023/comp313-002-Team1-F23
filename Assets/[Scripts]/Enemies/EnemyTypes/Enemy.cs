@@ -5,6 +5,7 @@
  *  Revision History:       October 12, 2023: Initial Script
  *                          December 4, 2023 (Ikamjot Hundal): Added the reference to Game Controller
  *                          December 6, 2023 (Marcus Ngooi): Call DropExp() on death.
+ *                          December 7, 2023 (Ikamjot Hundal): call to add InGameGold on enemy's death
  */
 
 using System;
