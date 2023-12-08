@@ -1,6 +1,6 @@
 /** Author's Name:          Mithul Koshy
- *  Last Modified By:       Ikamjot Hundal
- *  Date Last Modified:     December 7, 2023
+ *  Last Modified By:       Marcus Ngooi
+ *  Date Last Modified:     December 8, 2023
  *  Program Description:    Controls the player.
  *  Revision History:       (Mithul Koshy): Initial PlayerController script.
  *                          November 2, 2023 (Mithul Koshy): Integrated with PlayerTest scripts
@@ -8,6 +8,7 @@
  *                                                           Made this script a Singleton.
  *                          November 24, 2023 (Ikamjot Hundal): Added an variable for the Heart Script 
  *                          December 7, 2023 (Ikamjot Hundal): Fixed the Saving bug when player died
+ *                          December 8, 2023 (Marcus Ngooi): Removed click to shoot function.
  */
 
 using UnityEngine;
@@ -62,12 +63,12 @@ public class PlayerController : Singleton<PlayerController>
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
 
-        // Shooting
-        if (Input.GetMouseButton(0) && Time.time - lastShootTime > shootCooldown)
-        {
+        //// Shooting
+        //if (Input.GetMouseButton(0) && Time.time - lastShootTime > shootCooldown)
+        //{
 
-            Shoot();
-        }
+        //    Shoot();
+        //}
 
         if (SceneManager.GetActiveScene().name != "GameOver" && currentHealth <= 0)
         {
@@ -98,19 +99,19 @@ public class PlayerController : Singleton<PlayerController>
         Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPosition, 0.1f);
     }
 
-    private void Shoot()
-    {
-        lastShootTime = Time.time;
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 shootDirection = (mousePosition - gunTransform.position).normalized;
+    //private void Shoot()
+    //{
+    //    lastShootTime = Time.time;
+    //    Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //    Vector2 shootDirection = (mousePosition - gunTransform.position).normalized;
 
-        GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, Quaternion.identity);
-        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.velocity = shootDirection * bulletSpeed;
+    //    GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, Quaternion.identity);
+    //    Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+    //    bulletRb.velocity = shootDirection * bulletSpeed;
 
-        // Destroy the bullet after its lifetime expires
-        Destroy(bullet, bulletLifetime);
-    }
+    //    // Destroy the bullet after its lifetime expires
+    //    Destroy(bullet, bulletLifetime);
+    //}
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (invincible) { return; }
