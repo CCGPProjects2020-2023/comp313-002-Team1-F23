@@ -82,7 +82,6 @@ public class PlayerHUDHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (timeRunning == true)
         {
             //string levelTextString = ExperienceManager.Instance.Level.ToString();

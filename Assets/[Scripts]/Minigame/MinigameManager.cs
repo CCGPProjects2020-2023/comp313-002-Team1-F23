@@ -1,20 +1,16 @@
 /** Author's Name:          Han Bi
- *  Modified By:       Han Bi
- *  Date Last Modified:     November 17, 2023
- *  Program Description:    A manager that manages minigames
- *  Revision History:       November 17, 2023 (Han Bi): Initial script
- *  
- *  Last Modified By:       Laura Amangeldiyeva
+ *  Modified By:            Laura Amangeldiyeva
  *  Date Last Modified:     November 27, 2023
  *  Program Description:    A manager that manages minigames
- *  Revision History:       November 27, 2023 (Laura Amangeldiyeva): Changed the script to spawn CaptureTheHill mini game for game testing
+ *  Revision History:       November 17, 2023 (Han Bi): Initial script.
+ *                          November 27, 2023 (Laura Amangeldiyeva): Changed the script to spawn CaptureTheHill mini game for game testing
+ *                          December 8, 2023 (Marcus Ngooi): Removed Console log and cleaned up unused code.
  */
 
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -91,9 +87,7 @@ public class MinigameManager : MonoBehaviour
                 HandleNewWeaponSelected(weapon);
             }
         }
-
     }
-
 
     private void OnDestroy()
     {
@@ -111,7 +105,6 @@ public class MinigameManager : MonoBehaviour
             SpawnMinigame(RandomMinigame(), weapon);
             //SpawnMinigame(MinigameType.CaptureTheHill, weapon);
         }
-        
     }
 
     void HandleMiniGameCompleted(Minigame game)
@@ -122,8 +115,7 @@ public class MinigameManager : MonoBehaviour
 
     public void SpawnMinigame(MinigameType gameType, Weapon weapon)
     {
-        print($"Spawining {gameType} for {weapon}");
-
+        //print($"Spawining {gameType} for {weapon}");
         if (minigamePrefabs.ContainsKey(gameType))
         {
             var _obj = Instantiate(minigamePrefabs[gameType], GenerateSpawnLocation(), Quaternion.identity);
@@ -143,13 +135,11 @@ public class MinigameManager : MonoBehaviour
         return (MinigameType)UnityEngine.Random.Range(0, enumCount);
     }
 
-
     private Vector3 GenerateSpawnLocation()
     {
         Vector3 ans = new(0, 0, 0);
         int xSign = UnityEngine.Random.Range(-1, 1);
         int ySign = UnityEngine.Random.Range(-1, 1);
-
 
         int x = UnityEngine.Random.Range(minDistance, maxDistance);
         int y = UnityEngine.Random.Range(minDistance, maxDistance);
@@ -183,7 +173,4 @@ public class MinigameManager : MonoBehaviour
     //    Gizmos.color = Color.green;
     //    Gizmos.DrawWireSphere(player.transform.position, maxDistance);
     //}
-
-
-
 }
