@@ -178,7 +178,11 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (timeElapsed >= specialEnemies[specialIndex].spawnTime)
                 {
-                    EnemyFactory.Instance.CreateEnemy(specialEnemies[specialIndex].enemyType, GenerateRandomSpawnPosition());
+                    var obj = EnemyFactory.Instance.CreateEnemy(specialEnemies[specialIndex].enemyType, GenerateRandomSpawnPosition());
+                    if(obj  != null && specialEnemies[specialIndex].enemyType != EnemyType.LocustSwarm)
+                    {
+                        obj.GetComponent<Enemy>().SetTarget(player);
+                    }
                     specialIndex++;
                 }
             }
