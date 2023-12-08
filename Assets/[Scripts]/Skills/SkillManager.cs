@@ -30,7 +30,7 @@ public class SkillManager : Singleton<SkillManager>
 
     [SerializeField] private int numberOfRandomizedSkills = 3;
 
-    [SerializeField] private string firstWeapon = "AttackDrones";
+    [SerializeField] private string firstWeapon = "LaserGun";
 
     public List<Weapon> CurrentWeapons { get => currentWeapons; }
     public List<Buff> CurrentBuffs { get => currentBuffs; }

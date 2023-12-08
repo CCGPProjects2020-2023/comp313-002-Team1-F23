@@ -4406,6 +4406,10 @@ PrefabInstance:
       propertyPath: buffLevelSOs.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: cf81dd53c330c6e4a9be868120b93934, type: 2}
+    - target: {fileID: 4565636453253656938, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
+      propertyPath: firstWeapon
+      value: Attack Drones
+      objectReference: {fileID: 0}
     - target: {fileID: 5167478853382787664, guid: 31af8efe5fddf904f8d64a42ca8e22e8, type: 3}
       propertyPath: m_TagString
       value: LaserGun
