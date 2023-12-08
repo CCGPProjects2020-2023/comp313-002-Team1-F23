@@ -53,7 +53,7 @@ public class Weapon : Skill
         if (redTarget != null)
         {
             calculatedDamage += redTarget.GetBuffAmount();
-         }
+        }
         //Debug.Log("Calculated Damage:" + calculatedDamage);
     }
     public void CalculateCooldown()
@@ -91,9 +91,7 @@ public class Weapon : Skill
 
     }
     public void EvolveWeapon()
-    {       
-            isEvolved = !isEvolved; // Toggle the evolved state.
-        
-        
+    {
+        isEvolved = !isEvolved; // Toggle the evolved state.
     }
 }
