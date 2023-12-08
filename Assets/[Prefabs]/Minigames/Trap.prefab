@@ -144,6 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e30b5f01c9f18408845e207dbbb6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTag: Player
+  enemyFactory: {fileID: 0}
+  maxEmemySpawn: 6
+  spawnDistance: 5
 --- !u!114 &7993467247647578074
 MonoBehaviour:
   m_ObjectHideFlags: 0
