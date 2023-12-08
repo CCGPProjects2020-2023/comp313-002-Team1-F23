@@ -11,6 +11,7 @@
  *                          November 28, 2023 (Mithul): Added weapon evolution scripts
  *                          November 28, 2023 (Ikamjot Hundal): Made the basecooldown public for access
  *                          December 6, 2023 (Marcus Ngooi): Bug fixes.
+ *                          December 8, 2023 (Marcus Ngooi): Empower applies only once now.
  */
 
 using System.Collections.Generic;
