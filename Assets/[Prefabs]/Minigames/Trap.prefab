@@ -145,9 +145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  enemyFactory: {fileID: 0}
-  maxEmemySpawn: 6
+  maxEmemySpawn: 5
   spawnDistance: 5
+  extendCollider: 6
+  trapArea: {fileID: 653308603703724513}
 --- !u!114 &7993467247647578074
 MonoBehaviour:
   m_ObjectHideFlags: 0
