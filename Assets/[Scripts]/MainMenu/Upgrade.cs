@@ -12,7 +12,7 @@ public class Upgrade : MonoBehaviour
 
     public void IncreaseLevel(string stat)
     {
-        if (GameController.Instance.gold > gold && currentLevel < maxLevel)
+        if (GameController.Instance.gold >= gold && currentLevel < maxLevel)
         {
             GameController.Instance.gold -= gold;
             currentLevel += 1;
